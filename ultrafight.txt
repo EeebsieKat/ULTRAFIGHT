@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ULTRAFIGHT - Multiplayer Card Game</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #eee;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 6px #a020ff, 0 0 12px #a020ff, 0 0 18px #39ff14;
+    }
+
+    #startup, #gameplay {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      background: #111;
+      border: 2px solid #a020ff;
+      box-shadow: 0 0 30px #39ff14aa, inset 0 0 15px #a020ff88;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1.15rem;
+      color: #eee;
+    }
+
+    input[type=text], input[type=file] {
+      width: calc(100% - 1rem);
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      background: #000;
+      color: #eee;
+      border: 2px solid #39ff14;
+      border-radius: 8px;
+    }
+
+    button {
+      display: block;
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      background: #000;
+      border: 3px solid #a020ff;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #a020ff, inset 0 0 15px #39ff14;
+    }
+
+    button:hover:not(:disabled) {
+      background: #1a1a1a;
+      border-color: #39ff14;
+      box-shadow: 0 0 20px #39ff14, inset 0 0 25px #a020ff;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    li {
+      background: #111;
+      border: 1px solid #39ff14;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-bottom: 0.4rem;
+      cursor: move;
+    }
+
+    .drag-over {
+      background-color: #222 !important;
+      border: 2px dashed #a020ff !important;
+    }
+
+    .dragging {
+      opacity: 0.5;
+    }
+
+    #dealBtn {
+      margin-top: 1rem;
+      background: #111;
+      border: 2px solid #39ff14;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 10px #39ff14, inset 0 0 10px #a020ff;
+    }
+
+    #dealBtn:hover {
+      background: #222;
+      border-color: #a020ff;
+    }
+
+    #cards-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #000;
+      border: 2px solid #39ff14;
+      border-radius: 12px;
+      padding: 1rem;
+      width: 280px;
+      color: #eee;
+      box-shadow: 0 0 15px #39ff14, inset 0 0 10px #a020ff;
+      perspective: 800px;
+      transform-style: preserve-3d;
+      animation: flipIn 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes flipIn {
+      0% {
+        opacity: 0;
+        transform: rotateY(90deg) scale(0.7);
+      }
+      100% {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+      }
+    }
+
+    #fight-context {
+      margin-top: 1rem;
+      white-space: pre-line;
+      font-style: italic;
+      padding: 1rem;
+      border: 2px solid #a020ff;
+      border-radius: 10px;
+      background: #111;
+      box-shadow: 0 0 20px #39ff14;
+    }
+
+    #leaderboard {
+      margin-top: 2rem;
+      border-top: 2px solid #39ff14;
+      padding-top: 1rem;
+    }
+
+    #leaderboard h2 {
+      text-align: center;
+      color: #39ff14;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #39ff14;
+    }
+
+    #gm-controls {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      background: #000;
+      color: #fff;
+      border: 2px solid #a020ff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+<h1>ULTRAFIGHT</h1>
+
+<section id="startup">
+  <label for="playerNameInput">Enter player name:</label>
+  <input id="playerNameInput" type="text" placeholder="Player name..." maxlength="20" autocomplete="off" />
+  <button id="addPlayerBtn">Add Player</button>
+  <ul id="playerListDisplay"></ul>
+
+  <label for="deckUpload">Import Custom Deck (.json):</label>
+  <input type="file" id="deckUpload" accept=".json" />
+
+  <label><input type="checkbox" id="useLocationsCheckbox" checked /> Use Locations Deck</label>
+  <label><input type="checkbox" id="useScenariosCheckbox" checked /> Use Scenarios Deck</label>
+  <button id="startBtn">Start Game</button>
+</section>
+
+<section id="gameplay" style="display:none;">
+  <div id="fight-context"></div>
+  <button id="dealBtn">Deal Cards</button>
+  <div id="cards-row"></div>
+  <div id="gm-controls">
+    <select id="winnerSelect">
+      <option value="">Select winner...</option>
+    </select>
+    <button id="gmWinBtn">Declare Winner</button>
+  </div>
+  <div id="leaderboard">
+    <h2>Leaderboard</h2>
+    <ul id="leaderboardList"></ul>
+  </div>
+</section>
+
+<audio id="dealSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3974dfe7e5.mp3?filename=card-flip-199347.mp3" preload="auto"></audio>
+
+<script>
+  let CHARACTERS = [
+    { name: "Sherlock Holmes" },
+    { name: "Hermione Granger" },
+    { name: "Tony Stark" },
+    { name: "Katniss Everdeen" },
+    { name: "Mario" },
+    { name: "Lara Croft" },
+    { name: "Spider-Man" },
+    { name: "Wonder Woman" },
+    { name: "Darth Vader" },
+    { name: "Gandalf" },
+    { name: "Indiana Jones" },
+    { name: "Rick Sanchez" },
+    { name: "Princess Leia" },
+    { name: "Bruce Wayne" },
+    { name: "Elsa" },
+    { name: "Jack Sparrow" },
+    { name: "Simba" },
+    { name: "John Wick" },
+    { name: "Deadpool" },
+    { name: "Pikachu" }
+  ];
+
+  let WEAPONS = [
+    { name: "Excalibur" },
+    { name: "Mjolnir" },
+    { name: "Lightsaber" },
+    { name: "Infinity Gauntlet" },
+    { name: "Bow and Arrow" },
+    { name: "Crossbow" },
+    { name: "Katana" },
+    { name: "Blaster" },
+    { name: "Magic Wand" },
+    { name: "Laser Gun" },
+    { name: "Rubber Chicken" },
+    { name: "Toothbrush" },
+    { name: "Sledgehammer" },
+    { name: "Chainsaw" },
+    { name: "Nerf Gun" },
+    { name: "Water Balloon" },
+    { name: "Banana Peel" },
+    { name: "Acme Anvil" },
+    { name: "Boomerang" },
+    { name: "Taser" }
+  ];
+
+  let TWISTS = [
+    { name: "Invisible for 10 seconds" },
+    { name: "Gravity reversed" },
+    { name: "Sudden dance-off" },
+    { name: "Slippery floor" },
+    { name: "Double damage but only when sneezing" },
+    { name: "Speak only in rhymes" },
+    { name: "Armed with a rubber chicken" },
+    { name: "Wears a tutu" },
+    { name: "Super slow motion" },
+    { name: "Sudden karaoke challenge" },
+    { name: "Random teleport" },
+    { name: "Can only hop on one foot" },
+    { name: "Everything is made of jelly" },
+    { name: "Laughs uncontrollably" },
+    { name: "Wields a giant foam finger" },
+    { name: "Shoots spaghetti noodles" },
+    { name: "Turns into a llama" },
+    { name: "Invisible mustache" },
+    { name: "Shoots glitter" },
+    { name: "Talks like a pirate" }
+  ];
+
+  let LOCATIONS = [
+    { name: "The Land of Forgotten Socks", desc: "Where lost socks gather to plot their escape." },
+    { name: "Grandma’s Basement of Eternal Doom", desc: "Filled with ancient cobwebs and mysterious smells." },
+    { name: "The Overcaffeinated Office Breakroom", desc: "Where everyone is jittery and spills are frequent." },
+    { name: "The Unfinished IKEA Assembly Zone", desc: "Furniture parts and confusion abound." },
+    { name: "The Haunted Litter Box", desc: "A place no cat dares to enter twice." },
+    { name: "The Never-Ending Queue at the DMV", desc: "Time slows down to a crawl here." },
+    { name: "The Magical Realm of Spam Emails", desc: "Beware of the Nigerian prince." },
+    { name: "The Bottom of the Couch Cushions", desc: "Where coins, crumbs, and lost remotes live." },
+    { name: "The Bermuda Triangle of Lost TV Remotes", desc: "Devices vanish mysteriously." },
+    { name: "The Awkward Family Dinner Table", desc: "Conversations freeze and eyes dart nervously." },
+    { name: "The Land of Perpetual Dad Jokes", desc: "Prepare for groans and eye-rolls." },
+    { name: "The Karaoke Stage of Eternal Off-Key Singing", desc: "Everyone’s a star... sort of." },
+    { name: "The Bathroom Mirror That Only Shows Your Worst Hair Day", desc: "Reflection guaranteed to ruin your morning." },
+    { name: "The Wild Jungle Gym of Hyper Toddlers", desc: "Fast, furious, and sticky." },
+    { name: "The Infinite Elevator That Never Stops", desc: "Going nowhere fast." },
+    { name: "The Closet of Horrible Fashion Choices", desc: "It’s a crime against style." },
+    { name: "The City of Failed WiFi Connections", desc: "Buffering... buffering... buffering..." },
+    { name: "The Island of Expired Coupons", desc: "Deals that never come through." },
+    { name: "The Purgatory of Buffering Videos", desc: "Will it load? Probably not." },
+    { name: "The Jungle of Tangled Earbuds", desc: "A knotty situation." }
+  ];
+
+  let SCENARIOS = [
+    { name: "Convince a Cat to Stop Ignoring You" },
+    { name: "Survive a Family Zoom Call Without Falling Asleep" },
+    { name: "Win a Dance Battle Against a Roomba" },
+    { name: "Deliver a Speech Without Saying “Um” (Spoiler: Impossible)" },
+    { name: "Escape From a Horde of Angry Vegans" },
+    { name: "Sneak Out of a Meeting While Pretending to Take Notes" },
+    { name: "Convince Your Grandma You’re Not an Influencer" },
+    { name: "Find the TV Remote Before the Snacks Run Out" },
+    { name: "Outrun a Security Guard After Stealing the Last Slice of Pizza" },
+    { name: "Survive the Embarrassing School Talent Show" },
+    { name: "Get Out of the Friendzone Using Only Interpretive Dance" },
+    { name: "Convince a Toddler to Eat Broccoli (Good luck)" },
+    { name: "Escape the Clutches of the Monday Morning Alarm Clock" },
+    { name: "Win an Argument with a Parrot That Repeats Everything You Say" },
+    { name: "Break Up With Your Phone Without Actually Turning It Off" },
+    { name: "Convince a Group of Zombies to Join Your Dance Crew" },
+    { name: "Hide From Your Boss While Pretending to Work" },
+    { name: "Survive an Awkward First Date With Only Dad Jokes" },
+    { name: "Teach a Fish to Ride a Bicycle" },
+    { name: "Steal the Crown from the King of Awkward Silences" }
+  ];
+
+  // Players and game state
+  let players = [];
+  let leaderboard = {};
+
+  const playerNameInput = document.getElementById('playerNameInput');
+  const addPlayerBtn = document.getElementById('addPlayerBtn');
+  const playerListDisplay = document.getElementById('playerListDisplay');
+  const startBtn = document.getElementById('startBtn');
+  const deckUpload = document.getElementById('deckUpload');
+  const useLocationsCheckbox = document.getElementById('useLocationsCheckbox');
+  const useScenariosCheckbox = document.getElementById('useScenariosCheckbox');
+
+  const startupSection = document.getElementById('startup');
+  const gameplaySection = document.getElementById('gameplay');
+  const dealBtn = document.getElementById('dealBtn');
+  const cardsRow = document.getElementById('cards-row');
+  const fightContext = document.getElementById('fight-context');
+  const winnerSelect = document.getElementById('winnerSelect');
+  const gmWinBtn = document.getElementById('gmWinBtn');
+  const leaderboardList = document.getElementById('leaderboardList');
+  const dealSound = document.getElementById('dealSound');
+
+  // Add player
+  addPlayerBtn.addEventListener('click', () => {
+    const name = playerNameInput.value.trim();
+    if (name && !players.includes(name)) {
+      players.push(name);
+      updatePlayerList();
+      playerNameInput.value = '';
+      updateWinnerSelect();
+    }
+  });
+
+  function updatePlayerList() {
+    playerListDisplay.innerHTML = '';
+    players.forEach(p => {
+      const li = document.createElement('li');
+      li.textContent = p;
+      playerListDisplay.appendChild(li);
+    });
+  }
+
+  function updateWinnerSelect() {
+    winnerSelect.innerHTML = '<option value="">Select winner...</option>';
+    players.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p;
+      opt.textContent = p;
+      winnerSelect.appendChild(opt);
+    });
+  }
+
+  // Start game
+  startBtn.addEventListener('click', () => {
+    if (players.length < 2) {
+      alert('Add at least 2 players to start.');
+      return;
+    }
+    startupSection.style.display = 'none';
+    gameplaySection.style.display = 'block';
+    leaderboard = {};
+    players.forEach(p => leaderboard[p] = 0);
+    updateLeaderboard();
+  });
+
+  // Deal cards
+  dealBtn.addEventListener('click', () => {
+    dealSound.currentTime = 0;
+    dealSound.play();
+
+    cardsRow.innerHTML = '';
+    fightContext.textContent = '';
+
+    // Pick random character, weapon, twist, location, scenario
+    const char = getRandomFromArray(CHARACTERS);
+    const weap = getRandomFromArray(WEAPONS);
+    const twist = getRandomFromArray(TWISTS);
+
+    let loc = null;
+    if (useLocationsCheckbox.checked) {
+      loc = getRandomFromArray(LOCATIONS);
+    }
+    let scen = null;
+    if (useScenariosCheckbox.checked) {
+      scen = getRandomFromArray(SCENARIOS);
+    }
+
+    // Create cards and add them with animation
+    addCard('Character', char.name);
+    addCard('Weapon', weap.name);
+    addCard('Twist', twist.name);
+    if (loc) addCard('Location', loc.name);
+    if (scen) addCard('Scenario', scen.name);
+
+    // Show fight context
+    let context = `The battle starts! Your fighter is ${char.name}, armed with ${weap.name}. Twist: ${twist.name}.`;
+    if (loc) context += ` Location: ${loc.name}.`;
+    if (scen) context += ` Scenario: ${scen.name}.`;
+
+    fightContext.textContent = context;
+  });
+
+  function addCard(type, name) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<strong>${type}</strong><br>${name}`;
+    cardsRow.appendChild(card);
+    // Trigger flip animation manually
+    setTimeout(() => {
+      card.style.opacity = '1';
+    }, 50);
+  }
+
+  // Declare winner and update leaderboard
+  gmWinBtn.addEventListener('click', () => {
+    const winner = winnerSelect.value;
+    if (!winner) {
+      alert('Select a winner first.');
+      return;
+    }
+    leaderboard[winner]++;
+    updateLeaderboard();
+  });
+
+  function updateLeaderboard() {
+    leaderboardList.innerHTML = '';
+    const sorted = Object.entries(leaderboard).sort((a, b) => b[1] - a[1]);
+    sorted.forEach(([player, score]) => {
+      const li = document.createElement('li');
+      li.textContent = `${player}: ${score} points`;
+      leaderboardList.appendChild(li);
+    });
+  }
+
+  function getRandomFromArray(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  // Load custom deck file
+  deckUpload.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      try {
+        const data = JSON.parse(evt.target.result);
+        if (data.characters) CHARACTERS = data.characters;
+        if (data.weapons) WEAPONS = data.weapons;
+        if (data.twists) TWISTS = data.twists;
+        if (data.locations) LOCATIONS = data.locations;
+        if (data.scenarios) SCENARIOS = data.scenarios;
+        alert('Custom deck loaded!');
+      } catch {
+        alert('Invalid JSON file.');
+      }
+    };
+    reader.readAsText(file);
+  });
+</script>
+</body>
+</html>
