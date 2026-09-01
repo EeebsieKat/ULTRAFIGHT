@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ULTRAFIGHT Deck Creator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #eee;
+      font-family: 'Orbitron', sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 6px #a020ff, 0 0 12px #a020ff, 0 0 18px #39ff14;
+    }
+    section {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      background: #111;
+      border: 2px solid #a020ff;
+      box-shadow: 0 0 30px #39ff14aa, inset 0 0 15px #a020ff88;
+    }
+    label, textarea, input, button {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    textarea {
+      height: 120px;
+      background: #000;
+      color: #eee;
+      border: 2px solid #39ff14;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+    button {
+      padding: 0.8rem 1rem;
+      font-weight: bold;
+      background: #000;
+      color: #fff;
+      border: 3px solid #a020ff;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #a020ff, inset 0 0 15px #39ff14;
+    }
+    button:hover {
+      background: #1a1a1a;
+      border-color: #39ff14;
+      box-shadow: 0 0 20px #39ff14, inset 0 0 25px #a020ff;
+    }
+    #fileLoadInput {
+      /* Style the file input to look better */
+      padding: 0.5rem;
+      border: 1px solid #39ff14;
+      border-radius: 8px;
+      background: #000;
+    }
+    pre {
+      background: #000;
+      border: 2px solid #39ff14;
+      border-radius: 8px;
+      padding: 1rem;
+      white-space: pre-wrap;
+      color: #39ff14;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+<h1>ULTRAFIGHT Deck Creator</h1>
+<section>
+  <h2>📥 Load Existing Deck</h2>
+  <label for="fileLoadInput">Upload Deck JSON File (.json)</label>
+  <input type="file" id="fileLoadInput" accept=".json" onchange="loadDeckJSON(event)">
+  <p id="loadStatus" style="color: #39ff14; margin-top: 0.5rem;"></p>
+
+  <hr style="margin: 2rem 0; border-color: #a020ff;">
+
+  <h2>✍️ Edit Deck Content</h2>
+  <label for="charInput">Characters (one per line)</label>
+  <textarea id="charInput"></textarea>
+
+  <label for="weaponInput">Weapons (one per line)</label>
+  <textarea id="weaponInput"></textarea>
+
+  <label for="twistInput">Twists (one per line)</label>
+  <textarea id="twistInput"></textarea>
+
+  <label for="locationInput">Locations (name|description per line)</label>
+  <textarea id="locationInput"></textarea>
+
+  <label for="scenarioInput">Scenarios (one per line)</label>
+  <textarea id="scenarioInput"></textarea>
+
+  <button onclick="generateDeckJSON()">Generate Deck JSON</button>
+  <button onclick="downloadJSON()">Download Deck</button>
+
+  <pre id="output"></pre>
+</section>
+
+<script>
+// --- Deck Generation and Download Functions (Original) ---
+
+function generateDeckJSON() {
+  const getLines = id =>
+    document.getElementById(id).value
+      .trim()
+      .split('\n')
+      .map(line => line.trim())
+      .filter(Boolean);
+
+  const characters = getLines('charInput').map(name => ({ name }));
+  const weapons = getLines('weaponInput').map(name => ({ name }));
+  const twists = getLines('twistInput').map(name => ({ name }));
+  const scenarios = getLines('scenarioInput').map(name => ({ name }));
+
+  const locations = getLines('locationInput').map(line => {
+    const [name, desc = ''] = line.split('|').map(s => s.trim());
+    return name ? { name, desc } : null;
+  }).filter(Boolean);
+
+  const deck = { characters, weapons, twists, locations, scenarios };
+
+  document.getElementById('output').textContent = JSON.stringify(deck, null, 2);
+  return deck;
+}
+
+function downloadJSON() {
+  const deck = generateDeckJSON();
+  const blob = new Blob([JSON.stringify(deck, null, 2)], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'ultrafight_deck.json';
+  link.click();
+}
+
+// --- NEW Deck Loading Functions ---
+
+/**
+ * Populates the text areas based on a parsed deck object.
+ * @param {object} deck - The parsed deck object from the JSON file.
+ */
+function populateDeckInputs(deck) {
+    const setTextArea = (id, value) => {
+        document.getElementById(id).value = value;
+    };
+
+    if (deck.characters) {
+        setTextArea('charInput', deck.characters.map(c => c.name).join('\n'));
+    }
+    if (deck.weapons) {
+        setTextArea('weaponInput', deck.weapons.map(w => w.name).join('\n'));
+    }
+    if (deck.twists) {
+        setTextArea('twistInput', deck.twists.map(t => t.name).join('\n'));
+    }
+    if (deck.scenarios) {
+        setTextArea('scenarioInput', deck.scenarios.map(s => s.name).join('\n'));
+    }
+    if (deck.locations) {
+        setTextArea('locationInput', deck.locations.map(l => `${l.name}${l.desc ? ' | ' + l.desc : ''}`).join('\n'));
+    }
+}
+
+/**
+ * Handles the file input change event to load and parse the deck JSON.
+ * @param {Event} event - The file input change event.
+ */
+function loadDeckJSON(event) {
+    const file = event.target.files[0];
+    const statusElement = document.getElementById('loadStatus');
+    statusElement.textContent = ''; // Clear previous status
+
+    if (!file) {
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        try {
+            const jsonText = e.target.result;
+            const deck = JSON.parse(jsonText);
+
+            // Basic validation to check if it looks like an ULTRAFIGHT deck
+            if (!deck.characters || !deck.weapons) {
+                throw new Error("JSON file is missing expected card categories (e.g., 'characters', 'weapons').");
+            }
+
+            populateDeckInputs(deck);
+            statusElement.style.color = '#39ff14';
+            statusElement.textContent = `Deck '${file.name}' loaded successfully!`;
+
+            // Display the loaded JSON in the output area
+            document.getElementById('output').textContent = jsonText;
+
+        } catch (error) {
+            console.error("Error loading or parsing JSON:", error);
+            statusElement.style.color = '#ff0000';
+            statusElement.textContent = `Error loading deck: ${error.message || 'Invalid JSON format.'}`;
+        }
+    };
+
+    reader.onerror = function(e) {
+        console.error("FileReader error:", e);
+        statusElement.style.color = '#ff0000';
+        statusElement.textContent = 'Error reading file.';
+    };
+
+    // Read the file as text
+    reader.readAsText(file);
+}
+</script>
+</body>
+</html>
