@@ -1,0 +1,2764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ULTRAFIGHT - Multiplayer Card Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'light-purple': '#f0e6ff',
+            'light-blue': '#e6f0ff',
+            'light-orange': '#fff5e6',
+            'light-green': '#e6fff0',
+            'soft-grey': '#e0e0e0',
+            'dark-grey': '#333333',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+/* -------------------- Custom/Helper Styles for Layout -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* -------------------- SWITCH/TOGGLE STYLING (Custom for Tailwind's Lack of direct slider styling) -------------------- */
+.switch {
+  /* Position absolute relative to its new parent: <header> */
+  position: absolute; 
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  z-index: 100;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333; 
+  transition: 0.4s;
+  border-radius: 11px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; 
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #4CAF50; 
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+</style>
+</head>
+<body class="bg-soft-grey m-0 text-dark-grey font-['Helvetica_Neue']">
+
+<header class="flex items-center justify-center pt-4 pb-2 relative z-50">
+    
+    <button id="showLeaderboardBtn" class="absolute top-4 left-4 p-1.5 px-3 text-sm font-bold text-white bg-dark-grey rounded-md shadow-md hover:bg-gray-700 active:translate-y-px transition-all" style="display:none;">
+        View Leaderboard
+    </button>
+
+    <h1 class="text-4xl font-extrabold text-dark-grey shadow-none">ULTRAFIGHT</h1>
+
+    <label class="switch">
+      <input type="checkbox" id="musicToggle" checked>
+      <span class="slider round"></span>
+    </label>
+</header>
+
+<section id="startup" class="max-w-lg mx-auto mt-6 p-4 rounded-lg bg-white border border-gray-300 shadow-lg transition-all duration-600 ease-out animate-in fade-in zoom-in-98">
+  <label for="playerNameInput" class="block font-bold text-lg">Enter player name:</label>
+  <input id="playerNameInput" type="text" placeholder="Player name..." maxlength="20" autocomplete="off" class="w-full p-2.5 text-lg mt-1 bg-gray-50 text-dark-grey border border-gray-300 rounded-md outline-none focus:border-dark-grey focus:ring-1 focus:ring-dark-grey transition-all" />
+  <button id="addPlayerBtn" class="block mt-2 p-2.5 w-full text-xl font-bold text-white bg-dark-grey border-none rounded-md shadow-md hover:bg-gray-600 active:translate-y-px transition-all">Add Player</button>
+  <ul id="playerListDisplay" class="mt-3 list-disc list-inside space-y-1 text-lg"></ul>
+
+<label for="file-upload" class="custom-file-upload mt-3 inline-block px-3 py-1.5 text-base font-bold text-white bg-gray-600 border-none rounded-md cursor-pointer shadow-md hover:bg-gray-700 transition-all">
+  Upload Deck JSON 
+</label>
+<input id="file-upload" type="file" accept=".json,application/json" class="hidden" />
+<div id="deckStatus" class="text-base text-gray-600 mt-1">...</div>
+
+
+  <label class="block mt-3 text-lg"><input type="checkbox" id="useLocationsCheckbox" checked class="mr-1" /> Use Locations Deck</label>
+  <label class="block text-lg"><input type="checkbox" id="useScenariosCheckbox" checked class="mr-1" /> Use Scenarios Deck</label>
+  <button id="startBtn" class="mt-4 p-3 w-full text-xl font-extrabold text-white bg-dark-grey border-none rounded-lg shadow-xl hover:bg-gray-700 active:translate-y-px transition-all">Start Game</button>
+</section>
+
+<section id="gameplay" class="max-w-[98%] w-[98%] mx-auto mt-2 p-4 rounded-lg bg-white border border-gray-300 shadow-lg overflow-x-auto" style="display:none;">
+    
+    <div id="game-table-container" class="flex justify-center gap-2">
+        
+        <div id="location-card-area" class="flex justify-center items-start flex-shrink-0 p-2"> 
+            </div>
+
+        <div id="center-cards-area" class="flex flex-col flex-grow min-w-0">
+            <div id="player-name-row" class="flex w-full text-center font-bold text-lg mb-1 flex-wrap">
+                </div>
+            <div id="cards-row" class="flex w-full items-start flex-wrap justify-center">
+                </div>
+        </div>
+        
+        <div id="scenario-card-area" class="flex justify-center items-start flex-shrink-0 p-2">
+            </div>
+    </div>
+    <button id="gmWinBtn" class="mt-2 p-2.5 w-full text-lg font-bold text-white bg-gray-500 border-none rounded-md shadow-md hover:bg-gray-600 active:translate-y-px transition-all">Declare Winner</button>
+</section>
+
+<section id="leaderboard-screen" class="fixed inset-0 bg-soft-grey flex flex-col items-center justify-center p-4 transition-opacity duration-300 ease-in-out z-40" style="display:none;">
+    <div class="max-w-xl w-full p-6 rounded-lg bg-white border-4 border-dark-grey shadow-2xl">
+        <h2 class="text-3xl font-extrabold text-center text-dark-grey mb-4">Leaderboard</h2>
+        <div id="leaderboard" class="p-3 bg-gray-50 rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
+            <ul id="leaderboardList" class="list-none space-y-2 text-xl font-semibold">
+                </ul>
+        </div>
+    </div>
+</section>
+
+<section id="win-screen" class="hidden">
+    <div class="max-w-md mx-auto mt-12 p-8 text-center rounded-lg bg-white border-4 border-dark-grey shadow-2xl">
+        <h2 class="text-3xl font-extrabold text-dark-grey">ULTIMATE CHAMPION</h2>
+        <h3 id="finalWinnerName" class="text-5xl text-dark-grey font-bold my-2">WINNER</h3>
+        <p class="text-lg text-gray-600">Has won the ULTRAVERSE tournament!</p>
+        <button id="playAgainBtn" class="mt-6 p-3 w-full text-xl font-extrabold text-white bg-dark-grey border-none rounded-lg shadow-xl hover:bg-gray-700 active:translate-y-px transition-all">Play Again (New Game)</button>
+    </div>
+</section>
+
+<audio id="dealSound" src="Sounds/card_deal.mp3" preload="auto"></audio>
+<audio id="bgMusic" src="Sounds/rockbg.mp3" loop preload="auto"></audio>
+
+
+<script>
+// --- START: Embedded Deck Data (Fixing server fetch issue) ---
+// This data was provided by the user in the ARealDeckNotFinal.json file.
+const embeddedDeckData = {
+  "characters": [
+    {
+      "name": "Mario"
+    },
+    {
+      "name": "Luigi"
+    },
+    {
+      "name": "Princess Peach"
+    },
+    {
+      "name": "Bowser"
+    },
+    {
+      "name": "Meowser"
+    },
+    {
+      "name": "Goomba"
+    },
+    {
+      "name": "Bowser Jr."
+    },
+    {
+      "name": "Yoshi"
+    },
+    {
+      "name": "Peach"
+    },
+    {
+      "name": "Shy Guy"
+    },
+    {
+      "name": "Toad"
+    },
+    {
+      "name": "Donkey Kong"
+    },
+    {
+      "name": "Diddy Kong"
+    },
+    {
+      "name": "Link"
+    },
+    {
+      "name": "Zelda"
+    },
+    {
+      "name": "Ganondorf"
+    },
+    {
+      "name": "Samus Aran"
+    },
+    {
+      "name": "Kirby"
+    },
+    {
+      "name": "Meta Knight"
+    },
+    {
+      "name": "King Dedede"
+    },
+    {
+      "name": "Fox McCloud"
+    },
+    {
+      "name": "Falco Lombardi"
+    },
+    {
+      "name": "Captain Falcon"
+    },
+    {
+      "name": "Pikachu"
+    },
+    {
+      "name": "Jigglypuff"
+    },
+    {
+      "name": "Dog Man"
+    },
+    {
+      "name": "Emmett"
+    },
+    {
+      "name": "Puss in Boots"
+    },
+    {
+      "name": "Sonic"
+    },
+    {
+      "name": "Tails"
+    },
+    {
+      "name": "Knuckles"
+    },
+    {
+      "name": "Shadow"
+    },
+    {
+      "name": "Silver"
+    },
+    {
+      "name": "Amy Lee"
+    },
+    {
+      "name": "Jett"
+    },
+    {
+      "name": "Golden Sonic"
+    },
+    {
+      "name": "Dr. Eggman"
+    },
+    {
+      "name": "Mega Man"
+    },
+    {
+      "name": "Spider-Man"
+    },
+    {
+      "name": "Iron Man"
+    },
+    {
+      "name": "Captain America"
+    },
+    {
+      "name": "Thor"
+    },
+    {
+      "name": "Hulk"
+    },
+    {
+      "name": "Black Widow"
+    },
+    {
+      "name": "Hawkeye"
+    },
+    {
+      "name": "Doctor Strange"
+    },
+    {
+      "name": "Spiderman"
+    },
+    {
+      "name": "Black Panther"
+    },
+    {
+      "name": "Scarlet Witch"
+    },
+    {
+      "name": "Vision"
+    },
+    {
+      "name": "Star Lord"
+    },
+    {
+      "name": "Rocket Raccoon"
+    },
+    {
+      "name": "Gamora"
+    },
+    {
+      "name": "Groot"
+    },
+    {
+      "name": "Robin"
+    },
+    {
+      "name": "Ant-Man"
+    },
+    {
+      "name": "Wasp"
+    },
+    {
+      "name": "Loki"
+    },
+    {
+      "name": "Deadpool"
+    },
+    {
+      "name": "Thanos"
+    },
+    {
+      "name": "Wolverine"
+    },
+    {
+      "name": "Storm"
+    },
+    {
+      "name": "Professor X"
+    },
+    {
+      "name": "Magneto"
+    },
+    {
+      "name": "Batman"
+    },
+    {
+      "name": "Superman"
+    },
+    {
+      "name": "Wonder Woman"
+    },
+    {
+      "name": "Flash"
+    },
+    {
+      "name": "Green Lantern"
+    },
+    {
+      "name": "Aquaman"
+    },
+    {
+      "name": "Cyborg"
+    },
+    {
+      "name": "Joker"
+    },
+    {
+      "name": "Harley Quinn"
+    },
+    {
+      "name": "Lex Luthor"
+    },
+    {
+      "name": "Green Arrow"
+    },
+    {
+      "name": "Shazam"
+    },
+    {
+      "name": "Nightwing"
+    },
+    {
+      "name": "Catwoman"
+    },
+    {
+      "name": "Deathstroke"
+    },
+    {
+      "name": "Black Adam"
+    },
+    {
+      "name": "Martian Manhunter"
+    },
+    {
+      "name": "Wonder Girl"
+    },
+    {
+      "name": "Cheetah"
+    },
+    {
+      "name": "SpongeBob SquarePants"
+    },
+    {
+      "name": "Patrick Star"
+    },
+    {
+      "name": "Squidward"
+    },
+    {
+      "name": "Mr. Krabs"
+    },
+    {
+      "name": "Plankton"
+    },
+    {
+      "name": "Izuku Midoriya"
+    },
+    {
+      "name": "Katsuki Bakugo"
+    },
+    {
+      "name": "Shoto Todoroki"
+    },
+    {
+      "name": "All Might"
+    },
+    {
+      "name": "Monkey D. Luffy"
+    },
+    {
+      "name": "Roronoa Zoro"
+    },
+    {
+      "name": "Ruby Rose"
+    },
+    {
+      "name": "Weiss Schnee"
+    },
+    {
+      "name": "Blake Belladonna"
+    },
+    {
+      "name": "Yang Xiao Long"
+    },
+    {
+      "name": "Homer Simpson"
+    },
+    {
+      "name": "Peter Griffin"
+    },
+    {
+      "name": "Finn the Human"
+    },
+    {
+      "name": "Jake the Dog"
+    },
+    {
+      "name": "Ice King"
+    },
+    {
+      "name": "Marceline"
+    },
+    {
+      "name": "Darth Vader"
+    },
+    {
+      "name": "Luke Skywalker"
+    },
+    {
+      "name": "Leia Organa"
+    },
+    {
+      "name": "Han Solo"
+    },
+    {
+      "name": "Chewbacca"
+    },
+    {
+      "name": "R2-D2"
+    },
+    {
+      "name": "C-3PO"
+    },
+    {
+      "name": "Yoda"
+    },
+    {
+      "name": "Obi-Wan Kenobi"
+    },
+    {
+      "name": "Kylo Ren"
+    },
+    {
+      "name": "Rey"
+    },
+    {
+      "name": "Master Chief"
+    },
+    {
+      "name": "Cortana"
+    },
+    {
+      "name": "Ridley"
+    },
+    {
+      "name": "King K. Rool"
+    },
+    {
+      "name": "Ryu"
+    },
+    {
+      "name": "Ken"
+    },
+    {
+      "name": "Daisy"
+    },
+    {
+      "name": "Villager"
+    },
+    {
+      "name": "Isabelle"
+    },
+    {
+      "name": "Young Link"
+    },
+    {
+      "name": "Toon Link"
+    },
+    {
+      "name": "Dark Samus"
+    },
+    {
+      "name": "Piranha Plant"
+    },
+    {
+      "name": "Banjo & Kazooie"
+    },
+    {
+      "name": "Steve (Minecraft)"
+    },
+    {
+      "name": "Pac-Man"
+    },
+    {
+      "name": "Jigglypuff"
+    },
+    {
+      "name": "Lucina"
+    },
+    {
+      "name": "Inkling Girl"
+    },
+    {
+      "name": "Inkling Boy"
+    },
+    {
+      "name": "Wolf O’Donnell"
+    },
+    {
+      "name": "Ice Climbers"
+    },
+    {
+      "name": "Duck Hunt"
+    },
+    {
+      "name": "Pit"
+    },
+    {
+      "name": "Dark Pit"
+    },
+    {
+      "name": "Ness"
+    },
+    {
+      "name": "The Goose"
+    },
+    {
+      "name": "Lara Croft"
+    },
+    {
+      "name": "Kratos"
+    },
+    {
+      "name": "The Mandelorian"
+    },
+    {
+      "name": "Grogu"
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Sword"
+    },
+    {
+      "name": "Bow"
+    },
+    {
+      "name": "Spear"
+    },
+    {
+      "name": "Shield"
+    },
+    {
+      "name": "Axe"
+    },
+    {
+      "name": "Hammer"
+    },
+    {
+      "name": "Dagger"
+    },
+    {
+      "name": "Slingshot"
+    },
+    {
+      "name": "Boomerang"
+    },
+    {
+      "name": "Baseball bat"
+    },
+    {
+      "name": "Frying pan"
+    },
+    {
+      "name": "Umbrella"
+    },
+    {
+      "name": "Laptop"
+    },
+    {
+      "name": "Wrench"
+    },
+    {
+      "name": "Shovel"
+    },
+    {
+      "name": "Flashlight"
+    },
+    {
+      "name": "Rope"
+    },
+    {
+      "name": "Crowbar"
+    },
+    {
+      "name": "Stick"
+    },
+    {
+      "name": "Rock"
+    },
+    {
+      "name": "Master Sword"
+    },
+    {
+      "name": "Energy Sword"
+    },
+    {
+      "name": "Plasma Rifle"
+    },
+    {
+      "name": "Gravity Hammer"
+    },
+    {
+      "name": "Keyblade"
+    },
+    {
+      "name": "Portal Gun"
+    },
+    { // Removed extra comma here
+      "name": "Fire Flower"
+    },
+    {
+      "name": "Boom Blox"
+    },
+    {
+      "name": "Hammer Bros Hammer"
+    },
+    {
+      "name": "Minecraft Diamond Sword"
+    },
+    {
+      "name": "Minecraft Trident"
+    },
+    {
+      "name": "Minecraft Bow"
+    },
+    {
+      "name": "Mario Kart Green Shell"
+    },
+    {
+      "name": "Mario Kart Banana"
+    },
+    {
+      "name": "Kirby Yo-Yo"
+    },
+    {
+      "name": "Metroid Arm Cannon"
+    },
+    {
+      "name": "Zelda Hookshot"
+    },
+    {
+      "name": "Zelda Bomb"
+    },
+    {
+      "name": "Animal Crossing Net"
+    },
+    {
+      "name": "Animal Crossing Shovel"
+    },
+    {
+      "name": "Smash Bros Beam Sword"
+    },
+    {
+      "name": "Smash Bros Home-Run Bat"
+    },
+    {
+      "name": "Chain"
+    },
+    {
+      "name": "Broom"
+    },
+    {
+      "name": "Chair"
+    },
+    {
+      "name": "Water bottle"
+    },
+    {
+      "name": "Machete"
+    },
+    {
+      "name": "Crossbow"
+    },
+    {
+      "name": "Halberd"
+    },
+    {
+      "name": "Katana"
+    },
+    {
+      "name": "Scimitar"
+    },
+    {
+      "name": "Rapier"
+    },
+    {
+      "name": "Flail"
+    },
+    {
+      "name": "Nunchaku"
+    },
+    {
+      "name": "Sai"
+    },
+    {
+      "name": "Tonfa"
+    },
+    {
+      "name": "Bo Staff"
+    },
+    {
+      "name": "Quarterstaff"
+    },
+    {
+      "name": "Trident"
+    },
+    {
+      "name": "Pike"
+    },
+    {
+      "name": "Warhammer"
+    },
+    {
+      "name": "Club"
+    },
+    {
+      "name": "Mace"
+    },
+    {
+      "name": "Tomahawk"
+    },
+    {
+      "name": "Throwing Knife"
+    },
+    {
+      "name": "Shuriken"
+    },
+    {
+      "name": "Blowgun"
+    },
+    {
+      "name": "Slingshot Gun"
+    },
+    {
+      "name": "Laser Gun"
+    },
+    {
+      "name": "Railgun"
+    },
+    {
+      "name": "Shotgun"
+    },
+    {
+      "name": "Sniper Rifle"
+    },
+    {
+      "name": "Assault Rifle"
+    },
+    {
+      "name": "SMG"
+    },
+    {
+      "name": "Grenade"
+    },
+    {
+      "name": "Molotov Cocktail"
+    },
+    {
+      "name": "Smoke Bomb"
+    },
+    {
+      "name": "Sticky Bomb"
+    },
+    {
+      "name": "Rocket Launcher"
+    },
+    {
+      "name": "Flamethrower"
+    },
+    {
+      "name": "Chainsaw"
+    },
+    {
+      "name": "Katana Gun"
+    },
+    {
+      "name": "Buster Sword"
+    },
+    {
+      "name": "Gunblade"
+    },
+    {
+      "name": "Lancer"
+    },
+    {
+      "name": "Energy Bow"
+    },
+    {
+      "name": "Gravity Gun"
+    },
+    {
+      "name": "Portal Cannon"
+    },
+    {
+      "name": "Infinity Gauntlet"
+    },
+    {
+      "name": "Mjolnir"
+    },
+    {
+      "name": "Stormbreaker"
+    },
+    {
+      "name": "Zelda's Light Bow"
+    },
+    {
+      "name": "Void Blade"
+    },
+    {
+      "name": "Dragon Fang"
+    },
+    {
+      "name": "Ice Staff"
+    },
+    {
+      "name": "Fire Staff"
+    },
+    {
+      "name": "Lightning Staff"
+    },
+    {
+      "name": "Soul Reaper"
+    },
+    {
+      "name": "Doom Sword"
+    },
+    {
+      "name": "Energy Shield"
+    },
+    {
+      "name": "Boomerang Gun"
+    },
+    {
+      "name": "Boomerang Blade"
+    },
+    {
+      "name": "Boomerang Axe"
+    },
+    {
+      "name": "Wrecking Ball"
+    },
+    {
+      "name": "Titan Gauntlet"
+    },
+    {
+      "name": "BFG 9000"
+    },
+    {
+      "name": "Railcannon"
+    },
+    {
+      "name": "Laser Cannon"
+    },
+    {
+      "name": "Death Ray"
+    },
+    {
+      "name": "Freeze Ray"
+    },
+    {
+      "name": "Shrink Ray"
+    },
+    {
+      "name": "Magnet Gun"
+    },
+    {
+      "name": "Whip"
+    },
+    {
+      "name": "Chain Whip"
+    },
+    {
+      "name": "Lasso"
+    },
+    {
+      "name": "Garrote Wire"
+    },
+    {
+      "name": "Taser"
+    },
+    {
+      "name": "Pepper Spray"
+    },
+    {
+      "name": "Baseball Glove"
+    },
+    {
+      "name": "Rolling Pin"
+    },
+    {
+      "name": "Screwdriver"
+    },
+    {
+      "name": "Pencil"
+    },
+    {
+      "name": "Pen"
+    },
+    {
+      "name": "Stapler"
+    },
+    {
+      "name": "Chair Leg"
+    },
+    {
+      "name": "Table"
+    },
+    {
+      "name": "Book"
+    },
+    {
+      "name": "Lantern"
+    },
+    {
+      "name": "Chains"
+    },
+    {
+      "name": "Pipe"
+    },
+    {
+      "name": "Cane"
+    },
+    {
+      "name": "Crutch"
+    },
+    {
+      "name": "Fire Extinguisher"
+    },
+    {
+      "name": "Golf Club"
+    },
+    {
+      "name": "Pool Cue"
+    },
+    {
+      "name": "Snow Globe"
+    },
+    {
+      "name": "Egg"
+    },
+    {
+      "name": "Candle Stick"
+    },
+    {
+      "name": "Torch"
+    },
+    {
+      "name": "Car Door"
+    },
+    {
+      "name": "Rubber Chicken"
+    },
+    {
+      "name": "Banana Peel"
+    },
+    {
+      "name": "Toilet Plunger"
+    },
+    {
+      "name": "Toaster"
+    },
+    {
+      "name": "Hair Dryer"
+    },
+    {
+      "name": "Sock"
+    },
+    {
+      "name": "Pillow"
+    },
+    {
+      "name": "Spoon"
+    },
+    {
+      "name": "Shoe"
+    },
+    {
+      "name": "Meatball"
+    },
+    {
+      "name": "Spaghetti Strand"
+    },
+    {
+      "name": "Rubber Duck"
+    },
+    {
+      "name": "Cheese Wheel"
+    },
+    {
+      "name": "Cabbage"
+    },
+    {
+      "name": "Frozen Fish"
+    },
+    {
+      "name": "Water Balloon"
+    },
+    {
+      "name": "Roll of Toilet Paper"
+    },
+    {
+      "name": "Book of Jokes"
+    },
+    {
+      "name": "Giant Lollipop"
+    },
+    {
+      "name": "Cupcake"
+    },
+    {
+      "name": "Marshmallow"
+    },
+    {
+      "name": "Feather Duster"
+    },
+    {
+      "name": "Cactus"
+    },
+    {
+      "name": "Inflatable Tube Man"
+    },
+    {
+      "name": "Pool Noodle"
+    },
+    {
+      "name": "Remote Control"
+    },
+    {
+      "name": "Potted Plant"
+    },
+    {
+      "name": "Bag of Flour"
+    },
+    {
+      "name": "Hot Sauce Bottle"
+    },
+    {
+      "name": "Christmas Tree"
+    },
+    {
+      "name": "Garden Gnome"
+    },
+    {
+      "name": "Pie"
+    },
+    {
+      "name": "Candle"
+    },
+    {
+      "name": "Broken Pencil"
+    },
+    {
+      "name": "Glue Stick"
+    },
+    {
+      "name": "Broomstick"
+    },
+    {
+      "name": "Plush Toy"
+    },
+    {
+      "name": "Socks with Sand"
+    },
+    {
+      "name": "Bubble Wrap"
+    },
+    {
+      "name": "Socks"
+    },
+    {
+      "name": "Ham Sandwich"
+    },
+    {
+      "name": "Popsicle"
+    },
+    {
+      "name": "Teddy Bear"
+    },
+    {
+      "name": "Rolling Pin (Floury)"
+    },
+    {
+      "name": "Hairbrush"
+    },
+    {
+      "name": "Toy Lightsaber"
+    },
+    {
+      "name": "Milk Carton"
+    },
+    {
+      "name": "Rubber Band Ball"
+    },
+    {
+      "name": "Giant Balloon"
+    }
+  ],
+  "twists": [
+    {
+      "name": "You can’t move faster than a snail"
+    },
+    {
+      "name": "You heal every time you laugh"
+    },
+    {
+      "name": "You drop your weapon randomly"
+    },
+    {
+      "name": "Your weapon is slippery"
+    },
+    {
+      "name": "You are afraid of heights"
+    },
+    {
+      "name": "You run in slow motion"
+    },
+    {
+      "name": "You can’t see for 10 seconds every minute"
+    },
+    {
+      "name": "You are covered in sticky goo"
+    },
+    {
+      "name": "Your weapon is glued to your hand"
+    },
+    {
+      "name": "You must hop everywhere"
+    },
+    {
+      "name": "Your strength depends on how loud you shout"
+    },
+    {
+      "name": "You explode when hit lightly"
+    },
+    {
+      "name": "You are afraid of fire"
+    },
+    {
+      "name": "All opponents grow stronger with every hit"
+    },
+    {
+      "name": "You swap places with an enemy randomly"
+    },
+    {
+      "name": "Your attacks turn to harmless bubbles"
+    },
+    {
+      "name": "You can’t use magic"
+    },
+    {
+      "name": "You are stuck in armor that weighs a ton"
+    },
+    {
+      "name": "Your attacks turn produce tona of confetti"
+    },
+    {
+      "name": "You can only fly at night"
+    },
+    {
+      "name": "All opponents has an unlimited weapon supply"
+    },
+    {
+      "name": "You are blinded by sunlight"
+    },
+    {
+      "name": "Your weapon is too heavy to lift"
+    },
+    {
+      "name": "You fight underwater"
+    },
+    {
+      "name": "You move twice as fast but deal half damage"
+    },
+    {
+      "name": "Your attacks always land on the wrong person"
+    },
+    {
+      "name": "You randomly teleport during battle"
+    },
+    {
+      "name": "You are immune to fire"
+    },
+    {
+      "name": "Your opponents regenerate health slowly"
+    },
+    {
+      "name": "You are stuck on ice"
+    },
+    {
+      "name": "Your attacks cause you pain as well"
+    },
+    {
+      "name": "You can’t hear your enemy"
+    },
+    {
+      "name": "Your weapon causes an explosion every hit"
+    },
+    {
+      "name": "You slip on everything"
+    },
+    {
+      "name": "Your opponents can dodge perfectly up until the final hit"
+    },
+    {
+      "name": "You are slowed by gravity"
+    },
+    {
+      "name": "Your attacks are reversed"
+    },
+    {
+      "name": "You fight in zero gravity"
+    },
+    {
+      "name": "Your attacks are doubled in power"
+    },
+    {
+      "name": "You can’t touch the ground"
+    },
+    {
+      "name": "Your opponents know your every move but are blind"
+    },
+    {
+      "name": "You can’t talk"
+    },
+    {
+      "name": "Your weapon keeps breaking"
+    },
+    {
+      "name": "You must fight blindfolded"
+    },
+    {
+      "name": "Your attacks summon random animals at their contact point"
+    },
+    {
+      "name": "You lose stamina quickly"
+    },
+    {
+      "name": "You must fight using only your feet"
+    },
+    {
+      "name": "Your weapon changes shape randomly"
+    },
+    {
+      "name": "You are allergic to your own blood (when it comes out)"
+    },
+    {
+      "name": "Your attacks make you sleepy"
+    },
+    {
+      "name": "You can’t run"
+    },
+    {
+      "name": "Your opponent can read your mind"
+    },
+    {
+      "name": "Your attacks bounce back at you"
+    },
+    {
+      "name": "You slip on every attack"
+    },
+    {
+      "name": "Your armor is full of holes"
+    },
+    {
+      "name": "You fight in complete darkness"
+    },
+    {
+      "name": "You can’t block attacks"
+    },
+    {
+      "name": "Your attacks produce harmless sparkles"
+    },
+    {
+      "name": "You move half as fast and the player to your right"
+    },
+    {
+      "name": "Your attacks always knock you down"
+    },
+    {
+      "name": "You must fight while singing"
+    },
+    {
+      "name": "Your attacks become weaker each round"
+    },
+    {
+      "name": "Your weapon vanishes randomly"
+    },
+    {
+      "name": "You are afraid of your opponents"
+    },
+    {
+      "name": "Your attacks turn into harmless animals"
+    },
+    {
+      "name": "You lose balance easily"
+    },
+    {
+      "name": "Your attacks always miss by inches"
+    },
+    {
+      "name": "Your opponents are invisible for 10 seconds every minute"
+    },
+    {
+      "name": "You can’t dodge"
+    },
+    {
+      "name": "Your attacks hit a random person instead"
+    },
+    {
+      "name": "You randomly switch weapons with the player to your right"
+    },
+    {
+      "name": "You fight with one hand tied"
+    },
+    {
+      "name": "Your attacks freeze you for a second"
+    },
+    {
+      "name": "You are stuck in a small box"
+    },
+    {
+      "name": "Your attacks summon random objects"
+    },
+    {
+      "name": "You can’t swing your weapon twice without singing your ABCs"
+    },
+    {
+      "name": "Your opponents are always one step ahead"
+    },
+    {
+      "name": "Your attacks multiply exponentionally randomly"
+    },
+    {
+      "name": "Your armor weighs twice as much as the player with the heaviest armor"
+    },
+    {
+      "name": "You must fight on stilts"
+    },
+    {
+      "name": "Your attacks are slowed by a half second"
+    },
+    {
+      "name": "Your opponents can teleport"
+    },
+    {
+      "name": "Your attacks cause random explosions"
+    },
+    {
+      "name": "You fight with no gravity"
+    },
+    {
+      "name": "Your stamina drops quickly"
+    },
+    {
+      "name": "You are always dizzy"
+    },
+    {
+      "name": "Your attacks backfire dramatically"
+    },
+    {
+      "name": "You must hop instead of walking"
+    },
+    {
+      "name": "Your attacks attract enemies"
+    },
+    {
+      "name": "You can’t see your weapon"
+    },
+    {
+      "name": "Your opponents regenerate instantly if you get hit"
+    },
+    {
+      "name": "You are stuck in slow motion"
+    },
+    {
+      "name": "Your attacks always ricochet"
+    },
+    {
+      "name": "You must fight underwater"
+    },
+    {
+      "name": "Your attacks make loud noises revealing your position"
+    },
+    {
+      "name": "Your opponent can steal your attacks"
+    },
+    {
+      "name": "You can’t use magic"
+    },
+    {
+      "name": "Your attacks turn solid things into harmless slime"
+    },
+    {
+      "name": "Your opponent grows stronger every hit"
+    },
+    {
+      "name": "You fight on ice"
+    },
+    {
+      "name": "Your attacks are reversed"
+    },
+    {
+      "name": "You can’t speak"
+    },
+    {
+      "name": "Your attacks slow you down"
+    },
+    {
+      "name": "You are always hungry"
+    },
+    {
+      "name": "Your attacks confuse you"
+    },
+    {
+      "name": "Your opponent always anticipates you"
+    },
+    {
+      "name": "You are constantly slipping"
+    },
+    {
+      "name": "Your attacks explode unpredictably"
+    },
+    {
+      "name": "You must fight blindfolded"
+    },
+    {
+      "name": "Your attacks summon random animals"
+    },
+    {
+      "name": "You can’t touch the ground"
+    },
+    {
+      "name": "Your attacks drain your health"
+    },
+    {
+      "name": "Your opponent can steal your weapon"
+    },
+    {
+      "name": "You fight in lava"
+    },
+    {
+      "name": "Your attacks cause you pain"
+    },
+    {
+      "name": "You are temporarily paralyzed every other turn"
+    },
+    {
+      "name": "Your attacks make loud fart sounds"
+    },
+    {
+      "name": "You can’t hear your enemy"
+    },
+    {
+      "name": "Your attacks turn you invisible for 5 seconds"
+    },
+    {
+      "name": "Your armor attracts attacks"
+    },
+    {
+      "name": "Your attacks randomly vanish"
+    },
+    {
+      "name": "You fight in zero gravity"
+    },
+    {
+      "name": "Your attacks hit yourself"
+    },
+    {
+      "name": "Your opponent can teleport randomly"
+    },
+    {
+      "name": "You are slowed by gravity"
+    },
+    {
+      "name": "Your attacks freeze time briefly"
+    },
+    {
+      "name": "You randomly switch sides"
+    },
+    {
+      "name": "Your attacks are weak"
+    },
+    {
+      "name": "Your attacks multiply too much"
+    },
+    {
+      "name": "You are stuck in armor"
+    },
+    {
+      "name": "Your opponents always dodge"
+    },
+    {
+      "name": "Your attacks make things sticky"
+    },
+    {
+      "name": "You fight in the dark"
+    },
+    {
+      "name": "Your attacks push you backwards"
+    },
+    {
+      "name": "Your stamina regenerates slowly"
+    },
+    {
+      "name": "Your attacks break randomly"
+    },
+    {
+      "name": "You can’t run faster than walking"
+    },
+    {
+      "name": "Your attacks confuse allies"
+    },
+    {
+      "name": "You fight while balancing on a ball"
+    },
+    {
+      "name": "Your attacks become harmless feathers"
+    },
+    {
+      "name": "You are constantly dizzy"
+    },
+    {
+      "name": "Your attacks become tiny"
+    },
+    {
+      "name": "Your attacks echo loudly"
+    },
+    {
+      "name": "You're constantly yelling like a karen"
+    },
+    {
+      "name": "You're constantly getting yelled at by a karen"
+    }
+  ],
+  "locations": [
+    {
+      "name": "New York City",
+      "desc": "Dirty rats and stinky alleyways"
+    },
+    {
+      "name": "Tokyo",
+      "desc": "A neon-lit city blending tradition and futuristic tech"
+    },
+    {
+      "name": "Paris",
+      "desc": "The romantic city of lights... and pidgeons"
+    },
+    {
+      "name": "London",
+      "desc": "Historic streets and modern attractions along the excessively horrendous river Thames"
+    },
+    {
+      "name": "Sydney",
+      "desc": "Coastal city famous for its opera house and beaches"
+    },
+    {
+      "name": "Cairo",
+      "desc": "Ancient city near the pyramids and the Nile River"
+    },
+    {
+      "name": "Moscow",
+      "desc": "A city of grand architecture and cold winters"
+    },
+    {
+      "name": "Rio de Janeiro",
+      "desc": "Vibrant beaches, carnival celebrations, and mountain views"
+    },
+    {
+      "name": "San Francisco",
+      "desc": "Hilly city with the Golden Gate Bridge and foggy weather"
+    },
+    {
+      "name": "Rome",
+      "desc": "Ancient ruins and delicious Italian cuisine everywhere"
+    },
+    {
+      "name": "Berlin",
+      "desc": "A city rich in history, art, and nightlife"
+    },
+    {
+      "name": "Venice",
+      "desc": "Canals, gondolas, and romantic bridges"
+    },
+    {
+      "name": "Dubai",
+      "desc": "Luxury skyscrapers, desert adventures, and futuristic cities"
+    },
+    {
+      "name": "Barcelona",
+      "desc": "Beautiful architecture and lively Mediterranean beaches"
+    },
+    {
+      "name": "Mount Everest",
+      "desc": "The tallest mountain in the world, challenging all climbers"
+    },
+    {
+      "name": "Sahara Desert",
+      "desc": "Vast, hot, and sandy expanse with shifting dunes"
+    },
+    {
+      "name": "Grand Canyon",
+      "desc": "A massive canyon with breathtaking views and cliffs"
+    },
+    {
+      "name": "Niagara Falls",
+      "desc": "Huge waterfalls straddling two countries, thundering water"
+    },
+    {
+      "name": "Amazon Rainforest",
+      "desc": "Dense jungle filled with wildlife and mystery"
+    },
+    {
+      "name": "Great Wall of China",
+      "desc": "A massive wall stretching across mountains and valleys"
+    },
+    {
+      "name": "Machu Picchu",
+      "desc": "Ancient Incan city perched high in the mountains"
+    },
+    {
+      "name": "Disneyland",
+      "desc": "Magical theme park full of rides and characters"
+    },
+    {
+      "name": "Gotham City",
+      "desc": "Crime-ridden city with a masked vigilante"
+    },
+    {
+      "name": "Metropolis",
+      "desc": "Bright, modern city full of superheroes"
+    },
+    {
+      "name": "Narnia",
+      "desc": "Magical land hidden behind a wardrobe"
+    },
+    {
+      "name": "Middle Earth",
+      "desc": "Fantasy world filled with elves, dwarves, and hobbits"
+    },
+    {
+      "name": "Wakanda",
+      "desc": "Advanced African nation with Vibranium technology"
+    },
+    {
+      "name": "Pandora (Avatar)",
+      "desc": "Lush alien planet with floating mountains"
+    },
+    {
+      "name": "Hyrule",
+      "desc": "Fantasy kingdom with castles and heroic quests"
+    },
+    {
+      "name": "Mushroom Kingdom",
+      "desc": "Colorful land full of pipes, castles, and power-ups"
+    },
+    {
+      "name": "Raccoon City",
+      "desc": "Zombie-infested urban nightmare"
+    },
+    {
+      "name": "Silent Hill",
+      "desc": "Foggy town with mysterious and terrifying occurrences"
+    },
+    {
+      "name": "Zootopia",
+      "desc": "Modern city inhabited entirely by anthropomorphic animals"
+    },
+    {
+      "name": "Atlantis",
+      "desc": "Legendary sunken city beneath the ocean"
+    },
+    {
+      "name": "Asgard",
+      "desc": "Majestic realm of the Norse gods"
+    },
+    {
+      "name": "Jurassic Park",
+      "desc": "Island full of cloned dinosaurs and danger"
+    },
+    {
+      "name": "The Shire",
+      "desc": "Peaceful countryside inhabited by hobbits"
+    },
+    {
+      "name": "Tatooine",
+      "desc": "Desert planet with twin suns and sand dunes"
+    },
+    {
+      "name": "Dagobah",
+      "desc": "Swampy planet where wise masters hide"
+    },
+    {
+      "name": "Endor",
+      "desc": "Forest moon home to small, furry inhabitants"
+    },
+    {
+      "name": "Bikini Bottom",
+      "desc": "Underwater city full of quirky sea creatures"
+    },
+    {
+      "name": "Camp Crystal Lake",
+      "desc": "Creepy summer camp with a dark past"
+    },
+    {
+      "name": "Springfield",
+      "desc": "Cartoon city full of chaotic adventures"
+    },
+    {
+      "name": "Bikini Atoll",
+      "desc": "Tropical islands with historical significance"
+    },
+    {
+      "name": "Candy Land",
+      "desc": "Sweet, colorful kingdom made of treats"
+    },
+    {
+      "name": "Cloud City",
+      "desc": "Floating city high above the clouds"
+    },
+    {
+      "name": "Emerald City",
+      "desc": "Shiny magical city in the Land of Oz"
+    },
+    {
+      "name": "Wonderland",
+      "desc": "Bizarre land of talking creatures and strange logic"
+    },
+    {
+      "name": "Chocolate Factory",
+      "desc": "Factory filled with endless chocolate wonders"
+    },
+    {
+      "name": "Treehouse Village",
+      "desc": "Homes built high in the trees"
+    },
+    {
+      "name": "Floating Islands",
+      "desc": "Levitate high above the ground mysteriously"
+    },
+    {
+      "name": "Giant Mushroom Forest",
+      "desc": "Forest of enormous fungi and weird creatures"
+    },
+    {
+      "name": "Troll Bridge",
+      "desc": "Bridge guarded by tricky trolls"
+    },
+    {
+      "name": "Moon Base",
+      "desc": "Colony built on the lunar surface"
+    },
+    {
+      "name": "Sunken Ship",
+      "desc": "Shipwreck filled with treasure and dangers"
+    },
+    {
+      "name": "Goblin Market",
+      "desc": "Chaotic market run by mischievous goblins"
+    },
+    {
+      "name": "Giant Library",
+      "desc": "Endless shelves of ancient tomes"
+    },
+    {
+      "name": "Shifting Sand Dunes",
+      "desc": "The ground moves under your feet"
+    },
+    {
+      "name": "Floating Sky Platform",
+      "desc": "Falling off means instant defeat"
+    },
+    {
+      "name": "Mirror Maze",
+      "desc": "Reflections confuse and disorient"
+    },
+    {
+      "name": "Rooftop Alley",
+      "desc": "Narrow walkways make dodging harder"
+    },
+    {
+      "name": "Collapsing Bridge",
+      "desc": "Portions fall without warning"
+    },
+    {
+      "name": "Dense Jungle",
+      "desc": "Limited visibility and lots of obstacles"
+    },
+    {
+      "name": "Magnetized Battlefield",
+      "desc": "Metal weapons are pulled unpredictably"
+    },
+    {
+      "name": "Flooded Street",
+      "desc": "Water slows movement and attacks"
+    },
+    {
+      "name": "Frozen Lake",
+      "desc": "Thin ice may crack under pressure"
+    },
+    {
+      "name": "Exploding Minefield",
+      "desc": "Random explosions threaten all combatants"
+    },
+    {
+      "name": "Sticky Swamp",
+      "desc": "Every step is slowed by sticky muck"
+    },
+    {
+      "name": "Rolling Boulder Canyon",
+      "desc": "Boulders constantly roll through the battlefield"
+    },
+    {
+      "name": "Rotating Platform Arena",
+      "desc": "The floor spins continuously"
+    },
+    {
+      "name": "Gravity-Shift Room",
+      "desc": "Gravity changes direction at random intervals"
+    },
+    {
+      "name": "Poison Gas Cavern",
+      "desc": "Breathing is hazardous without protection"
+    },
+    {
+      "name": "Haunted Castle",
+      "desc": "Traps activate unpredictably"
+    },
+    {
+      "name": "Windy Cliffside",
+      "desc": "Strong gusts push fighters off balance"
+    },
+    {
+      "name": "Collapsing Tower",
+      "desc": "Floors crumble as battle continues"
+    },
+    {
+      "name": "Tornado Plains",
+      "desc": "Twisters appear randomly across the field"
+    },
+    {
+      "name": "Mudslide Valley",
+      "desc": "The ground slides downhill constantly"
+    },
+    {
+      "name": "Spider Web Forest",
+      "desc": "Movement is slowed by sticky webs"
+    },
+    {
+      "name": "Crumbling Ruins",
+      "desc": "Debris falls randomly from above"
+    },
+    {
+      "name": "Quaking Canyon",
+      "desc": "The ground shakes violently at intervals"
+    },
+    {
+      "name": "Lava River Crossing",
+      "desc": "A molten river blocks the path"
+    },
+    {
+      "name": "Shocking Electropod Room",
+      "desc": "Contact with machines causes sparks"
+    },
+    {
+      "name": "Boulder-Strewn Hills",
+      "desc": "Rocks tumble unexpectedly"
+    },
+    {
+      "name": "Foggy Marsh",
+      "desc": "Visibility is near zero"
+    },
+    {
+      "name": "Blizzard Peaks",
+      "desc": "Snowstorms slow and blind fighters"
+    },
+    {
+      "name": "Sticky Honey Pit",
+      "desc": "Movement is sluggish and traps weapons"
+    },
+    {
+      "name": "Trap-Filled Dungeon",
+      "desc": "Pressure plates trigger hazards"
+    },
+    {
+      "name": "Cavern of Falling Rocks",
+      "desc": "Rocks drop from the ceiling unpredictably"
+    },
+    {
+      "name": "Lightning Plains",
+      "desc": "Lightning strikes random locations"
+    },
+    {
+      "name": "Swinging Pendulum Hall",
+      "desc": "Huge pendulums swing across the path"
+    },
+    {
+      "name": "Sinking Sand Pit",
+      "desc": "Slowly engulfs combatants standing still"
+    },
+    {
+      "name": "Magical Vortex",
+      "desc": "Random teleportation occurs across the arena"
+    },
+    {
+      "name": "Poison Ivy Grove",
+      "desc": "Touching plants causes temporary weakness"
+    },
+    {
+      "name": "Collapsing Ice Bridge",
+      "desc": "Cracks appear as fighters move"
+    },
+    {
+      "name": "Spinning Gear Room",
+      "desc": "Giant gears rotate and crush anything caught"
+    },
+    {
+      "name": "Volcanic Crater",
+      "desc": "Heat and smoke make vision and movement tricky"
+    },
+    {
+      "name": "Cursed Arena",
+      "desc": "Random magical effects interfere with combat"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "During a kitten stampede"
+    },
+    {
+      "name": "During the apocalypse"
+    },
+    {
+      "name": "During a zombie invasion"
+    },
+    {
+      "name": "In a giant sandwich"
+    },
+    {
+      "name": "During a thunderstorm"
+    },
+    {
+      "name": "On a moving train"
+    },
+    {
+      "name": "While skydiving"
+    },
+    {
+      "name": "During a mudslide"
+    },
+    {
+      "name": "During a flood"
+    },
+    {
+      "name": "While being chased by ducks"
+    },
+    {
+      "name": "On a tightrope"
+    },
+    {
+      "name": "During a food fight"
+    },
+    {
+      "name": "During a traffic jam"
+    },
+    {
+      "name": "On a bouncy castle"
+    },
+    {
+      "name": "During a snowstorm"
+    },
+    {
+      "name": "On a giant pizza"
+    },
+    {
+      "name": "During a catfight"
+    },
+    {
+      "name": "While floating in zero gravity"
+    },
+    {
+      "name": "During a fireworks show"
+    },
+    {
+      "name": "While chased by bees"
+    },
+    {
+      "name": "During a tornado"
+    },
+    {
+      "name": "While being teleported randomly"
+    },
+    {
+      "name": "During an earthquake"
+    },
+    {
+      "name": "While stuck in a maze"
+    },
+    {
+      "name": "During a supermarket rush"
+    },
+    {
+      "name": "While hanging from a chandelier"
+    },
+    {
+      "name": "During a disco party"
+    },
+    {
+      "name": "While being shrunk"
+    },
+    {
+      "name": "During a magic potion spill"
+    },
+    {
+      "name": "While riding a roller-skate snake"
+    },
+    {
+      "name": "During a giant balloon festival"
+    },
+    {
+      "name": "While standing on a moving log"
+    },
+    {
+      "name": "During a fire drill"
+    },
+    {
+      "name": "While surrounded by flying pancakes"
+    },
+    {
+      "name": "While dressed as a giant hamster"
+    },
+    {
+      "name": "During a tornado of feathers"
+    },
+    {
+      "name": "During a jellybean rain"
+    },
+    {
+      "name": "During a sudden earthquake"
+    },
+    {
+      "name": "While fighting on a collapsing bridge"
+    },
+    {
+      "name": "During a lightning storm"
+    },
+    {
+      "name": "While trapped on a sinking ship"
+    },
+    {
+      "name": "During a volcanic eruption"
+    },
+    {
+      "name": "While battling on thin ice"
+    },
+    {
+      "name": "During a flood"
+    },
+    {
+      "name": "While fighting on a rotating platform"
+    },
+    {
+      "name": "During a sandstorm"
+    },
+    {
+      "name": "While standing in quicksand"
+    },
+    {
+      "name": "During a blizzard"
+    },
+    {
+      "name": "While on a moving train"
+    },
+    {
+      "name": "During a tornado"
+    },
+    {
+      "name": "While on a collapsing tower"
+    },
+    {
+      "name": "During a cave-in"
+    },
+    {
+      "name": "While standing on a cliff edge"
+    },
+    {
+      "name": "During a stampede of wild animals"
+    },
+    {
+      "name": "While on a shaking rope bridge"
+    },
+    {
+      "name": "During a raging wildfire"
+    },
+    {
+      "name": "While in zero gravity"
+    },
+    {
+      "name": "During an avalanche"
+    },
+    {
+      "name": "While on a boulder-filled slope"
+    },
+    {
+      "name": "During a lava flow"
+    },
+    {
+      "name": "While on slippery ice"
+    },
+    {
+      "name": "During a meteor shower"
+    },
+    {
+      "name": "While in a collapsing mine"
+    },
+    {
+      "name": "During a toxic gas leak"
+    },
+    {
+      "name": "While on a tilted platform"
+    },
+    {
+      "name": "During a volcanic eruption"
+    },
+    {
+      "name": "While on floating debris"
+    },
+    {
+      "name": "During a massive flood"
+    },
+    {
+      "name": "While in a collapsing castle"
+    },
+    {
+      "name": "During a landslide"
+    },
+    {
+      "name": "While on a swinging chandelier"
+    },
+    {
+      "name": "During a hailstorm"
+    },
+    {
+      "name": "While on crumbling stairs"
+    },
+    {
+      "name": "During a tornado of debris"
+    },
+    {
+      "name": "While on a narrow ledge"
+    },
+    {
+      "name": "During a sinkhole collapse"
+    },
+    {
+      "name": "While in a shaking canyon"
+    },
+    {
+      "name": "During a sand avalanche"
+    },
+    {
+      "name": "While on a rolling log bridge"
+    },
+    {
+      "name": "During a forest fire"
+    },
+    {
+      "name": "While on a rickety pier"
+    },
+    {
+      "name": "During a tsunami"
+    },
+    {
+      "name": "While on a crumbling wall"
+    },
+    {
+      "name": "During a meteor impact"
+    },
+    {
+      "name": "While on a broken roof"
+    },
+    {
+      "name": "During a magical explosion"
+    },
+    {
+      "name": "While on unstable scaffolding"
+    }
+  ]
+};
+// --- END: Embedded Deck Data ---
+
+// NOTE: These are now effectively unused/redundant, as the logic relies on the 'decks' object below
+let CHARACTERS = [];
+let WEAPONS = [];
+let TWISTS = [];
+let LOCATIONS = [];
+let SCENARIOS = [];
+
+
+const playerNameInput = document.getElementById('playerNameInput');
+const addPlayerBtn = document.getElementById('addPlayerBtn');
+const playerListDisplay = document.getElementById('playerListDisplay');
+const useLocationsCheckbox = document.getElementById('useLocationsCheckbox');
+const useScenariosCheckbox = document.getElementById('useScenariosCheckbox');
+const startBtn = document.getElementById('startBtn');
+const gameplaySection = document.getElementById('gameplay');
+const startupSection = document.getElementById('startup');
+const deckStatus = document.getElementById("deckStatus");
+
+const locationCardArea = document.getElementById('location-card-area');
+const scenarioCardArea = document.getElementById('scenario-card-area');
+
+const gmWinBtn = document.getElementById('gmWinBtn');
+const leaderboardList = document.getElementById('leaderboardList');
+const dealSound = document.getElementById('dealSound');
+const winScreenSection = document.getElementById('win-screen');
+const finalWinnerNameDisplay = document.getElementById('finalWinnerName');
+const playAgainBtn = document.getElementById('playAgainBtn');
+const MAX_SCORE_THRESHOLD = 5;
+const bgMusic = document.getElementById("bgMusic");
+
+// NEW ELEMENTS
+const playerNameRow = document.getElementById('player-name-row');
+const cardsRow = document.getElementById('cards-row'); 
+const showLeaderboardBtn = document.getElementById('showLeaderboardBtn');
+const leaderboardScreen = document.getElementById('leaderboard-screen');
+
+let leaderboard = {};
+let selectedWinnerName = null;
+
+// Music Toggle
+const musicToggle = document.getElementById("musicToggle");
+musicToggle.addEventListener("change", () => {
+  if (musicToggle.checked) {
+    bgMusic.play().catch(() => {});
+  } else {
+    bgMusic.pause();
+  }
+});
+
+
+let localPlayers = [];
+let useLocations = true;
+let useScenarios = true;
+let currentFight = null;
+
+function renderPlayerList() {
+  playerListDisplay.innerHTML = '';
+  localPlayers.forEach((name, index) => {
+    const li = document.createElement('li');
+    li.textContent = name;
+    li.setAttribute('draggable', true);
+    li.dataset.index = index;
+    li.className = 'py-0.5 px-1 text-lg border-b border-gray-200 cursor-move'; 
+    li.ondragstart = e => {
+      e.dataTransfer.setData('text/plain', index);
+      li.classList.add('opacity-50');
+    };
+    li.ondragend = () => li.classList.remove('opacity-50');
+    li.ondragover = e => {
+      e.preventDefault();
+      li.classList.add('bg-gray-100');
+    };
+    li.ondragleave = () => li.classList.remove('bg-gray-100');
+    li.ondrop = e => {
+      e.preventDefault();
+      li.classList.remove('bg-gray-100');
+      const from = parseInt(e.dataTransfer.getData('text/plain'));
+      const to = parseInt(li.dataset.index);
+      const moved = localPlayers.splice(from, 1)[0];
+      localPlayers.splice(to, 0, moved);
+      renderPlayerList();
+    };
+    playerListDisplay.appendChild(li);
+  });
+}
+
+addPlayerBtn.onclick = () => {
+  const name = playerNameInput.value.trim();
+  if (!name || localPlayers.includes(name)) return;
+  localPlayers.push(name);
+  playerNameInput.value = '';
+  renderPlayerList();
+};
+
+// Initialize decks directly with the embedded data
+const decks = {
+  characters: embeddedDeckData.characters,
+  weapons: embeddedDeckData.weapons,
+  twists: embeddedDeckData.twists,
+  locations: embeddedDeckData.locations,
+  scenarios: embeddedDeckData.scenarios
+};
+
+// --- START: Manual Deck Loading via File Upload (Kept for override/fallback) ---
+const deckUpload = document.getElementById("file-upload");
+deckUpload.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) {
+    console.log("❌ No file selected.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const json = JSON.parse(reader.result);
+      if (!json.characters || !json.weapons || !json.twists || !json.locations || !json.scenarios) {
+        throw new Error("Missing required fields in JSON");
+      }
+
+      // Overwrite the embedded decks
+      decks.characters = json.characters;
+      decks.weapons = json.weapons;
+      decks.twists = json.twists;
+      decks.locations = json.locations;
+      decks.scenarios = json.scenarios;
+
+      deckStatus.textContent = "✅ Custom deck uploaded and loaded!";
+      deckStatus.style.color = "#4CAF50";
+    } catch (err) {
+      console.error("❌ Deck import error:", err.message);
+      deckStatus.textContent = "⚠️ Invalid JSON or missing fields.";
+      deckStatus.style.color = "#f44336";
+    }
+  };
+
+  reader.onerror = () => {
+    console.error("❌ FileReader error:", reader.error);
+    deckStatus.textContent = "⚠️ File could not be read.";
+    deckStatus.style.color = "#f44336";
+  };
+
+  reader.readAsText(file);
+});
+// --- END: Manual Deck Loading via File Upload ---
+
+
+function pickRandom(arr) {
+  if (arr.length === 0) return { name: "Deck Empty!", desc: "Draw Error" };
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+/**
+ * Picks a random item from an array and removes it (Draw without replacement).
+ * @param {Array} arr - The array to draw from. This array is mutated.
+ * @returns {*} The drawn item or null if the array is empty.
+ */
+function drawRandom(arr) {
+  // If the array is empty, return an error object
+  if (arr.length === 0) return { name: "Deck Empty!", desc: "Deck Empty" }; 
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const [item] = arr.splice(randomIndex, 1);
+  return item;
+}
+
+
+function pickCardsForFight() {
+  const chars = decks.characters;
+  const weaps = decks.weapons;
+  const twsts = decks.twists;
+  const locs = decks.locations;
+  const scns = decks.scenarios;
+
+  if (chars.length === 0 || weaps.length === 0 || twsts.length === 0) {
+    // If essential decks are empty, stop and alert
+    alert("One or more essential decks (Character, Weapon, Twist) are empty. Please ensure a deck is loaded.");
+    // Force back to startup screen
+    startupSection.style.display = 'block';
+    gameplaySection.style.display = 'none';
+    showLeaderboardBtn.style.display = 'none';
+    throw new Error("Game cannot start with empty decks.");
+  }
+
+
+  // Create mutable copies of the decks for unique card drawing
+  const availableChars = [...chars];
+  const availableWeaps = [...weaps];
+  const availableTwsts = [...twsts];
+  
+  if (localPlayers.length > Math.min(chars.length, weaps.length, twsts.length)) {
+    console.warn("Not enough unique cards for all players. Some cards may repeat or be empty.");
+  }
+
+
+  return {
+    players: localPlayers.map(p => ({
+      name: p,
+      character: drawRandom(availableChars),
+      weapon: drawRandom(availableWeaps),
+      twist: drawRandom(availableTwsts)
+    })),
+    // Use the main deck object for random pick (not drawing with replacement)
+    location: useLocations ? pickRandom(locs) : null,
+    scenario: useScenarios ? pickRandom(scns) : null
+  };
+}
+
+
+function playDealSound() {
+  dealSound.currentTime = 0;
+  dealSound.play().catch(() => {});
+}
+
+// Function: Handles card click to select a winner
+function handleCardClick(event) {
+  // Clear previous selection
+  document.querySelectorAll('.card').forEach(c => {
+    // Revert non-selected cards to original state
+    c.classList.remove('border-[3px]', 'border-dark-grey', 'bg-yellow-100', 'shadow-2xl');
+    c.classList.add('bg-white', 'shadow-md');
+  });
+
+  // Highlight the clicked card
+  const clickedCard = event.currentTarget;
+  const winnerName = clickedCard.dataset.playerName;
+
+  clickedCard.classList.remove('bg-white', 'shadow-md');
+  clickedCard.classList.add('border-[3px]', 'border-dark-grey', 'bg-yellow-100', 'shadow-2xl');
+
+  // Store the winner's name
+  selectedWinnerName = winnerName;
+}
+
+/**
+ * Creates the single card cell for one player with fixed dimensions.
+ * @param {Object} player - Player data with character, weapon, and twist.
+ * @returns {HTMLElement} The card cell containing the single card.
+ */
+function createCardCell(player) {
+    // Player card dimensions
+    const cardWidth = '260px'; 
+    const cardHeight = '390px'; 
+    const cellWidth = '290px'; 
+    
+    const cell = document.createElement('div');
+    // Set cell to a fixed size and ensure it wraps
+    cell.className = 'p-2 flex justify-center flex-shrink-0'; 
+    cell.style.width = cellWidth;
+    
+    // Create the single card element
+    const card = document.createElement('div');
+    card.style.width = cardWidth;
+    card.style.height = cardHeight;
+    // Single card styling
+    card.className = `card border border-gray-400 rounded-xl p-4 text-center cursor-pointer shadow-md flex flex-col justify-between items-center bg-white opacity-0 transition-opacity duration-500 ease-in-out transition-all duration-300`;
+    
+    card.dataset.playerName = player.name; 
+    
+    // Construct the card content HTML with player name only in the header
+    card.innerHTML = `
+        <div class="text-2xl font-bold w-full mb-3 pb-3 border-b-4 border-gray-300 text-dark-grey">
+            ${player.name}
+        </div>
+        <div class="flex flex-col flex-grow justify-around w-full">
+            <div class="my-3">
+                <p class="font-bold text-lg mb-1 text-dark-grey">CHARACTER</p>
+                <p class="text-base font-semibold px-2 py-1 rounded-lg border-2 border-purple-900 text-dark-grey">${player.character.name}</p>
+            </div>
+            
+            <div class="my-3">
+                <p class="font-bold text-lg mb-1 text-dark-grey">WEAPON</p>
+                <p class="text-base font-semibold px-2 py-1 rounded-lg border-2 border-yellow-600 text-dark-grey">${player.weapon.name}</p>
+            </div>
+
+            <div class="my-3">
+                <p class="font-bold text-lg mb-1 text-dark-grey">TWIST</p>
+                <p class="text-base font-semibold px-2 py-1 rounded-lg border-2 border-blue-600 text-dark-grey">${player.twist.name}</p>
+            </div>
+        </div>
+    `;
+
+    card.onclick = handleCardClick; 
+    cell.appendChild(card);
+    return cell;
+}
+
+/**
+ * Creates a context card (Location or Scenario) with a similar style but smaller size.
+ * @param {Object} cardData - Data for the card (name, desc).
+ * @param {string} type - 'location' or 'scenario'.
+ * @returns {HTMLElement} The card element.
+ */
+function createContextCard(cardData, type) {
+    const cardWidth = '200px'; 
+    const cardHeight = '300px'; 
+    
+    const card = document.createElement('div');
+    card.style.width = cardWidth;
+    card.style.height = cardHeight;
+
+    const baseColor = type === 'location' ? 'bg-light-orange' : 'bg-light-green';
+    const borderColor = type === 'location' ? 'border-orange-500' : 'border-green-500';
+
+    card.className = `card border border-gray-400 rounded-xl p-3 text-center shadow-md flex flex-col justify-between items-center ${baseColor} opacity-0 transition-opacity duration-500 ease-in-out transition-all duration-300`;
+    
+    // Construct the card content HTML
+    card.innerHTML = `
+        <div class="text-xl font-bold w-full mb-2 pb-2 border-b-2 ${borderColor} text-dark-grey uppercase">
+            ${type}
+        </div>
+        <div class="flex flex-col flex-grow justify-center w-full">
+            <p class="text-lg font-bold text-dark-grey mb-1">${cardData.name}</p>
+            ${cardData.desc ? `<p class="text-sm text-gray-700 mt-2">${cardData.desc}</p>` : ''}
+        </div>
+    `;
+    return card;
+}
+
+
+// Function to handle the dealing and rendering
+function dealAndRender() {
+    try {
+        currentFight = pickCardsForFight();
+    } catch (e) {
+        // If pickCardsForFight throws an error (due to empty deck), stop.
+        console.error(e);
+        return;
+    }
+
+    const f = currentFight;
+    selectedWinnerName = null;
+
+    // Clear all previous content (names, cards, context)
+    playerNameRow.innerHTML = ''; 
+    cardsRow.innerHTML = '';
+    locationCardArea.innerHTML = ''; 
+    scenarioCardArea.innerHTML = ''; 
+
+    playerNameRow.classList.add('flex-wrap');
+    cardsRow.classList.add('flex-wrap', 'justify-center'); // Ensure cards are centered
+
+
+    // 2. DEAL CARDS (Single Card, Sequential per Player)
+    let maxDelay = 0;
+
+    f.players.forEach((p, playerIndex) => {
+        const cardCell = createCardCell(p);
+        cardsRow.appendChild(cardCell);
+
+        const cardElement = cardCell.querySelector('.card');
+        if (!cardElement) return;
+
+        // Deal delay: Player Index * 300ms
+        const dealDelay = playerIndex * 300;
+        maxDelay = Math.max(maxDelay, dealDelay);
+
+        setTimeout(() => {
+            playDealSound();
+            cardElement.classList.remove('opacity-0'); // Fade in the card
+        }, dealDelay);
+    });
+
+    
+    // 3. DEAL LOCATION AND SCENARIO (Context Cards)
+    setTimeout(() => {
+        // Location Card (Left Side)
+        if (f.location && f.location.name !== "Deck Empty!") {
+            const locationCard = createContextCard(f.location, 'location');
+            locationCardArea.appendChild(locationCard);
+            
+            playDealSound();
+            // Start fade in
+            setTimeout(() => locationCard.classList.remove('opacity-0'), 50);
+        }
+
+        // Scenario Card (Right Side)
+        if (f.scenario && f.scenario.name !== "Deck Empty!") {
+            const scenarioCard = createContextCard(f.scenario, 'scenario');
+            scenarioCardArea.appendChild(scenarioCard);
+
+            playDealSound();
+            // Start fade in
+            setTimeout(() => scenarioCard.classList.remove('opacity-0'), 300);
+        }
+    }, maxDelay + 500); // Start context cards after the main cards are done
+}
+
+function renderFight() {
+  dealAndRender();
+}
+
+
+function updateLeaderboard(winner) {
+  leaderboard[winner] = (leaderboard[winner] || 0) + 1;
+
+  if (leaderboard[winner] >= MAX_SCORE_THRESHOLD) {
+    // WIN CONDITION MET - SHOW WIN SCREEN
+    finalWinnerNameDisplay.textContent = winner;
+    gameplaySection.style.display = 'none';
+    leaderboardScreen.style.display = 'none'; // Hide leaderboard if it was open
+    showLeaderboardBtn.style.display = 'none'; // Hide leaderboard button
+    winScreenSection.classList.remove('hidden');
+    
+    return;
+  }
+}
+
+function renderLeaderboard() {
+  leaderboardList.innerHTML = '';
+  Object.entries(leaderboard)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([name, score]) => {
+      const li = document.createElement('li');
+      // Updated class to look cleaner on the leaderboard screen
+      li.className = 'text-lg py-1 border-b border-gray-200 flex justify-between items-center';
+      li.innerHTML = `<span>${name}</span> <span class="font-bold text-xl">${score} win${score !== 1 ? 's' : ''}</span>`;
+      leaderboardList.appendChild(li);
+    });
+}
+
+// LEADERBOARD TOGGLE LOGIC - CONSOLIDATED
+showLeaderboardBtn.onclick = () => {
+    if (leaderboardScreen.style.display === 'flex') {
+        // Currently showing leaderboard, so close it
+        leaderboardScreen.style.display = 'none';
+        gameplaySection.style.display = 'block';
+        showLeaderboardBtn.textContent = 'View Leaderboard';
+    } else {
+        // Currently showing game, so open leaderboard
+        leaderboardScreen.style.display = 'flex'; 
+        gameplaySection.style.display = 'none';
+        renderLeaderboard(); // Always render before showing
+        // UPDATED TEXT HERE
+        showLeaderboardBtn.textContent = 'Hide Leaderboard';
+    }
+};
+
+// Play Again button handler
+playAgainBtn.onclick = () => {
+    leaderboard = {};
+    renderLeaderboard();
+    selectedWinnerName = null;
+    winScreenSection.classList.add('hidden');
+    showLeaderboardBtn.style.display = 'none'; // Ensure button is hidden on returning to startup
+    startupSection.style.display = 'block';
+    
+    // Re-set deck status after playing again
+    deckStatus.textContent = "✅ Deck embedded directly in script!";
+    deckStatus.style.color = "#4CAF50";
+};
+
+
+gmWinBtn.onclick = () => {
+  const winner = selectedWinnerName; 
+  if (!winner) return alert('Please click any card for a player to select the winner.'); 
+  
+  updateLeaderboard(winner);
+  
+  // Only deal a new hand if the game hasn't ended
+  if(gameplaySection.style.display !== 'none') {
+    selectedWinnerName = null; 
+    dealAndRender();
+  }
+};
+
+startBtn.onclick = () => {
+  if (localPlayers.length < 2) return alert('Add at least two players to begin.');
+
+  if (decks.characters.length === 0 || decks.weapons.length === 0 || decks.twists.length === 0) {
+      return alert('Deck data is missing. Please upload a deck manually.');
+  }
+
+  useLocations = useLocationsCheckbox.checked;
+  useScenarios = useScenariosCheckbox.checked;
+  
+  startupSection.style.display = 'none';
+  gameplaySection.style.display = 'block';
+  leaderboardScreen.style.display = 'none'; 
+  showLeaderboardBtn.style.display = 'block'; 
+  showLeaderboardBtn.textContent = 'View Leaderboard'; // Set initial text
+  
+  leaderboard = {}; 
+  renderFight();
+
+  // 🔊 Play background music
+  bgMusic.volume = 0.1; 
+  if (musicToggle.checked) {
+      bgMusic.play().catch(() => {
+        console.warn("Autoplay blocked; user interaction needed");
+      });
+  }
+};
+
+bgMusic.addEventListener("canplaythrough", () => {
+  musicToggle.parentElement.style.display = "inline-block";
+});
+
+window.onload = () => {
+  renderPlayerList();
+  // Update status to confirm embedded deck load
+  deckStatus.textContent = "✅ Deck embedded directly in script!";
+  deckStatus.style.color = "#4CAF50";
+};
+</script>
+</body>
+</html>

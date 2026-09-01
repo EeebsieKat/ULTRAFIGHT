@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ULTRAFIGHT - Multiplayer Card Game</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+body {
+  margin: 0;
+  background: #000;
+  color: #eee;
+  font-family: 'Orbitron', sans-serif;
+  animation: backgroundPulse 6s infinite alternate;
+}
+@keyframes backgroundPulse {
+  0% { background-color: #000; }
+  100% { background-color: #0a0a0a; }
+}
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 6px #a020ff, 0 0 12px #a020ff, 0 0 18px #39ff14;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 6px #a020ff, 0 0 12px #a020ff, 0 0 18px #39ff14;
+  }
+  50% {
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #a020ff, 0 0 30px #39ff14;
+  }
+  100% {
+    text-shadow: 0 0 6px #a020ff, 0 0 12px #a020ff, 0 0 18px #39ff14;
+  }
+}
+#startup, #gameplay {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  background: #111;
+  border: 2px solid #a020ff;
+  box-shadow: 0 0 30px #39ff14aa, inset 0 0 15px #a020ff88;
+  animation: fadeInBounce 1s ease-out;
+}
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  60% {
+    transform: scale(1.03) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+button {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #000;
+  border: 3px solid #a020ff;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #a020ff, inset 0 0 15px #39ff14;
+  transition: all 0.3s ease;
+  animation: buttonPulse 3s infinite ease-in-out;
+}
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 10px #a020ff, inset 0 0 15px #39ff14;
+  }
+  50% {
+    box-shadow: 0 0 20px #39ff14, inset 0 0 25px #a020ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #a020ff, inset 0 0 15px #39ff14;
+  }
+}
+button:hover:not(:disabled) {
+  background: #1a1a1a;
+  border-color: #39ff14;
+  transform: scale(1.00);
+}
+.card {
+  flex: 0 1 280px; /* Allow cards to shrink if needed */
+  background: #000;
+  border: 2px solid #39ff14;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #eee;
+  box-shadow: 0 0 15px #39ff14, inset 0 0 10px #a020ff;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: flipBounce 1s ease forwards;
+}
+
+@keyframes flipBounce {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.6);
+  }
+  50% {
+    transform: rotateY(-10deg) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+}
+#dealBtn {
+  margin-top: 1rem;
+  background: #111;
+  border: 2px solid #39ff14;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #39ff14, inset 0 0 10px #a020ff;
+  animation: neonGlow 2s infinite alternate;
+}
+#dealBtn:hover {
+  background: #222;
+  border-color: #a020ff;
+  transform: scale(1.02);
+}
+@keyframes neonGlow {
+  from {
+    box-shadow: 0 0 10px #39ff14, inset 0 0 10px #a020ff;
+  }
+  to {
+    box-shadow: 0 0 25px #a020ff, inset 0 0 25px #39ff14;
+  }
+}
+
+input[type=text], input[type=file] {
+  width: calc(100% - 1rem);
+  padding: 0.6rem 0.75rem;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  background: #000;
+  color: #eee;
+  border: 2px solid #39ff14;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: inset 0 0 10px #a020ff44, 0 0 6px #39ff1477;
+  transition: all 0.3s ease;
+}
+
+input[type=text]:focus, input[type=file]:focus {
+  border-color: #a020ff;
+  box-shadow: inset 0 0 12px #a020ffcc, 0 0 10px #39ff14cc;
+  background: #111;
+}
+
+/* Hide the actual file input */
+input[type="file"] {
+  display: none;
+}
+
+/* Style the label to look like a button */
+.custom-file-upload {
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #39ff14, #a020f0);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #39ff1477, 0 0 20px #a020f077;
+  text-shadow: 0 0 3px #000;
+  transition: all 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background: linear-gradient(135deg, #a020f0, #39ff14);
+  box-shadow: 0 0 15px #39ff14cc, 0 0 30px #a020f0cc;
+  transform: scale(1.05);
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #39ff14;
+  font-size: 1rem;
+  text-shadow: 0 0 5px #a020ff;
+}
+
+#winnerSelect {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem; /* room for arrow */
+  font-size: 1.1rem;
+  color: #fff;
+  background: #000;
+  border: 2px solid #a020ff;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px #39ff14aa, 0 0 8px #a020ffbb;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#winnerSelect:hover {
+  background: #111;
+  border-color: #39ff14;
+  box-shadow: inset 0 0 12px #a020ff, 0 0 12px #39ff14;
+}
+
+#winnerSelect:focus {
+  outline: none;
+  border-color: #39ff14;
+  box-shadow: 0 0 15px #a020ff, inset 0 0 15px #39ff14;
+}
+
+#cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+#gameplay {
+  max-width: 100%;
+  width: 95%;
+}
+
+#fight-context {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 2px dashed #a020ff;
+  border-radius: 10px;
+  background: #0a0a0a;
+  color: #39ff14;
+  box-shadow: inset 0 0 10px #a020ff66;
+}
+
+#deckStatus {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #39ff14;
+  text-shadow: 0 0 4px #a020ff;
+  animation: fadeInPop 0.4s ease-out;
+}
+
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#deckStatus ul {
+  list-style: none;
+  padding-left: 0;
+}
+#deckStatus li {
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 4px #a020ff;
+}
+
+.switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 100;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Toggle On */
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+</style>
+</head>
+<body>
+<h1>ULTRAFIGHT</h1>
+
+<section id="startup">
+  <label for="playerNameInput">Enter player name:</label>
+  <input id="playerNameInput" type="text" placeholder="Player name..." maxlength="20" autocomplete="off" />
+  <button id="addPlayerBtn">Add Player</button>
+  <ul id="playerListDisplay"></ul>
+
+<label for="file-upload" class="custom-file-upload">
+  Upload Deck JSON 
+</label>
+<input id="file-upload" type="file" accept=".json,application/json" />
+<div id="deckStatus"></div>
+
+
+  <label><input type="checkbox" id="useLocationsCheckbox" checked /> Use Locations Deck</label>
+  <label><input type="checkbox" id="useScenariosCheckbox" checked /> Use Scenarios Deck</label>
+  <button id="startBtn">Start Game</button>
+</section>
+
+<section id="gameplay" style="display:none;">
+  <div id="fight-context"></div>
+  <button id="dealBtn">Deal Cards</button>
+  <div id="cards-row"></div>
+  <div id="gm-controls">
+    <div class="select-wrapper">
+  <select id="winnerSelect">
+    <option value="">Select winner...</option>
+  </select>
+</div>
+    <button id="gmWinBtn">Declare Winner</button>
+  </div>
+  <div id="leaderboard">
+    <h2>Leaderboard</h2>
+    <ul id="leaderboardList"></ul>
+  </div>
+</section>
+
+<audio id="dealSound" src="Sounds/card_deal.mp3" preload="auto"></audio>
+<audio id="bgMusic" src="Sounds/background_music.mp3" loop preload="auto"></audio>
+<label class="switch">
+  <input type="checkbox" id="musicToggle" checked>
+  <span class="slider round"></span>
+</label>
+
+
+
+<script>
+let CHARACTERS = [
+    { name: "Sherlock Holmes" },
+    { name: "Hermione Granger" },
+    { name: "Tony Stark" },
+    { name: "Katniss Everdeen" },
+    { name: "Mario" },
+    { name: "Lara Croft" },
+    { name: "Spider-Man" },
+    { name: "Wonder Woman" },
+    { name: "Darth Vader" },
+    { name: "Gandalf" },
+    { name: "Indiana Jones" },
+    { name: "Rick Sanchez" },
+    { name: "Princess Leia" },
+    { name: "Bruce Wayne" },
+    { name: "Elsa" },
+    { name: "Jack Sparrow" },
+    { name: "Simba" },
+    { name: "John Wick" },
+    { name: "Deadpool" },
+    { name: "Pikachu" }
+  ];
+
+  let WEAPONS = [
+    { name: "Excalibur" },
+    { name: "Mjolnir" },
+    { name: "Lightsaber" },
+    { name: "Infinity Gauntlet" },
+    { name: "Bow and Arrow" },
+    { name: "Crossbow" },
+    { name: "Katana" },
+    { name: "Blaster" },
+    { name: "Magic Wand" },
+    { name: "Laser Gun" },
+    { name: "Rubber Chicken" },
+    { name: "Toothbrush" },
+    { name: "Sledgehammer" },
+    { name: "Chainsaw" },
+    { name: "Nerf Gun" },
+    { name: "Water Balloon" },
+    { name: "Banana Peel" },
+    { name: "Acme Anvil" },
+    { name: "Boomerang" },
+    { name: "Taser" }
+  ];
+
+  let TWISTS = [
+    { name: "Invisible for 10 seconds" },
+    { name: "Gravity reversed" },
+    { name: "Can only move by dancing" },
+    { name: "Slippery floor" },
+    { name: "Double damage but only when sneezing" },
+    { name: "Speak only in rhymes" },
+    { name: "Armed with a rubber chicken" },
+    { name: "Wears a tutu" },
+    { name: "Super slow motion" },
+    { name: "Sudden karaoke challenge" },
+    { name: "Random teleport" },
+    { name: "Can only hop on one foot" },
+    { name: "Everything is made of jelly" },
+    { name: "Laughs uncontrollably" },
+    { name: "Wields a giant foam finger" },
+    { name: "Shoots spaghetti noodles" },
+    { name: "Turns into a llama" },
+    { name: "Invisible mustache" },
+    { name: "Shoots glitter" },
+    { name: "Talks like a pirate" }
+  ];
+
+  let LOCATIONS = [
+    { name: "The Land of Forgotten Socks", desc: "Where lost socks gather to plot their escape." },
+    { name: "Grandma’s Basement of Eternal Doom", desc: "Filled with ancient cobwebs and mysterious smells." },
+    { name: "The Overcaffeinated Office Breakroom", desc: "Where everyone is jittery and spills are frequent." },
+    { name: "The Unfinished IKEA Assembly Zone", desc: "Furniture parts and confusion abound." },
+    { name: "The Haunted Litter Box", desc: "A place no cat dares to enter twice." },
+    { name: "The Never-Ending Queue at the DMV", desc: "Time slows down to a crawl here." },
+    { name: "The Magical Realm of Spam Emails", desc: "Beware of the Nigerian prince." },
+    { name: "The Bottom of the Couch Cushions", desc: "Where coins, crumbs, and lost remotes live." },
+    { name: "The Bermuda Triangle of Lost TV Remotes", desc: "Devices vanish mysteriously." },
+    { name: "The Awkward Family Dinner Table", desc: "Conversations freeze and eyes dart nervously." },
+    { name: "The Land of Perpetual Dad Jokes", desc: "Prepare for groans and eye-rolls." },
+    { name: "The Karaoke Stage of Eternal Off-Key Singing", desc: "Everyone’s a star... sort of." },
+    { name: "The Bathroom Mirror That Only Shows Your Worst Hair Day", desc: "Reflection guaranteed to ruin your morning." },
+    { name: "The Wild Jungle Gym of Hyper Toddlers", desc: "Fast, furious, and sticky." },
+    { name: "The Infinite Elevator That Never Stops", desc: "Going nowhere fast." },
+    { name: "The Closet of Horrible Fashion Choices", desc: "It’s a crime against style." },
+    { name: "The City of Failed WiFi Connections", desc: "Buffering... buffering... buffering..." },
+    { name: "The Island of Expired Coupons", desc: "Deals that never come through." },
+    { name: "The Purgatory of Buffering Videos", desc: "Will it load? Probably not." },
+    { name: "The Jungle of Tangled Earbuds", desc: "A knotty situation." }
+  ];
+
+  let SCENARIOS = [
+    { name: "A kitten stampede" },
+    { name: "During an english lecture" },
+    { name: "Win a Dance Battle Against a Roomba" },
+    { name: "Deliver a Speech Without Saying “Um” (Spoiler: Impossible)" },
+    { name: "Escape From a Horde of Angry Vegans" },
+    { name: "Sneak Out of a Meeting While Pretending to Take Notes" },
+    { name: "Convince Your Grandma You’re Not an Influencer" },
+    { name: "Find the TV Remote Before the Snacks Run Out" },
+    { name: "Outrun a Security Guard After Stealing the Last Slice of Pizza" },
+    { name: "Survive the Embarrassing School Talent Show" },
+    { name: "Get Out of the Friendzone Using Only Interpretive Dance" },
+    { name: "Convince a Toddler to Eat Broccoli (Good luck)" },
+    { name: "Escape the Clutches of the Monday Morning Alarm Clock" },
+    { name: "Win an Argument with a Parrot That Repeats Everything You Say" },
+    { name: "Break Up With Your Phone Without Actually Turning It Off" },
+    { name: "Convince a Group of Zombies to Join Your Dance Crew" },
+    { name: "Hide From Your Boss While Pretending to Work" },
+    { name: "Survive an Awkward First Date With Only Dad Jokes" },
+    { name: "Teach a Fish to Ride a Bicycle" },
+    { name: "Steal the Crown from the King of Awkward Silences" }
+  ];
+
+const playerNameInput = document.getElementById('playerNameInput');
+const addPlayerBtn = document.getElementById('addPlayerBtn');
+const playerListDisplay = document.getElementById('playerListDisplay');
+const useLocationsCheckbox = document.getElementById('useLocationsCheckbox');
+const useScenariosCheckbox = document.getElementById('useScenariosCheckbox');
+const startBtn = document.getElementById('startBtn');
+const gameplaySection = document.getElementById('gameplay');
+const startupSection = document.getElementById('startup');
+const fightContextDiv = document.getElementById('fight-context');
+const cardsRow = document.getElementById('cards-row');
+const winnerSelect = document.getElementById('winnerSelect');
+const gmWinBtn = document.getElementById('gmWinBtn');
+const leaderboardList = document.getElementById('leaderboardList');
+const dealBtn = document.getElementById('dealBtn');
+const dealSound = document.getElementById('dealSound');
+const MAX_SCORE_THRESHOLD = 7; // Change this to your desired win limit
+const bgMusic = document.getElementById("bgMusic");
+let leaderboard = {}; // reset every game session
+
+const music = new Audio('background_music.mp3');
+music.loop = true;
+music.volume = 0.5;
+music.play().catch(() => {
+  console.log('Autoplay blocked until user interacts.');
+});
+
+// Music Toggle
+const musicToggle = document.getElementById("musicToggle");
+musicToggle.addEventListener("change", () => {
+  if (musicToggle.checked) {
+    music.play();
+  } else {
+    music.pause();
+  }
+});
+
+
+//  let players = [];
+
+  addPlayerBtn.addEventListener('click', () => {
+    const name = playerNameInput.value.trim();
+    if (name && !players.includes(name)) {
+      players.push(name);
+      const li = document.createElement('li');
+      li.textContent = name;
+      playerListDisplay.appendChild(li);
+      playerNameInput.value = ''; // Clear input
+    }
+  });
+
+let localPlayers = [];
+let useLocations = true;
+let useScenarios = true;
+let currentFight = null;
+
+function renderPlayerList() {
+  playerListDisplay.innerHTML = '';
+  localPlayers.forEach((name, index) => {
+    const li = document.createElement('li');
+    li.textContent = name;
+    li.setAttribute('draggable', true);
+    li.dataset.index = index;
+    li.ondragstart = e => {
+      e.dataTransfer.setData('text/plain', index);
+      li.classList.add('dragging');
+    };
+    li.ondragend = () => li.classList.remove('dragging');
+    li.ondragover = e => {
+      e.preventDefault();
+      li.classList.add('drag-over');
+    };
+    li.ondragleave = () => li.classList.remove('drag-over');
+    li.ondrop = e => {
+      e.preventDefault();
+      const from = parseInt(e.dataTransfer.getData('text/plain'));
+      const to = parseInt(li.dataset.index);
+      const moved = localPlayers.splice(from, 1)[0];
+      localPlayers.splice(to, 0, moved);
+      renderPlayerList();
+    };
+    playerListDisplay.appendChild(li);
+  });
+}
+
+addPlayerBtn.onclick = () => {
+  const name = playerNameInput.value.trim();
+  if (!name || localPlayers.includes(name)) return;
+  localPlayers.push(name);
+  playerNameInput.value = '';
+  renderPlayerList();
+};
+
+const decks = {
+  characters: [],
+  weapons: [],
+  twists: [],
+  locations: [],
+  scenarios: []
+};
+
+const deckUpload = document.getElementById("file-upload");
+
+deckUpload.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) {
+    console.log("❌ No file selected.");
+    return;
+  }
+
+  console.log("📁 File selected:", file.name);
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    console.log("📖 Raw file content:", reader.result);
+
+    try {
+      const json = JSON.parse(reader.result);
+      console.log("✅ Parsed JSON:", json);
+
+      if (!json.characters || !json.weapons || !json.twists || !json.locations || !json.scenarios) {
+        throw new Error("Missing required fields in JSON");
+      }
+
+      decks.characters = json.characters;
+      decks.weapons = json.weapons;
+      decks.twists = json.twists;
+      decks.locations = json.locations;
+      decks.scenarios = json.scenarios;
+
+      console.log("✅ Decks updated:", decks);
+
+      document.getElementById("deckStatus").textContent = "✅ Custom deck loaded!";
+      document.getElementById("deckStatus").style.color = "#33cc33";
+    } catch (err) {
+      console.error("❌ Deck import error:", err.message);
+      document.getElementById("deckStatus").textContent = "⚠️ Invalid JSON or missing fields.";
+      document.getElementById("deckStatus").style.color = "#ff4444";
+    }
+  };
+
+  reader.onerror = () => {
+    console.error("❌ FileReader error:", reader.error);
+    document.getElementById("deckStatus").textContent = "⚠️ File could not be read.";
+    document.getElementById("deckStatus").style.color = "#ff4444";
+  };
+
+  reader.readAsText(file);
+});
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function pickCardsForFight() {
+  const chars = decks.characters.length ? decks.characters : CHARACTERS;
+  const weaps = decks.weapons.length ? decks.weapons : WEAPONS;
+  const twsts = decks.twists.length ? decks.twists : TWISTS;
+  const locs = decks.locations.length ? decks.locations : LOCATIONS;
+  const scns = decks.scenarios.length ? decks.scenarios : SCENARIOS;
+
+  return {
+    players: localPlayers.map(p => ({
+      name: p,
+      character: pickRandom(chars),
+      weapon: pickRandom(weaps),
+      twist: pickRandom(twsts)
+    })),
+    location: useLocations ? pickRandom(locs) : null,
+    scenario: useScenarios ? pickRandom(scns) : null
+  };
+}
+
+
+function playDealSound() {
+  dealSound.currentTime = 0;
+  dealSound.play().catch(() => {});
+}
+
+function renderFight() {
+  const f = currentFight;
+fightContextDiv.innerHTML = `
+  ${f.location ? `<div style="margin-bottom: 1rem;"><strong>Location:</strong> ${f.location.name}<br/><em style="color:#aaa;">${f.location.desc}</em></div>` : ''}
+  ${f.scenario ? `<div><strong>Scenario:</strong> ${f.scenario.name}</div>` : ''}
+`;
+  cardsRow.innerHTML = '';
+  dealBtn.disabled = false;
+
+  dealBtn.onclick = () => {
+    cardsRow.innerHTML = '';
+    f.players.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.animationDelay = `${i * 300}ms`;
+      card.innerHTML = `<h3>${p.name}</h3>
+        <b>Character:</b> ${p.character.name}<br/><br/>
+        <b>Weapon:</b> ${p.weapon.name}<br/><br/>
+        <b>Twist:</b> ${p.twist.name}`;
+      cardsRow.appendChild(card);
+      setTimeout(playDealSound, i * 300);
+    });
+    dealBtn.disabled = true;
+  };
+
+  populateWinnerSelect(f.players.map(p => p.name));
+}
+
+function populateWinnerSelect(names) {
+  winnerSelect.innerHTML = '<option value="">Select winner...</option>';
+  names.forEach(name => {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    winnerSelect.appendChild(opt);
+  });
+}
+
+function updateLeaderboard(winner) {
+  leaderboard[winner] = (leaderboard[winner] || 0) + 1;
+
+  if (leaderboard[winner] >= MAX_SCORE_THRESHOLD) {
+    alert(`${winner} reached ${MAX_SCORE_THRESHOLD} wins! Leaderboard will be reset.`);
+    leaderboard = {}; // reset in memory
+  }
+
+  renderLeaderboard();
+}
+
+function renderLeaderboard() {
+  leaderboardList.innerHTML = '';
+  Object.entries(leaderboard)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([name, score]) => {
+      const li = document.createElement('li');
+      li.textContent = `${name}: ${score} win${score !== 1 ? 's' : ''}`;
+      leaderboardList.appendChild(li);
+    });
+}
+
+gmWinBtn.onclick = () => {
+  const winner = winnerSelect.value;
+  if (!winner) return alert('Please select a winner.');
+  updateLeaderboard(winner);
+  currentFight = pickCardsForFight();
+  renderFight();
+  renderLeaderboard();
+};
+
+startBtn.onclick = () => {
+  if (localPlayers.length < 2) return alert('Add at least two players to begin.');
+  useLocations = useLocationsCheckbox.checked;
+  useScenarios = useScenariosCheckbox.checked;
+  currentFight = pickCardsForFight();
+  startupSection.style.display = 'none';
+  gameplaySection.style.display = 'block';
+  renderFight();
+  leaderboard = {}; // reset leaderboard at game start
+  renderLeaderboard();
+
+  // 🔊 Play background music
+  const bgMusic = document.getElementById('bgMusic');
+  bgMusic.volume = 0.1; // optional: adjust volume
+  bgMusic.play().catch(() => {
+    console.warn("Autoplay blocked; user interaction needed");
+  });
+};
+
+let isMusicPlaying = false;
+
+// Ensure music starts on interaction (e.g. when the game starts)
+document.getElementById("startBtn").addEventListener("click", () => {
+  if (!isMusicPlaying) {
+    bgMusic.play().then(() => {
+      isMusicPlaying = true;
+    }).catch((e) => {
+      console.warn("Music play failed:", e);
+    });
+  }
+});
+
+// Music toggle button
+musicToggle.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play().then(() => {
+      isMusicPlaying = true;
+    }).catch((e) => {
+      console.warn("Music play failed:", e);
+    });
+  } else {
+    bgMusic.pause();
+    isMusicPlaying = false;
+  }
+});
+
+bgMusic.addEventListener("canplaythrough", () => {
+  musicToggle.style.display = "block";
+});
+
+window.onload = renderPlayerList;
+</script>
+</body>
+</html>
