@@ -1,0 +1,2086 @@
+{
+  "characters": [
+    {
+      "name": "Mario"
+    },
+    {
+      "name": "Luigi"
+    },
+    {
+      "name": "Princess Peach"
+    },
+    {
+      "name": "Bowser"
+    },
+    {
+      "name": "Meowser"
+    },
+    {
+      "name": "Goomba"
+    },
+    {
+      "name": "Bowser Jr."
+    },
+    {
+      "name": "Yoshi"
+    },
+    {
+      "name": "Peach"
+    },
+    {
+      "name": "Shy Guy"
+    },
+    {
+      "name": "Toad"
+    },
+    {
+      "name": "Donkey Kong"
+    },
+    {
+      "name": "Diddy Kong"
+    },
+    {
+      "name": "Link"
+    },
+    {
+      "name": "Zelda"
+    },
+    {
+      "name": "Ganondorf"
+    },
+    {
+      "name": "Samus Aran"
+    },
+    {
+      "name": "Kirby"
+    },
+    {
+      "name": "Meta Knight"
+    },
+    {
+      "name": "King Dedede"
+    },
+    {
+      "name": "Fox McCloud"
+    },
+    {
+      "name": "Falco Lombardi"
+    },
+    {
+      "name": "Captain Falcon"
+    },
+    {
+      "name": "Pikachu"
+    },
+    {
+      "name": "Jigglypuff"
+    },
+    {
+      "name": "Sonic"
+    },
+    {
+      "name": "Tails"
+    },
+    {
+      "name": "Knuckles"
+    },
+    {
+      "name": "Shadow"
+    },
+    {
+      "name": "Silver"
+    },
+    {
+      "name": "Amy Lee"
+    },
+    {
+      "name": "Jett"
+    },
+    {
+      "name": "Golden Sonic"
+    },
+    {
+      "name": "Dr. Eggman"
+    },
+    {
+      "name": "Mega Man"
+    },
+    {
+      "name": "Spider-Man"
+    },
+    {
+      "name": "Iron Man"
+    },
+    {
+      "name": "Captain America"
+    },
+    {
+      "name": "Thor"
+    },
+    {
+      "name": "Hulk"
+    },
+    {
+      "name": "Black Widow"
+    },
+    {
+      "name": "Hawkeye"
+    },
+    {
+      "name": "Doctor Strange"
+    },
+    {
+      "name": "Spiderman"
+    },
+    {
+      "name": "Black Panther"
+    },
+    {
+      "name": "Scarlet Witch"
+    },
+    {
+      "name": "Vision"
+    },
+    {
+      "name": "Star Lord"
+    },
+    {
+      "name": "Rocket Raccoon"
+    },
+    {
+      "name": "Gamora"
+    },
+    {
+      "name": "Groot"
+    },
+    {
+      "name": "Robin"
+    },
+    {
+      "name": "Ant-Man"
+    },
+    {
+      "name": "Wasp"
+    },
+    {
+      "name": "Loki"
+    },
+    {
+      "name": "Deadpool"
+    },
+    {
+      "name": "Thanos"
+    },
+    {
+      "name": "Wolverine"
+    },
+    {
+      "name": "Storm"
+    },
+    {
+      "name": "Professor X"
+    },
+    {
+      "name": "Magneto"
+    },
+    {
+      "name": "Batman"
+    },
+    {
+      "name": "Superman"
+    },
+    {
+      "name": "Wonder Woman"
+    },
+    {
+      "name": "Flash"
+    },
+    {
+      "name": "Green Lantern"
+    },
+    {
+      "name": "Aquaman"
+    },
+    {
+      "name": "Cyborg"
+    },
+    {
+      "name": "Joker"
+    },
+    {
+      "name": "Harley Quinn"
+    },
+    {
+      "name": "Lex Luthor"
+    },
+    {
+      "name": "Green Arrow"
+    },
+    {
+      "name": "Shazam"
+    },
+    {
+      "name": "Nightwing"
+    },
+    {
+      "name": "Catwoman"
+    },
+    {
+      "name": "Deathstroke"
+    },
+    {
+      "name": "Black Adam"
+    },
+    {
+      "name": "Martian Manhunter"
+    },
+    {
+      "name": "Wonder Girl"
+    },
+    {
+      "name": "Cheetah"
+    },
+    {
+      "name": "SpongeBob SquarePants"
+    },
+    {
+      "name": "Patrick Star"
+    },
+    {
+      "name": "Squidward"
+    },
+    {
+      "name": "Mr. Krabs"
+    },
+    {
+      "name": "Plankton"
+    },
+    {
+      "name": "Izuku Midoriya"
+    },
+    {
+      "name": "Katsuki Bakugo"
+    },
+    {
+      "name": "Shoto Todoroki"
+    },
+    {
+      "name": "All Might"
+    },
+    {
+      "name": "Monkey D. Luffy"
+    },
+    {
+      "name": "Roronoa Zoro"
+    },
+    {
+      "name": "Ruby Rose"
+    },
+    {
+      "name": "Weiss Schnee"
+    },
+    {
+      "name": "Blake Belladonna"
+    },
+    {
+      "name": "Yang Xiao Long"
+    },
+    {
+      "name": "Homer Simpson"
+    },
+    {
+      "name": "Peter Griffin"
+    },
+    {
+      "name": "Finn the Human"
+    },
+    {
+      "name": "Jake the Dog"
+    },
+    {
+      "name": "Ice King"
+    },
+    {
+      "name": "Marceline"
+    },
+    {
+      "name": "Darth Vader"
+    },
+    {
+      "name": "Luke Skywalker"
+    },
+    {
+      "name": "Leia Organa"
+    },
+    {
+      "name": "Han Solo"
+    },
+    {
+      "name": "Chewbacca"
+    },
+    {
+      "name": "R2-D2"
+    },
+    {
+      "name": "C-3PO"
+    },
+    {
+      "name": "Yoda"
+    },
+    {
+      "name": "Obi-Wan Kenobi"
+    },
+    {
+      "name": "Kylo Ren"
+    },
+    {
+      "name": "Rey"
+    },
+    {
+      "name": "Master Chief"
+    },
+    {
+      "name": "Cortana"
+    },
+    {
+      "name": "Ridley"
+    },
+    {
+      "name": "King K. Rool"
+    },
+    {
+      "name": "Ryu"
+    },
+    {
+      "name": "Ken"
+    },
+    {
+      "name": "Daisy"
+    },
+    {
+      "name": "Villager"
+    },
+    {
+      "name": "Isabelle"
+    },
+    {
+      "name": "Young Link"
+    },
+    {
+      "name": "Toon Link"
+    },
+    {
+      "name": "Dark Samus"
+    },
+    {
+      "name": "Piranha Plant"
+    },
+    {
+      "name": "Banjo & Kazooie"
+    },
+    {
+      "name": "Steve (Minecraft)"
+    },
+    {
+      "name": "Pac-Man"
+    },
+    {
+      "name": "Jigglypuff"
+    },
+    {
+      "name": "Lucina"
+    },
+    {
+      "name": "Inkling Girl"
+    },
+    {
+      "name": "Inkling Boy"
+    },
+    {
+      "name": "Wolf O’Donnell"
+    },
+    {
+      "name": "Ice Climbers"
+    },
+    {
+      "name": "Duck Hunt"
+    },
+    {
+      "name": "Pit"
+    },
+    {
+      "name": "Dark Pit"
+    },
+    {
+      "name": "Ness"
+    },
+    {
+      "name": "The Goose"
+    },
+    {
+      "name": "Lara Croft"
+    },
+    {
+      "name": "Kratos"
+    },
+    {
+      "name": "The Mandelorian"
+    },
+    {
+      "name": "Grogu"
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Sword"
+    },
+    {
+      "name": "Bow"
+    },
+    {
+      "name": "Spear"
+    },
+    {
+      "name": "Shield"
+    },
+    {
+      "name": "Axe"
+    },
+    {
+      "name": "Hammer"
+    },
+    {
+      "name": "Dagger"
+    },
+    {
+      "name": "Slingshot"
+    },
+    {
+      "name": "Boomerang"
+    },
+    {
+      "name": "Baseball bat"
+    },
+    {
+      "name": "Frying pan"
+    },
+    {
+      "name": "Umbrella"
+    },
+    {
+      "name": "Laptop"
+    },
+    {
+      "name": "Wrench"
+    },
+    {
+      "name": "Shovel"
+    },
+    {
+      "name": "Flashlight"
+    },
+    {
+      "name": "Rope"
+    },
+    {
+      "name": "Crowbar"
+    },
+    {
+      "name": "Stick"
+    },
+    {
+      "name": "Rock"
+    },
+    {
+      "name": "Master Sword"
+    },
+    {
+      "name": "Energy Sword"
+    },
+    {
+      "name": "Plasma Rifle"
+    },
+    {
+      "name": "Gravity Hammer"
+    },
+    {
+      "name": "Keyblade"
+    },
+    {
+      "name": "Portal Gun"
+    },,
+    {
+      "name": "Fire Flower"
+    },
+    {
+      "name": "Boom Blox"
+    },
+    {
+      "name": "Hammer Bros Hammer"
+    },
+    {
+      "name": "Minecraft Diamond Sword"
+    },
+    {
+      "name": "Minecraft Trident"
+    },
+    {
+      "name": "Minecraft Bow"
+    },
+    {
+      "name": "Mario Kart Green Shell"
+    },
+    {
+      "name": "Mario Kart Banana"
+    },
+    {
+      "name": "Kirby Yo-Yo"
+    },
+    {
+      "name": "Metroid Arm Cannon"
+    },
+    {
+      "name": "Zelda Hookshot"
+    },
+    {
+      "name": "Zelda Bomb"
+    },
+    {
+      "name": "Animal Crossing Net"
+    },
+    {
+      "name": "Animal Crossing Shovel"
+    },
+    {
+      "name": "Smash Bros Beam Sword"
+    },
+    {
+      "name": "Smash Bros Home-Run Bat"
+    },
+    {
+      "name": "Chain"
+    },
+    {
+      "name": "Broom"
+    },
+    {
+      "name": "Chair"
+    },
+    {
+      "name": "Water bottle"
+    },
+    {
+      "name": "Machete"
+    },
+    {
+      "name": "Crossbow"
+    },
+    {
+      "name": "Halberd"
+    },
+    {
+      "name": "Katana"
+    },
+    {
+      "name": "Scimitar"
+    },
+    {
+      "name": "Rapier"
+    },
+    {
+      "name": "Flail"
+    },
+    {
+      "name": "Nunchaku"
+    },
+    {
+      "name": "Sai"
+    },
+    {
+      "name": "Tonfa"
+    },
+    {
+      "name": "Bo Staff"
+    },
+    {
+      "name": "Quarterstaff"
+    },
+    {
+      "name": "Trident"
+    },
+    {
+      "name": "Pike"
+    },
+    {
+      "name": "Warhammer"
+    },
+    {
+      "name": "Club"
+    },
+    {
+      "name": "Mace"
+    },
+    {
+      "name": "Tomahawk"
+    },
+    {
+      "name": "Throwing Knife"
+    },
+    {
+      "name": "Shuriken"
+    },
+    {
+      "name": "Blowgun"
+    },
+    {
+      "name": "Slingshot Gun"
+    },
+    {
+      "name": "Laser Gun"
+    },
+    {
+      "name": "Railgun"
+    },
+    {
+      "name": "Shotgun"
+    },
+    {
+      "name": "Sniper Rifle"
+    },
+    {
+      "name": "Assault Rifle"
+    },
+    {
+      "name": "SMG"
+    },
+    {
+      "name": "Grenade"
+    },
+    {
+      "name": "Molotov Cocktail"
+    },
+    {
+      "name": "Smoke Bomb"
+    },
+    {
+      "name": "Sticky Bomb"
+    },
+    {
+      "name": "Rocket Launcher"
+    },
+    {
+      "name": "Flamethrower"
+    },
+    {
+      "name": "Chainsaw"
+    },
+    {
+      "name": "Katana Gun"
+    },
+    {
+      "name": "Buster Sword"
+    },
+    {
+      "name": "Gunblade"
+    },
+    {
+      "name": "Lancer"
+    },
+    {
+      "name": "Energy Bow"
+    },
+    {
+      "name": "Gravity Gun"
+    },
+    {
+      "name": "Portal Cannon"
+    },
+    {
+      "name": "Infinity Gauntlet"
+    },
+    {
+      "name": "Mjolnir"
+    },
+    {
+      "name": "Stormbreaker"
+    },
+    {
+      "name": "Zelda's Light Bow"
+    },
+    {
+      "name": "Void Blade"
+    },
+    {
+      "name": "Dragon Fang"
+    },
+    {
+      "name": "Ice Staff"
+    },
+    {
+      "name": "Fire Staff"
+    },
+    {
+      "name": "Lightning Staff"
+    },
+    {
+      "name": "Soul Reaper"
+    },
+    {
+      "name": "Doom Sword"
+    },
+    {
+      "name": "Energy Shield"
+    },
+    {
+      "name": "Boomerang Gun"
+    },
+    {
+      "name": "Boomerang Blade"
+    },
+    {
+      "name": "Boomerang Axe"
+    },
+    {
+      "name": "Wrecking Ball"
+    },
+    {
+      "name": "Titan Gauntlet"
+    },
+    {
+      "name": "BFG 9000"
+    },
+    {
+      "name": "Railcannon"
+    },
+    {
+      "name": "Laser Cannon"
+    },
+    {
+      "name": "Death Ray"
+    },
+    {
+      "name": "Freeze Ray"
+    },
+    {
+      "name": "Shrink Ray"
+    },
+    {
+      "name": "Magnet Gun"
+    },
+    {
+      "name": "Whip"
+    },
+    {
+      "name": "Chain Whip"
+    },
+    {
+      "name": "Lasso"
+    },
+    {
+      "name": "Garrote Wire"
+    },
+    {
+      "name": "Taser"
+    },
+    {
+      "name": "Pepper Spray"
+    },
+    {
+      "name": "Baseball Glove"
+    },
+    {
+      "name": "Rolling Pin"
+    },
+    {
+      "name": "Screwdriver"
+    },
+    {
+      "name": "Pencil"
+    },
+    {
+      "name": "Pen"
+    },
+    {
+      "name": "Stapler"
+    },
+    {
+      "name": "Chair Leg"
+    },
+    {
+      "name": "Table"
+    },
+    {
+      "name": "Book"
+    },
+    {
+      "name": "Lantern"
+    },
+    {
+      "name": "Chains"
+    },
+    {
+      "name": "Pipe"
+    },
+    {
+      "name": "Cane"
+    },
+    {
+      "name": "Crutch"
+    },
+    {
+      "name": "Fire Extinguisher"
+    },
+    {
+      "name": "Golf Club"
+    },
+    {
+      "name": "Pool Cue"
+    },
+    {
+      "name": "Snow Globe"
+    },
+    {
+      "name": "Egg"
+    },
+    {
+      "name": "Candle Stick"
+    },
+    {
+      "name": "Torch"
+    },
+    {
+      "name": "Car Door"
+    },
+    {
+      "name": "Rubber Chicken"
+    },
+    {
+      "name": "Banana Peel"
+    },
+    {
+      "name": "Toilet Plunger"
+    },
+    {
+      "name": "Toaster"
+    },
+    {
+      "name": "Hair Dryer"
+    },
+    {
+      "name": "Sock"
+    },
+    {
+      "name": "Pillow"
+    },
+    {
+      "name": "Spoon"
+    },
+    {
+      "name": "Shoe"
+    },
+    {
+      "name": "Meatball"
+    },
+    {
+      "name": "Spaghetti Strand"
+    },
+    {
+      "name": "Rubber Duck"
+    },
+    {
+      "name": "Cheese Wheel"
+    },
+    {
+      "name": "Cabbage"
+    },
+    {
+      "name": "Frozen Fish"
+    },
+    {
+      "name": "Water Balloon"
+    },
+    {
+      "name": "Roll of Toilet Paper"
+    },
+    {
+      "name": "Book of Jokes"
+    },
+    {
+      "name": "Giant Lollipop"
+    },
+    {
+      "name": "Cupcake"
+    },
+    {
+      "name": "Marshmallow"
+    },
+    {
+      "name": "Feather Duster"
+    },
+    {
+      "name": "Cactus"
+    },
+    {
+      "name": "Inflatable Tube Man"
+    },
+    {
+      "name": "Pool Noodle"
+    },
+    {
+      "name": "Remote Control"
+    },
+    {
+      "name": "Potted Plant"
+    },
+    {
+      "name": "Bag of Flour"
+    },
+    {
+      "name": "Hot Sauce Bottle"
+    },
+    {
+      "name": "Christmas Tree"
+    },
+    {
+      "name": "Garden Gnome"
+    },
+    {
+      "name": "Pie"
+    },
+    {
+      "name": "Candle"
+    },
+    {
+      "name": "Broken Pencil"
+    },
+    {
+      "name": "Glue Stick"
+    },
+    {
+      "name": "Broomstick"
+    },
+    {
+      "name": "Plush Toy"
+    },
+    {
+      "name": "Socks with Sand"
+    },
+    {
+      "name": "Bubble Wrap"
+    },
+    {
+      "name": "Socks"
+    },
+    {
+      "name": "Ham Sandwich"
+    },
+    {
+      "name": "Popsicle"
+    },
+    {
+      "name": "Teddy Bear"
+    },
+    {
+      "name": "Rolling Pin (Floury)"
+    },
+    {
+      "name": "Hairbrush"
+    },
+    {
+      "name": "Toy Lightsaber"
+    },
+    {
+      "name": "Milk Carton"
+    },
+    {
+      "name": "Rubber Band Ball"
+    },
+    {
+      "name": "Giant Balloon"
+    }
+  ],
+  "twists": [
+    {
+      "name": "You can’t move faster than a snail"
+    },
+    {
+      "name": "You heal every time you laugh"
+    },
+    {
+      "name": "You drop your weapon randomly"
+    },
+    {
+      "name": "Your weapon is slippery"
+    },
+    {
+      "name": "You are afraid of heights"
+    },
+    {
+      "name": "You run in slow motion"
+    },
+    {
+      "name": "You can’t see for 10 seconds every minute"
+    },
+    {
+      "name": "You are covered in sticky goo"
+    },
+    {
+      "name": "Your weapon is glued to your hand"
+    },
+    {
+      "name": "You must hop everywhere"
+    },
+    {
+      "name": "Your strength depends on how loud you shout"
+    },
+    {
+      "name": "You explode when hit lightly"
+    },
+    {
+      "name": "You are afraid of fire"
+    },
+    {
+      "name": "All opponents grow stronger with every hit"
+    },
+    {
+      "name": "You swap places with an enemy randomly"
+    },
+    {
+      "name": "Your attacks turn to harmless bubbles"
+    },
+    {
+      "name": "You can’t use magic"
+    },
+    {
+      "name": "You are stuck in armor that weighs a ton"
+    },
+    {
+      "name": "Your attacks turn produce tona of confetti"
+    },
+    {
+      "name": "You can only fly at night"
+    },
+    {
+      "name": "All opponents has an unlimited weapon supply"
+    },
+    {
+      "name": "You are blinded by sunlight"
+    },
+    {
+      "name": "Your weapon is too heavy to lift"
+    },
+    {
+      "name": "You fight underwater"
+    },
+    {
+      "name": "You move twice as fast but deal half damage"
+    },
+    {
+      "name": "Your attacks always land on the wrong person"
+    },
+    {
+      "name": "You randomly teleport during battle"
+    },
+    {
+      "name": "You are immune to fire"
+    },
+    {
+      "name": "Your opponents regenerate health slowly"
+    },
+    {
+      "name": "You are stuck on ice"
+    },
+    {
+      "name": "Your attacks cause you pain as well"
+    },
+    {
+      "name": "You can’t hear your enemy"
+    },
+    {
+      "name": "Your weapon causes an explosion every hit"
+    },
+    {
+      "name": "You slip on everything"
+    },
+    {
+      "name": "Your opponents can dodge perfectly up until the final hit"
+    },
+    {
+      "name": "You are slowed by gravity"
+    },
+    {
+      "name": "Your attacks are reversed"
+    },
+    {
+      "name": "You fight in zero gravity"
+    },
+    {
+      "name": "Your attacks are doubled in power"
+    },
+    {
+      "name": "You can’t touch the ground"
+    },
+    {
+      "name": "Your opponents know your every move but are blind"
+    },
+    {
+      "name": "You can’t talk"
+    },
+    {
+      "name": "Your weapon keeps breaking"
+    },
+    {
+      "name": "You must fight blindfolded"
+    },
+    {
+      "name": "Your attacks summon random animals at their contact point"
+    },
+    {
+      "name": "You lose stamina quickly"
+    },
+    {
+      "name": "You must fight using only your feet"
+    },
+    {
+      "name": "Your weapon changes shape randomly"
+    },
+    {
+      "name": "You are allergic to your own blood (when it comes out)"
+    },
+    {
+      "name": "Your attacks make you sleepy"
+    },
+    {
+      "name": "You can’t run"
+    },
+    {
+      "name": "Your opponent can read your mind"
+    },
+    {
+      "name": "Your attacks bounce back at you"
+    },
+    {
+      "name": "You slip on every attack"
+    },
+    {
+      "name": "Your armor is full of holes"
+    },
+    {
+      "name": "You fight in complete darkness"
+    },
+    {
+      "name": "You can’t block attacks"
+    },
+    {
+      "name": "Your attacks produce harmless sparkles"
+    },
+    {
+      "name": "You move half as fast and the player to your right"
+    },
+    {
+      "name": "Your attacks always knock you down"
+    },
+    {
+      "name": "You must fight while singing"
+    },
+    {
+      "name": "Your attacks become weaker each round"
+    },
+    {
+      "name": "Your weapon vanishes randomly"
+    },
+    {
+      "name": "You are afraid of your opponents"
+    },
+    {
+      "name": "Your attacks turn into harmless animals"
+    },
+    {
+      "name": "You lose balance easily"
+    },
+    {
+      "name": "Your attacks always miss by inches"
+    },
+    {
+      "name": "Your opponents are invisible for 10 seconds every minute"
+    },
+    {
+      "name": "You can’t dodge"
+    },
+    {
+      "name": "Your attacks hit a random person instead"
+    },
+    {
+      "name": "You randomly switch weapons with the player to your right"
+    },
+    {
+      "name": "You fight with one hand tied"
+    },
+    {
+      "name": "Your attacks freeze you for a second"
+    },
+    {
+      "name": "You are stuck in a small box"
+    },
+    {
+      "name": "Your attacks summon random objects"
+    },
+    {
+      "name": "You can’t swing your weapon twice without singing your ABCs"
+    },
+    {
+      "name": "Your opponents are always one step ahead"
+    },
+    {
+      "name": "Your attacks multiply exponentionally randomly"
+    },
+    {
+      "name": "Your armor weighs twice as much as the player with the heaviest armor"
+    },
+    {
+      "name": "You must fight on stilts"
+    },
+    {
+      "name": "Your attacks are slowed by a half second"
+    },
+    {
+      "name": "Your opponents can teleport"
+    },
+    {
+      "name": "Your attacks cause random explosions"
+    },
+    {
+      "name": "You fight with no gravity"
+    },
+    {
+      "name": "Your stamina drops quickly"
+    },
+    {
+      "name": "You are always dizzy"
+    },
+    {
+      "name": "Your attacks backfire dramatically"
+    },
+    {
+      "name": "You must hop instead of walking"
+    },
+    {
+      "name": "Your attacks attract enemies"
+    },
+    {
+      "name": "You can’t see your weapon"
+    },
+    {
+      "name": "Your opponents regenerate instantly if you get hit"
+    },
+    {
+      "name": "You are stuck in slow motion"
+    },
+    {
+      "name": "Your attacks always ricochet"
+    },
+    {
+      "name": "You must fight underwater"
+    },
+    {
+      "name": "Your attacks make loud noises revealing your position"
+    },
+    {
+      "name": "Your opponent can steal your attacks"
+    },
+    {
+      "name": "You can’t use magic"
+    },
+    {
+      "name": "Your attacks turn solid things into harmless slime"
+    },
+    {
+      "name": "Your opponent grows stronger every hit"
+    },
+    {
+      "name": "You fight on ice"
+    },
+    {
+      "name": "Your attacks are reversed"
+    },
+    {
+      "name": "You can’t speak"
+    },
+    {
+      "name": "Your attacks slow you down"
+    },
+    {
+      "name": "You are always hungry"
+    },
+    {
+      "name": "Your attacks confuse you"
+    },
+    {
+      "name": "Your opponent always anticipates you"
+    },
+    {
+      "name": "You are constantly slipping"
+    },
+    {
+      "name": "Your attacks explode unpredictably"
+    },
+    {
+      "name": "You must fight blindfolded"
+    },
+    {
+      "name": "Your attacks summon random animals"
+    },
+    {
+      "name": "You can’t touch the ground"
+    },
+    {
+      "name": "Your attacks drain your health"
+    },
+    {
+      "name": "Your opponent can steal your weapon"
+    },
+    {
+      "name": "You fight in lava"
+    },
+    {
+      "name": "Your attacks cause you pain"
+    },
+    {
+      "name": "You are temporarily paralyzed every other turn"
+    },
+    {
+      "name": "Your attacks make loud fart sounds"
+    },
+    {
+      "name": "You can’t hear your enemy"
+    },
+    {
+      "name": "Your attacks turn you invisible for 5 seconds"
+    },
+    {
+      "name": "Your armor attracts attacks"
+    },
+    {
+      "name": "Your attacks randomly vanish"
+    },
+    {
+      "name": "You fight in zero gravity"
+    },
+    {
+      "name": "Your attacks hit yourself"
+    },
+    {
+      "name": "Your opponent can teleport randomly"
+    },
+    {
+      "name": "You are slowed by gravity"
+    },
+    {
+      "name": "Your attacks freeze time briefly"
+    },
+    {
+      "name": "You randomly switch sides"
+    },
+    {
+      "name": "Your attacks are weak"
+    },
+    {
+      "name": "Your attacks multiply too much"
+    },
+    {
+      "name": "You are stuck in armor"
+    },
+    {
+      "name": "Your opponents always dodge"
+    },
+    {
+      "name": "Your attacks make things sticky"
+    },
+    {
+      "name": "You fight in the dark"
+    },
+    {
+      "name": "Your attacks push you backwards"
+    },
+    {
+      "name": "Your stamina regenerates slowly"
+    },
+    {
+      "name": "Your attacks break randomly"
+    },
+    {
+      "name": "You can’t run faster than walking"
+    },
+    {
+      "name": "Your attacks confuse allies"
+    },
+    {
+      "name": "You fight while balancing on a ball"
+    },
+    {
+      "name": "Your attacks become harmless feathers"
+    },
+    {
+      "name": "You are constantly dizzy"
+    },
+    {
+      "name": "Your attacks become tiny"
+    },
+    {
+      "name": "Your attacks echo loudly"
+    }
+  ],
+  "locations": [
+    {
+      "name": "New York City",
+      "desc": "Dirty rats and stinky alleyways"
+    },
+    {
+      "name": "Tokyo",
+      "desc": "A neon-lit city blending tradition and futuristic tech"
+    },
+    {
+      "name": "Paris",
+      "desc": "The romantic city of lights... and pidgeons"
+    },
+    {
+      "name": "London",
+      "desc": "Historic streets and modern attractions along the excessively horrendous river Thames"
+    },
+    {
+      "name": "Sydney",
+      "desc": "Coastal city famous for its opera house and beaches"
+    },
+    {
+      "name": "Cairo",
+      "desc": "Ancient city near the pyramids and the Nile River"
+    },
+    {
+      "name": "Moscow",
+      "desc": "A city of grand architecture and cold winters"
+    },
+    {
+      "name": "Rio de Janeiro",
+      "desc": "Vibrant beaches, carnival celebrations, and mountain views"
+    },
+    {
+      "name": "San Francisco",
+      "desc": "Hilly city with the Golden Gate Bridge and foggy weather"
+    },
+    {
+      "name": "Rome",
+      "desc": "Ancient ruins and delicious Italian cuisine everywhere"
+    },
+    {
+      "name": "Berlin",
+      "desc": "A city rich in history, art, and nightlife"
+    },
+    {
+      "name": "Venice",
+      "desc": "Canals, gondolas, and romantic bridges"
+    },
+    {
+      "name": "Dubai",
+      "desc": "Luxury skyscrapers, desert adventures, and futuristic cities"
+    },
+    {
+      "name": "Barcelona",
+      "desc": "Beautiful architecture and lively Mediterranean beaches"
+    },
+    {
+      "name": "Mount Everest",
+      "desc": "The tallest mountain in the world, challenging all climbers"
+    },
+    {
+      "name": "Sahara Desert",
+      "desc": "Vast, hot, and sandy expanse with shifting dunes"
+    },
+    {
+      "name": "Grand Canyon",
+      "desc": "A massive canyon with breathtaking views and cliffs"
+    },
+    {
+      "name": "Niagara Falls",
+      "desc": "Huge waterfalls straddling two countries, thundering water"
+    },
+    {
+      "name": "Amazon Rainforest",
+      "desc": "Dense jungle filled with wildlife and mystery"
+    },
+    {
+      "name": "Great Wall of China",
+      "desc": "A massive wall stretching across mountains and valleys"
+    },
+    {
+      "name": "Machu Picchu",
+      "desc": "Ancient Incan city perched high in the mountains"
+    },
+    {
+      "name": "Disneyland",
+      "desc": "Magical theme park full of rides and characters"
+    },
+    {
+      "name": "Gotham City",
+      "desc": "Crime-ridden city with a masked vigilante"
+    },
+    {
+      "name": "Metropolis",
+      "desc": "Bright, modern city full of superheroes"
+    },
+    {
+      "name": "Narnia",
+      "desc": "Magical land hidden behind a wardrobe"
+    },
+    {
+      "name": "Middle Earth",
+      "desc": "Fantasy world filled with elves, dwarves, and hobbits"
+    },
+    {
+      "name": "Wakanda",
+      "desc": "Advanced African nation with Vibranium technology"
+    },
+    {
+      "name": "Pandora (Avatar)",
+      "desc": "Lush alien planet with floating mountains"
+    },
+    {
+      "name": "Hyrule",
+      "desc": "Fantasy kingdom with castles and heroic quests"
+    },
+    {
+      "name": "Mushroom Kingdom",
+      "desc": "Colorful land full of pipes, castles, and power-ups"
+    },
+    {
+      "name": "Raccoon City",
+      "desc": "Zombie-infested urban nightmare"
+    },
+    {
+      "name": "Silent Hill",
+      "desc": "Foggy town with mysterious and terrifying occurrences"
+    },
+    {
+      "name": "Zootopia",
+      "desc": "Modern city inhabited entirely by anthropomorphic animals"
+    },
+    {
+      "name": "Atlantis",
+      "desc": "Legendary sunken city beneath the ocean"
+    },
+    {
+      "name": "Asgard",
+      "desc": "Majestic realm of the Norse gods"
+    },
+    {
+      "name": "Jurassic Park",
+      "desc": "Island full of cloned dinosaurs and danger"
+    },
+    {
+      "name": "The Shire",
+      "desc": "Peaceful countryside inhabited by hobbits"
+    },
+    {
+      "name": "Tatooine",
+      "desc": "Desert planet with twin suns and sand dunes"
+    },
+    {
+      "name": "Dagobah",
+      "desc": "Swampy planet where wise masters hide"
+    },
+    {
+      "name": "Endor",
+      "desc": "Forest moon home to small, furry inhabitants"
+    },
+    {
+      "name": "Bikini Bottom",
+      "desc": "Underwater city full of quirky sea creatures"
+    },
+    {
+      "name": "Camp Crystal Lake",
+      "desc": "Creepy summer camp with a dark past"
+    },
+    {
+      "name": "Springfield",
+      "desc": "Cartoon city full of chaotic adventures"
+    },
+    {
+      "name": "Bikini Atoll",
+      "desc": "Tropical islands with historical significance"
+    },
+    {
+      "name": "Candy Land",
+      "desc": "Sweet, colorful kingdom made of treats"
+    },
+    {
+      "name": "Cloud City",
+      "desc": "Floating city high above the clouds"
+    },
+    {
+      "name": "Emerald City",
+      "desc": "Shiny magical city in the Land of Oz"
+    },
+    {
+      "name": "Wonderland",
+      "desc": "Bizarre land of talking creatures and strange logic"
+    },
+    {
+      "name": "Chocolate Factory",
+      "desc": "Factory filled with endless chocolate wonders"
+    },
+    {
+      "name": "Treehouse Village",
+      "desc": "Homes built high in the trees"
+    },
+    {
+      "name": "Floating Islands",
+      "desc": "Levitate high above the ground mysteriously"
+    },
+    {
+      "name": "Giant Mushroom Forest",
+      "desc": "Forest of enormous fungi and weird creatures"
+    },
+    {
+      "name": "Troll Bridge",
+      "desc": "Bridge guarded by tricky trolls"
+    },
+    {
+      "name": "Moon Base",
+      "desc": "Colony built on the lunar surface"
+    },
+    {
+      "name": "Sunken Ship",
+      "desc": "Shipwreck filled with treasure and dangers"
+    },
+    {
+      "name": "Goblin Market",
+      "desc": "Chaotic market run by mischievous goblins"
+    },
+    {
+      "name": "Giant Library",
+      "desc": "Endless shelves of ancient tomes"
+    },
+    {
+      "name": "Shifting Sand Dunes",
+      "desc": "The ground moves under your feet"
+    },
+    {
+      "name": "Floating Sky Platform",
+      "desc": "Falling off means instant defeat"
+    },
+    {
+      "name": "Mirror Maze",
+      "desc": "Reflections confuse and disorient"
+    },
+    {
+      "name": "Rooftop Alley",
+      "desc": "Narrow walkways make dodging harder"
+    },
+    {
+      "name": "Collapsing Bridge",
+      "desc": "Portions fall without warning"
+    },
+    {
+      "name": "Dense Jungle",
+      "desc": "Limited visibility and lots of obstacles"
+    },
+    {
+      "name": "Magnetized Battlefield",
+      "desc": "Metal weapons are pulled unpredictably"
+    },
+    {
+      "name": "Flooded Street",
+      "desc": "Water slows movement and attacks"
+    },
+    {
+      "name": "Frozen Lake",
+      "desc": "Thin ice may crack under pressure"
+    },
+    {
+      "name": "Exploding Minefield",
+      "desc": "Random explosions threaten all combatants"
+    },
+    {
+      "name": "Sticky Swamp",
+      "desc": "Every step is slowed by sticky muck"
+    },
+    {
+      "name": "Rolling Boulder Canyon",
+      "desc": "Boulders constantly roll through the battlefield"
+    },
+    {
+      "name": "Rotating Platform Arena",
+      "desc": "The floor spins continuously"
+    },
+    {
+      "name": "Gravity-Shift Room",
+      "desc": "Gravity changes direction at random intervals"
+    },
+    {
+      "name": "Poison Gas Cavern",
+      "desc": "Breathing is hazardous without protection"
+    },
+    {
+      "name": "Haunted Castle",
+      "desc": "Traps activate unpredictably"
+    },
+    {
+      "name": "Windy Cliffside",
+      "desc": "Strong gusts push fighters off balance"
+    },
+    {
+      "name": "Collapsing Tower",
+      "desc": "Floors crumble as battle continues"
+    },
+    {
+      "name": "Tornado Plains",
+      "desc": "Twisters appear randomly across the field"
+    },
+    {
+      "name": "Mudslide Valley",
+      "desc": "The ground slides downhill constantly"
+    },
+    {
+      "name": "Spider Web Forest",
+      "desc": "Movement is slowed by sticky webs"
+    },
+    {
+      "name": "Crumbling Ruins",
+      "desc": "Debris falls randomly from above"
+    },
+    {
+      "name": "Quaking Canyon",
+      "desc": "The ground shakes violently at intervals"
+    },
+    {
+      "name": "Lava River Crossing",
+      "desc": "A molten river blocks the path"
+    },
+    {
+      "name": "Shocking Electropod Room",
+      "desc": "Contact with machines causes sparks"
+    },
+    {
+      "name": "Boulder-Strewn Hills",
+      "desc": "Rocks tumble unexpectedly"
+    },
+    {
+      "name": "Foggy Marsh",
+      "desc": "Visibility is near zero"
+    },
+    {
+      "name": "Blizzard Peaks",
+      "desc": "Snowstorms slow and blind fighters"
+    },
+    {
+      "name": "Sticky Honey Pit",
+      "desc": "Movement is sluggish and traps weapons"
+    },
+    {
+      "name": "Trap-Filled Dungeon",
+      "desc": "Pressure plates trigger hazards"
+    },
+    {
+      "name": "Cavern of Falling Rocks",
+      "desc": "Rocks drop from the ceiling unpredictably"
+    },
+    {
+      "name": "Lightning Plains",
+      "desc": "Lightning strikes random locations"
+    },
+    {
+      "name": "Swinging Pendulum Hall",
+      "desc": "Huge pendulums swing across the path"
+    },
+    {
+      "name": "Sinking Sand Pit",
+      "desc": "Slowly engulfs combatants standing still"
+    },
+    {
+      "name": "Magical Vortex",
+      "desc": "Random teleportation occurs across the arena"
+    },
+    {
+      "name": "Poison Ivy Grove",
+      "desc": "Touching plants causes temporary weakness"
+    },
+    {
+      "name": "Collapsing Ice Bridge",
+      "desc": "Cracks appear as fighters move"
+    },
+    {
+      "name": "Spinning Gear Room",
+      "desc": "Giant gears rotate and crush anything caught"
+    },
+    {
+      "name": "Volcanic Crater",
+      "desc": "Heat and smoke make vision and movement tricky"
+    },
+    {
+      "name": "Cursed Arena",
+      "desc": "Random magical effects interfere with combat"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "During a kitten stampede"
+    },
+    {
+      "name": "During the apocalypse"
+    },
+    {
+      "name": "During a zombie invasion"
+    },
+    {
+      "name": "In a giant sandwich"
+    },
+    {
+      "name": "During a thunderstorm"
+    },
+    {
+      "name": "On a moving train"
+    },
+    {
+      "name": "While skydiving"
+    },
+    {
+      "name": "During a mudslide"
+    },
+    {
+      "name": "During a flood"
+    },
+    {
+      "name": "While being chased by ducks"
+    },
+    {
+      "name": "On a tightrope"
+    },
+    {
+      "name": "During a food fight"
+    },
+    {
+      "name": "During a traffic jam"
+    },
+    {
+      "name": "On a bouncy castle"
+    },
+    {
+      "name": "During a snowstorm"
+    },
+    {
+      "name": "On a giant pizza"
+    },
+    {
+      "name": "During a catfight"
+    },
+    {
+      "name": "While floating in zero gravity"
+    },
+    {
+      "name": "During a fireworks show"
+    },
+    {
+      "name": "While chased by bees"
+    },
+    {
+      "name": "During a tornado"
+    },
+    {
+      "name": "While being teleported randomly"
+    },
+    {
+      "name": "During an earthquake"
+    },
+    {
+      "name": "While stuck in a maze"
+    },
+    {
+      "name": "During a supermarket rush"
+    },
+    {
+      "name": "While hanging from a chandelier"
+    },
+    {
+      "name": "During a disco party"
+    },
+    {
+      "name": "While being shrunk"
+    },
+    {
+      "name": "During a magic potion spill"
+    },
+    {
+      "name": "While riding a roller-skate snake"
+    },
+    {
+      "name": "During a giant balloon festival"
+    },
+    {
+      "name": "While standing on a moving log"
+    },
+    {
+      "name": "During a fire drill"
+    },
+    {
+      "name": "While surrounded by flying pancakes"
+    },
+    {
+      "name": "While dressed as a giant hamster"
+    },
+    {
+      "name": "During a tornado of feathers"
+    },
+    {
+      "name": "During a jellybean rain"
+    },
+    {
+      "name": "During a sudden earthquake"
+    },
+    {
+      "name": "While fighting on a collapsing bridge"
+    },
+    {
+      "name": "During a lightning storm"
+    },
+    {
+      "name": "While trapped on a sinking ship"
+    },
+    {
+      "name": "During a volcanic eruption"
+    },
+    {
+      "name": "While battling on thin ice"
+    },
+    {
+      "name": "During a flood"
+    },
+    {
+      "name": "While fighting on a rotating platform"
+    },
+    {
+      "name": "During a sandstorm"
+    },
+    {
+      "name": "While standing in quicksand"
+    },
+    {
+      "name": "During a blizzard"
+    },
+    {
+      "name": "While on a moving train"
+    },
+    {
+      "name": "During a tornado"
+    },
+    {
+      "name": "While on a collapsing tower"
+    },
+    {
+      "name": "During a cave-in"
+    },
+    {
+      "name": "While standing on a cliff edge"
+    },
+    {
+      "name": "During a stampede of wild animals"
+    },
+    {
+      "name": "While on a shaking rope bridge"
+    },
+    {
+      "name": "During a raging wildfire"
+    },
+    {
+      "name": "While in zero gravity"
+    },
+    {
+      "name": "During an avalanche"
+    },
+    {
+      "name": "While on a boulder-filled slope"
+    },
+    {
+      "name": "During a lava flow"
+    },
+    {
+      "name": "While on slippery ice"
+    },
+    {
+      "name": "During a meteor shower"
+    },
+    {
+      "name": "While in a collapsing mine"
+    },
+    {
+      "name": "During a toxic gas leak"
+    },
+    {
+      "name": "While on a tilted platform"
+    },
+    {
+      "name": "During a volcanic eruption"
+    },
+    {
+      "name": "While on floating debris"
+    },
+    {
+      "name": "During a massive flood"
+    },
+    {
+      "name": "While in a collapsing castle"
+    },
+    {
+      "name": "During a landslide"
+    },
+    {
+      "name": "While on a swinging chandelier"
+    },
+    {
+      "name": "During a hailstorm"
+    },
+    {
+      "name": "While on crumbling stairs"
+    },
+    {
+      "name": "During a tornado of debris"
+    },
+    {
+      "name": "While on a narrow ledge"
+    },
+    {
+      "name": "During a sinkhole collapse"
+    },
+    {
+      "name": "While in a shaking canyon"
+    },
+    {
+      "name": "During a sand avalanche"
+    },
+    {
+      "name": "While on a rolling log bridge"
+    },
+    {
+      "name": "During a forest fire"
+    },
+    {
+      "name": "While on a rickety pier"
+    },
+    {
+      "name": "During a tsunami"
+    },
+    {
+      "name": "While on a crumbling wall"
+    },
+    {
+      "name": "During a meteor impact"
+    },
+    {
+      "name": "While on a broken roof"
+    },
+    {
+      "name": "During a magical explosion"
+    },
+    {
+      "name": "While on unstable scaffolding"
+    }
+  ]
+}

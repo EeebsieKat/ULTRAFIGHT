@@ -1,0 +1,2498 @@
+{
+  "characters": [
+    {
+      "name": "Mario"
+    },
+    {
+      "name": "Luigi"
+    },
+    {
+      "name": "Princess Peach"
+    },
+    {
+      "name": "Bowser"
+    },
+    {
+      "name": "Link"
+    },
+    {
+      "name": "Zelda"
+    },
+    {
+      "name": "Ganondorf"
+    },
+    {
+      "name": "Samus Aran"
+    },
+    {
+      "name": "Kirby"
+    },
+    {
+      "name": "Donkey Kong"
+    },
+    {
+      "name": "Fox McCloud"
+    },
+    {
+      "name": "Pikachu"
+    },
+    {
+      "name": "Charizard"
+    },
+    {
+      "name": "Ash Ketchum"
+    },
+    {
+      "name": "Red (Pokemon Trainer)"
+    },
+    {
+      "name": "Sonic the Hedgehog"
+    },
+    {
+      "name": "Tails"
+    },
+    {
+      "name": "Knuckles"
+    },
+    {
+      "name": "Dr. Eggman"
+    },
+    {
+      "name": "Shadow the Hedgehog"
+    },
+    {
+      "name": "Master Chief"
+    },
+    {
+      "name": "Cortana"
+    },
+    {
+      "name": "Lara Croft"
+    },
+    {
+      "name": "Nathan Drake"
+    },
+    {
+      "name": "Kratos"
+    },
+    {
+      "name": "Atreus"
+    },
+    {
+      "name": "Joel (The Last of Us)"
+    },
+    {
+      "name": "Ellie (The Last of Us)"
+    },
+    {
+      "name": "Geralt of Rivia"
+    },
+    {
+      "name": "Ciri"
+    },
+    {
+      "name": "Yennefer"
+    },
+    {
+      "name": "Triss Merigold"
+    },
+    {
+      "name": "Solid Snake"
+    },
+    {
+      "name": "Big Boss"
+    },
+    {
+      "name": "Raiden"
+    },
+    {
+      "name": "Cloud Strife"
+    },
+    {
+      "name": "Tifa Lockhart"
+    },
+    {
+      "name": "Sephiroth"
+    },
+    {
+      "name": "Barret Wallace"
+    },
+    {
+      "name": "Aerith Gainsborough"
+    },
+    {
+      "name": "Squall Leonhart"
+    },
+    {
+      "name": "Sora (Kingdom Hearts)"
+    },
+    {
+      "name": "Riku (Kingdom Hearts)"
+    },
+    {
+      "name": "Roxas"
+    },
+    {
+      "name": "Kairi"
+    },
+    {
+      "name": "Leon S. Kennedy"
+    },
+    {
+      "name": "Jill Valentine"
+    },
+    {
+      "name": "Chris Redfield"
+    },
+    {
+      "name": "Albert Wesker"
+    },
+    {
+      "name": "Ezio Auditore"
+    },
+    {
+      "name": "Altair Ibn-La'Ahad"
+    },
+    {
+      "name": "Eivor (Assassin's Creed)"
+    },
+    {
+      "name": "Arthur Morgan"
+    },
+    {
+      "name": "John Marston"
+    },
+    {
+      "name": "Dutch van der Linde"
+    },
+    {
+      "name": "Trevor Philips"
+    },
+    {
+      "name": "Michael De Santa"
+    },
+    {
+      "name": "Franklin Clinton"
+    },
+    {
+      "name": "CJ (GTA: San Andreas)"
+    },
+    {
+      "name": "Tommy Vercetti"
+    },
+    {
+      "name": "Niko Bellic"
+    },
+    {
+      "name": "Scorpion (Mortal Kombat)"
+    },
+    {
+      "name": "Sub-Zero"
+    },
+    {
+      "name": "Liu Kang"
+    },
+    {
+      "name": "Raiden (Mortal Kombat)"
+    },
+    {
+      "name": "Kitana"
+    },
+    {
+      "name": "Johnny Cage"
+    },
+    {
+      "name": "Sonya Blade"
+    },
+    {
+      "name": "Ryu (Street Fighter)"
+    },
+    {
+      "name": "Ken Masters"
+    },
+    {
+      "name": "Chun-Li"
+    },
+    {
+      "name": "Guile"
+    },
+    {
+      "name": "Blanka"
+    },
+    {
+      "name": "Cammy"
+    },
+    {
+      "name": "Mega Man"
+    },
+    {
+      "name": "Dr. Wily"
+    },
+    {
+      "name": "Pac-Man"
+    },
+    {
+      "name": "Don Draper"
+    },
+    {
+      "name": "Walter White"
+    },
+    {
+      "name": "Jesse Pinkman"
+    },
+    {
+      "name": "Saul Goodman"
+    },
+    {
+      "name": "Gus Fring"
+    },
+    {
+      "name": "Tony Soprano"
+    },
+    {
+      "name": "Carmela Soprano"
+    },
+    {
+      "name": "Arya Stark"
+    },
+    {
+      "name": "Jon Snow"
+    },
+    {
+      "name": "Daenerys Targaryen"
+    },
+    {
+      "name": "Tyrion Lannister"
+    },
+    {
+      "name": "Cersei Lannister"
+    },
+    {
+      "name": "Ned Stark"
+    },
+    {
+      "name": "Bran Stark"
+    },
+    {
+      "name": "The Mandalorian"
+    },
+    {
+      "name": "Grogu (Baby Yoda)"
+    },
+    {
+      "name": "Luke Skywalker"
+    },
+    {
+      "name": "Leia Organa"
+    },
+    {
+      "name": "Han Solo"
+    },
+    {
+      "name": "Darth Vader"
+    },
+    {
+      "name": "Obi-Wan Kenobi"
+    },
+    {
+      "name": "Anakin Skywalker"
+    },
+    {
+      "name": "Padmé Amidala"
+    },
+    {
+      "name": "Ahsoka Tano"
+    },
+    {
+      "name": "Rey"
+    },
+    {
+      "name": "Finn"
+    },
+    {
+      "name": "Kylo Ren"
+    },
+    {
+      "name": "Chewbacca"
+    },
+    {
+      "name": "R2-D2"
+    },
+    {
+      "name": "C-3PO"
+    },
+    {
+      "name": "Iron Man"
+    },
+    {
+      "name": "Captain America"
+    },
+    {
+      "name": "Thor"
+    },
+    {
+      "name": "Hulk"
+    },
+    {
+      "name": "Black Widow"
+    },
+    {
+      "name": "Hawkeye"
+    },
+    {
+      "name": "Spider-Man"
+    },
+    {
+      "name": "Doctor Strange"
+    },
+    {
+      "name": "Black Panther"
+    },
+    {
+      "name": "Scarlet Witch"
+    },
+    {
+      "name": "Vision"
+    },
+    {
+      "name": "Thanos"
+    },
+    {
+      "name": "Loki"
+    },
+    {
+      "name": "Ant-Man"
+    },
+    {
+      "name": "Star-Lord"
+    },
+    {
+      "name": "Gamora"
+    },
+    {
+      "name": "Rocket Raccoon"
+    },
+    {
+      "name": "Groot"
+    },
+    {
+      "name": "Deadpool"
+    },
+    {
+      "name": "Wolverine"
+    },
+    {
+      "name": "Professor X"
+    },
+    {
+      "name": "Magneto"
+    },
+    {
+      "name": "Storm"
+    },
+    {
+      "name": "Jean Grey"
+    },
+    {
+      "name": "Batman"
+    },
+    {
+      "name": "Robin"
+    },
+    {
+      "name": "Joker"
+    },
+    {
+      "name": "Harley Quinn"
+    },
+    {
+      "name": "Catwoman"
+    },
+    {
+      "name": "Penguin"
+    },
+    {
+      "name": "Riddler"
+    },
+    {
+      "name": "Two-Face"
+    },
+    {
+      "name": "Bane"
+    },
+    {
+      "name": "Superman"
+    },
+    {
+      "name": "Lex Luthor"
+    },
+    {
+      "name": "Wonder Woman"
+    },
+    {
+      "name": "Flash"
+    },
+    {
+      "name": "Green Lantern"
+    },
+    {
+      "name": "Aquaman"
+    },
+    {
+      "name": "Shazam"
+    },
+    {
+      "name": "Rick Sanchez"
+    },
+    {
+      "name": "Morty Smith"
+    },
+    {
+      "name": "BoJack Horseman"
+    },
+    {
+      "name": "Princess Carolyn"
+    },
+    {
+      "name": "Mr. Peanutbutter"
+    },
+    {
+      "name": "Finn the Human"
+    },
+    {
+      "name": "Jake the Dog"
+    },
+    {
+      "name": "Ice King"
+    },
+    {
+      "name": "Marceline"
+    },
+    {
+      "name": "Steven Universe"
+    },
+    {
+      "name": "Garnet"
+    },
+    {
+      "name": "Pearl"
+    },
+    {
+      "name": "Amethyst"
+    },
+    {
+      "name": "Korra"
+    },
+    {
+      "name": "Aang"
+    },
+    {
+      "name": "Zuko"
+    },
+    {
+      "name": "Katara"
+    },
+    {
+      "name": "Toph Beifong"
+    },
+    {
+      "name": "SpongeBob SquarePants"
+    },
+    {
+      "name": "Patrick Star"
+    },
+    {
+      "name": "Squidward Tentacles"
+    },
+    {
+      "name": "Mr. Krabs"
+    },
+    {
+      "name": "Plankton"
+    },
+    {
+      "name": "Homer Simpson"
+    },
+    {
+      "name": "Marge Simpson"
+    },
+    {
+      "name": "Bart Simpson"
+    },
+    {
+      "name": "Lisa Simpson"
+    },
+    {
+      "name": "Maggie Simpson"
+    },
+    {
+      "name": "Peter Griffin"
+    },
+    {
+      "name": "Lois Griffin"
+    },
+    {
+      "name": "Stewie Griffin"
+    },
+    {
+      "name": "Brian Griffin"
+    },
+    {
+      "name": "Meg Griffin"
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Master Sword"
+    },
+    {
+      "name": "Hylian Shield"
+    },
+    {
+      "name": "Energy Sword"
+    },
+    {
+      "name": "Plasma Grenade"
+    },
+    {
+      "name": "Gravity Hammer"
+    },
+    {
+      "name": "Needler"
+    },
+    {
+      "name": "Beam Katana"
+    },
+    {
+      "name": "Buster Sword"
+    },
+    {
+      "name": "Gunblade"
+    },
+    {
+      "name": "Masamune"
+    },
+    {
+      "name": "Keyblade"
+    },
+    {
+      "name": "Blades of Chaos"
+    },
+    {
+      "name": "Leviathan Axe"
+    },
+    {
+      "name": "Mjolnir"
+    },
+    {
+      "name": "Stormbreaker"
+    },
+    {
+      "name": "Infinity Gauntlet"
+    },
+    {
+      "name": "Lightsaber"
+    },
+    {
+      "name": "Double-Bladed Lightsaber"
+    },
+    {
+      "name": "Blaster"
+    },
+    {
+      "name": "DC-15 Blaster Rifle"
+    },
+    {
+      "name": "Vibroblade"
+    },
+    {
+      "name": "Dark Saber"
+    },
+    {
+      "name": "Hidden Blade"
+    },
+    {
+      "name": "Phantom Blade"
+    },
+    {
+      "name": "Hookblade"
+    },
+    {
+      "name": "Tomahawk"
+    },
+    {
+      "name": "Bow of Artemis"
+    },
+    {
+      "name": "Boomerang"
+    },
+    {
+      "name": "Ocarina (weaponized magic)"
+    },
+    {
+      "name": "Dekuscrub Seed Shooter"
+    },
+    {
+      "name": "Slingshot"
+    },
+    {
+      "name": "Fire Flower"
+    },
+    {
+      "name": "Super Star"
+    },
+    {
+      "name": "Hammer (Donkey Kong)"
+    },
+    {
+      "name": "Blue Shell"
+    },
+    {
+      "name": "Green Shell"
+    },
+    {
+      "name": "Bob-omb"
+    },
+    {
+      "name": "Banana Peel"
+    },
+    {
+      "name": "Chainsaw"
+    },
+    {
+      "name": "Lancer (Gears of War)"
+    },
+    {
+      "name": "Gnasher Shotgun"
+    },
+    {
+      "name": "Torque Bow"
+    },
+    {
+      "name": "Longshot Sniper"
+    },
+    {
+      "name": "Crowbar"
+    },
+    {
+      "name": "Gravity Gun"
+    },
+    {
+      "name": "Portal Gun (when misused)"
+    },
+    {
+      "name": "Batclaw"
+    },
+    {
+      "name": "Batarang"
+    },
+    {
+      "name": "Batmobile"
+    },
+    {
+      "name": "Explosive Gel"
+    },
+    {
+      "name": "Joker’s Acid Flower"
+    },
+    {
+      "name": "Laughing Gas"
+    },
+    {
+      "name": "Harley Quinn’s Mallet"
+    },
+    {
+      "name": "Poison Ivy’s Vines"
+    },
+    {
+      "name": "Freeze Ray"
+    },
+    {
+      "name": "Captain America's Shield"
+    },
+    {
+      "name": "Iron Man’s Repulsors"
+    },
+    {
+      "name": "Arc Reactor Blast"
+    },
+    {
+      "name": "Hulk Smash (fists)"
+    },
+    {
+      "name": "Black Widow’s Stingers"
+    },
+    {
+      "name": "Hawkeye’s Bow"
+    },
+    {
+      "name": "Ant-Man’s Pym Discs"
+    },
+    {
+      "name": "Spider-Man’s Web Shooters"
+    },
+    {
+      "name": "Doctor Strange’s Sling Ring"
+    },
+    {
+      "name": "Eye of Agamotto"
+    },
+    {
+      "name": "Wolverine’s Claws"
+    },
+    {
+      "name": "Cyclops’ Optic Blast"
+    },
+    {
+      "name": "Magneto’s Magnetism"
+    },
+    {
+      "name": "Deadpool’s Katanas"
+    },
+    {
+      "name": "Cable’s BFG"
+    },
+    {
+      "name": "Green Lantern Ring"
+    },
+    {
+      "name": "Wonder Woman’s Lasso of Truth"
+    },
+    {
+      "name": "Wonder Woman’s Bracelets"
+    },
+    {
+      "name": "Aquaman’s Trident"
+    },
+    {
+      "name": "The Flash’s Speed Force"
+    },
+    {
+      "name": "Boomerang (Captain Boomerang)"
+    },
+    {
+      "name": "Lucille (Negan’s bat)"
+    },
+    {
+      "name": "Chainsaw Hand (Ash Williams)"
+    },
+    {
+      "name": "Necronomicon"
+    },
+    {
+      "name": "Proton Pack"
+    },
+    {
+      "name": "Ghost Trap"
+    },
+    {
+      "name": "Magic Wand"
+    },
+    {
+      "name": "Elder Wand"
+    },
+    {
+      "name": "Cursed Firebolt"
+    },
+    {
+      "name": "Sword of Gryffindor"
+    },
+    {
+      "name": "Time-Turner"
+    },
+    {
+      "name": "Lightsaber Pike"
+    },
+    {
+      "name": "Beskar Spear"
+    },
+    {
+      "name": "Whip (Castlevania)"
+    },
+    {
+      "name": "Vampire Killer"
+    },
+    {
+      "name": "Holy Water"
+    },
+    {
+      "name": "Grenade Launcher"
+    },
+    {
+      "name": "Rocket Launcher"
+    },
+    {
+      "name": "Flamethrower"
+    },
+    {
+      "name": "Railgun"
+    },
+    {
+      "name": "Sniper Rifle"
+    },
+    {
+      "name": "Double-Barrel Shotgun"
+    },
+    {
+      "name": "Combat Knife"
+    },
+    {
+      "name": "Throwing Knives"
+    },
+    {
+      "name": "Kunai"
+    },
+    {
+      "name": "Shuriken"
+    },
+    {
+      "name": "Katana"
+    },
+    {
+      "name": "Naginata"
+    },
+    {
+      "name": "Tanto"
+    },
+    {
+      "name": "Brass Knuckles"
+    },
+    {
+      "name": "Bo Staff"
+    },
+    {
+      "name": "Nunchaku"
+    },
+    {
+      "name": "Sai"
+    },
+    {
+      "name": "Exploding Tags (Naruto)"
+    },
+    {
+      "name": "Chakra Blades"
+    },
+    {
+      "name": "Zanpakuto (Bleach)"
+    },
+    {
+      "name": "Bankai"
+    },
+    {
+      "name": "Quincy Bow"
+    },
+    {
+      "name": "Death Note"
+    },
+    {
+      "name": "Scissor Blades (Kill la Kill)"
+    },
+    {
+      "name": "Lance of Longinus (Evangelion)"
+    },
+    {
+      "name": "Eva Unit 01’s Progressive Knife"
+    },
+    {
+      "name": "Omnitrix (Ben 10)"
+    },
+    {
+      "name": "Nemetrix"
+    },
+    {
+      "name": "Laser Eyes"
+    },
+    {
+      "name": "Power Ring"
+    },
+    {
+      "name": "Lightsaber Whip"
+    },
+    {
+      "name": "Energy Whip"
+    },
+    {
+      "name": "Power Pole (Dragon Ball)"
+    },
+    {
+      "name": "Spirit Bomb"
+    },
+    {
+      "name": "Kamehameha"
+    },
+    {
+      "name": "Destructo Disc"
+    },
+    {
+      "name": "Poké Ball (thrown weapon-style)"
+    },
+    {
+      "name": "Metroid Bomb"
+    },
+    {
+      "name": "Stasis Rune"
+    },
+    {
+      "name": "Magnesis"
+    },
+    {
+      "name": "Cryonis"
+    },
+    {
+      "name": "Remote Bomb"
+    },
+    {
+      "name": "Chainsaw Man's Chainsaw"
+    },
+    {
+      "name": "Denji's Arm Chainsaws"
+    },
+    {
+      "name": "Gun Devil’s Minigun"
+    },
+    {
+      "name": "Skull Hammer (Wind Waker)"
+    },
+    {
+      "name": "Great Fairy Sword"
+    },
+    {
+      "name": "Ball and Chain"
+    },
+    {
+      "name": "Lantern (Zelda)"
+    },
+    {
+      "name": "Fire Rod"
+    },
+    {
+      "name": "Ice Rod"
+    },
+    {
+      "name": "Bomb Arrows"
+    },
+    {
+      "name": "Crossbow"
+    },
+    {
+      "name": "Repeater"
+    },
+    {
+      "name": "Flintlock Pistol"
+    },
+    {
+      "name": "Musket"
+    },
+    {
+      "name": "Swordfish (as weapon)"
+    },
+    {
+      "name": "Baseball Bat"
+    },
+    {
+      "name": "Frying Pan"
+    },
+    {
+      "name": "Crowbar (again, because Half-Life)"
+    },
+    {
+      "name": "Rocket Hammer"
+    },
+    {
+      "name": "Energy Blaster"
+    },
+    {
+      "name": "Sawblade Launcher"
+    },
+    {
+      "name": "Laser Cannon"
+    },
+    {
+      "name": "EMP Grenade"
+    },
+    {
+      "name": "Sticky Bomb"
+    },
+    {
+      "name": "Bear Trap"
+    },
+    {
+      "name": "Spiked Shield"
+    },
+    {
+      "name": "Electric Guitar (Scott Pilgrim)"
+    },
+    {
+      "name": "Bass Battle Axe"
+    },
+    {
+      "name": "Molotov Cocktail"
+    },
+    {
+      "name": "BFG 9000"
+    },
+    {
+      "name": "Chainsaw Gun"
+    },
+    {
+      "name": "Fist of the North Star"
+    },
+    {
+      "name": "Nemean Cestus"
+    },
+    {
+      "name": "Rock (the throwable kind)"
+    },
+    {
+      "name": "Cattle Prod"
+    },
+    {
+      "name": "Magic Cards (Yugi’s traps)"
+    },
+    {
+      "name": "Plasma Cutter (Dead Space)"
+    },
+    {
+      "name": "Line Gun"
+    },
+    {
+      "name": "Flame Beam"
+    },
+    {
+      "name": "Excalibur"
+    },
+    {
+      "name": "Dragon Slayer (Berserk)"
+    },
+    {
+      "name": "Gunlance (Monster Hunter)"
+    },
+    {
+      "name": "Switch Axe"
+    },
+    {
+      "name": "Insect Glaive"
+    },
+    {
+      "name": "Charge Blade"
+    },
+    {
+      "name": "Great Sword"
+    },
+    {
+      "name": "Dual Blades"
+    },
+    {
+      "name": "Meat Cleaver"
+    }
+  ],
+  "twists": [
+    {
+      "name": "Has to sing everything they say"
+    },
+    {
+      "name": "Only moves by interpretive dance"
+    },
+    {
+      "name": "Thinks they're a chicken"
+    },
+    {
+      "name": "Always slightly on fire"
+    },
+    {
+      "name": "Mistakes allies for enemies and vice versa"
+    },
+    {
+      "name": "Communicates exclusively in dad jokes"
+    },
+    {
+      "name": "Must do finger guns after every action"
+    },
+    {
+      "name": "Tries to solve every problem with hugs"
+    },
+    {
+      "name": "Breaks into spontaneous tap dance during combat"
+    },
+    {
+      "name": "Overly confident but incredibly weak"
+    },
+    {
+      "name": "Believes they're invisible (they're not)"
+    },
+    {
+      "name": "Can only attack while doing cartwheels"
+    },
+    {
+      "name": "All weapons are replaced with baguettes"
+    },
+    {
+      "name": "Has to narrate everything like a cooking show"
+    },
+    {
+      "name": "Carries a rubber duck for intimidation"
+    },
+    {
+      "name": "Forgets what they're doing every 30 seconds"
+    },
+    {
+      "name": "Everything they touch turns into glitter"
+    },
+    {
+      "name": "Terrified of their own shadow"
+    },
+    {
+      "name": "Tries to pay enemies to go away"
+    },
+    {
+      "name": "Constantly challenges people to thumb wars"
+    },
+    {
+      "name": "Only speaks in pirate lingo"
+    },
+    {
+      "name": "Thinks they're in a romantic comedy"
+    },
+    {
+      "name": "Wears 8 pairs of sunglasses"
+    },
+    {
+      "name": "Believes they’re a cat"
+    },
+    {
+      "name": "Attacks only when the enemy blinks"
+    },
+    {
+      "name": "Quotes movies incorrectly and constantly"
+    },
+    {
+      "name": "Mistakes their inventory for a grocery list"
+    },
+    {
+      "name": "Only runs in slow motion"
+    },
+    {
+      "name": "Thinks they're being filmed for a reality show"
+    },
+    {
+      "name": "Replaces battle cries with karaoke"
+    },
+    {
+      "name": "Must dramatically gasp before every action"
+    },
+    {
+      "name": "Keeps forgetting they’re in a battle"
+    },
+    {
+      "name": "Swaps weapons mid-fight for no reason"
+    },
+    {
+      "name": "Has a sock puppet advisor"
+    },
+    {
+      "name": "Tries to flirt with every enemy"
+    },
+    {
+      "name": "Randomly forgets gravity exists"
+    },
+    {
+      "name": "Thinks they’re in a musical"
+    },
+    {
+      "name": "Every sentence ends in “probably”"
+    },
+    {
+      "name": "Screams “YOLO” before every move"
+    },
+    {
+      "name": "Only attacks with exaggerated anime poses"
+    },
+    {
+      "name": "Carries a random animal they insist is essential"
+    },
+    {
+      "name": "Tries to bribe bosses with coupons"
+    },
+    {
+      "name": "Laughs maniacally after every sneeze"
+    },
+    {
+      "name": "Has imaginary twin that they constantly argue with"
+    },
+    {
+      "name": "Wears a cape but trips over it constantly"
+    },
+    {
+      "name": "Randomly switches accents mid-conversation"
+    },
+    {
+      "name": "Takes snack breaks mid-battle"
+    },
+    {
+      "name": "Believes all doors are portals to Narnia"
+    },
+    {
+      "name": "Uses a kazoo to cast spells"
+    },
+    {
+      "name": "Tries to use reverse psychology on weapons"
+    },
+    {
+      "name": "Is followed by a dramatic wind machine"
+    },
+    {
+      "name": "Thinks stealth means yelling “I’m hiding!”"
+    },
+    {
+      "name": "All armor is made of bubble wrap"
+    },
+    {
+      "name": "Can't stop breakdancing"
+    },
+    {
+      "name": "Thinks they’re in a cooking competition"
+    },
+    {
+      "name": "Turns every challenge into a rap battle"
+    },
+    {
+      "name": "Drinks potions like shots — for fun"
+    },
+    {
+      "name": "Invents conspiracy theories mid-fight"
+    },
+    {
+      "name": "Believes the floor is lava (and acts accordingly)"
+    },
+    {
+      "name": "Only speaks in rhymes"
+    },
+    {
+      "name": "Overuses air quotes"
+    },
+    {
+      "name": "Constantly mispronounces their own name"
+    },
+    {
+      "name": "Thinks they’re being hunted by ducks"
+    },
+    {
+      "name": "Says “Bazinga” after every spell"
+    },
+    {
+      "name": "Tries to tame every monster like a pet"
+    },
+    {
+      "name": "All insults are delivered as Shakespearean burns"
+    },
+    {
+      "name": "Pretends their sword is a cellphone"
+    },
+    {
+      "name": "Sings the Jaws theme before every attack"
+    },
+    {
+      "name": "Has a dramatic monologue cooldown"
+    },
+    {
+      "name": "Believes enemies are long-lost relatives"
+    },
+    {
+      "name": "Tells ghost stories during boss fights"
+    },
+    {
+      "name": "Thinks throwing cheese is a valid strategy"
+    },
+    {
+      "name": "All traps are replaced by banana peels"
+    },
+    {
+      "name": "Thinks they’re a motivational speaker"
+    },
+    {
+      "name": "Holds press conferences before fights"
+    },
+    {
+      "name": "Tries to interview enemies"
+    },
+    {
+      "name": "Gives running commentary like a sports announcer"
+    },
+    {
+      "name": "Wears roller skates — but can’t skate"
+    },
+    {
+      "name": "Has invisible pet they constantly feed"
+    },
+    {
+      "name": "Screams “plot twist!” at random moments"
+    },
+    {
+      "name": "Pretends to faint before every hit"
+    },
+    {
+      "name": "Gives weather updates mid-battle"
+    },
+    {
+      "name": "Tries to trade weapons for snacks"
+    },
+    {
+      "name": "Carries a megaphone for dramatic effect"
+    },
+    {
+      "name": "Thinks they're allergic to combat"
+    },
+    {
+      "name": "Only fights while doing squats"
+    },
+    {
+      "name": "Fires weapons while reciting poetry"
+    },
+    {
+      "name": "Believes they are the chosen one — in a very specific prophecy about soup"
+    },
+    {
+      "name": "Tries to high-five every projectile"
+    },
+    {
+      "name": "Says “YO MAMA” jokes as spells"
+    },
+    {
+      "name": "Keeps offering to sell insurance"
+    },
+    {
+      "name": "Assumes every enemy is their therapist"
+    },
+    {
+      "name": "Keeps yelling “This is my final form!” — it’s not"
+    },
+    {
+      "name": "Winks at enemies before attacking"
+    },
+    {
+      "name": "Talks to their reflection constantly"
+    },
+    {
+      "name": "Tells knock-knock jokes to disarm foes"
+    },
+    {
+      "name": "Only uses left-hand controls — metaphorically"
+    },
+    {
+      "name": "Randomly pretends to be furniture"
+    },
+    {
+      "name": "Believes dance battles solve everything"
+    },
+    {
+      "name": "Doodles instead of casting spells"
+    },
+    {
+      "name": "Starts every encounter with “So a guy walks into a bar…”"
+    },
+    {
+      "name": "Wears socks on their hands for “grip”"
+    },
+    {
+      "name": "Keeps calling allies by the wrong names"
+    },
+    {
+      "name": "Thinks their sword has feelings"
+    },
+    {
+      "name": "Uses air quotes around “fighting”"
+    },
+    {
+      "name": "Misunderstands quests as scavenger hunts"
+    },
+    {
+      "name": "Believes everything is part of a cooking recipe"
+    },
+    {
+      "name": "Gives enemies Yelp reviews mid-battle"
+    },
+    {
+      "name": "Constantly forgets which team they're on"
+    },
+    {
+      "name": "Keeps shouting their own name dramatically"
+    },
+    {
+      "name": "Uses GPS for directions during fights"
+    },
+    {
+      "name": "Tries to TikTok dance instead of dodging"
+    },
+    {
+      "name": "Believes their weapon is cursed — by a raccoon"
+    },
+    {
+      "name": "Won’t attack until they get a compliment"
+    },
+    {
+      "name": "Claims they’re on a vision quest… for snacks"
+    },
+    {
+      "name": "Every hit must include a pun"
+    },
+    {
+      "name": "Uses riddles instead of passwords"
+    },
+    {
+      "name": "Barks before charging"
+    },
+    {
+      "name": "Declares “THIS IS FINE” during disasters"
+    },
+    {
+      "name": "Thinks all keys are metaphors"
+    },
+    {
+      "name": "Carries a mirror and keeps checking themselves out"
+    },
+    {
+      "name": "Can’t resist pushing big red buttons"
+    },
+    {
+      "name": "Interrupts everything to share random trivia"
+    },
+    {
+      "name": "Tries to give motivational speeches to enemies"
+    },
+    {
+      "name": "Accidentally narrates their tragic backstory"
+    },
+    {
+      "name": "Attempts to ride every animal"
+    },
+    {
+      "name": "Has a \"battle playlist\" they must start before action"
+    },
+    {
+      "name": "Thinks slow clapping is a power move"
+    },
+    {
+      "name": "Tries to form a book club mid-battle"
+    },
+    {
+      "name": "Misinterprets \"turn-based combat\" as a dance circle"
+    },
+    {
+      "name": "Has to do jazz hands after casting spells"
+    },
+    {
+      "name": "Shouts “YOU SHALL NOT PASS” constantly — even to allies"
+    },
+    {
+      "name": "Only uses “found objects” as weapons"
+    },
+    {
+      "name": "Says “swoosh” noises when swinging"
+    },
+    {
+      "name": "Thinks fireballs are great for cooking"
+    },
+    {
+      "name": "Throws glitter instead of grenades"
+    },
+    {
+      "name": "Demands applause after every action"
+    },
+    {
+      "name": "Thinks enemies are just misunderstood"
+    },
+    {
+      "name": "Uses their own theme music (badly beatboxed)"
+    },
+    {
+      "name": "Always monologues before finishing a boss"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Soggybottom Swamp",
+      "desc": "Where your shoes disappear and your dignity goes to die"
+    },
+    {
+      "name": "Mount Yellmore",
+      "desc": "An ancient peak that constantly shouts motivational phrases"
+    },
+    {
+      "name": "The Spicy Desert",
+      "desc": "Everything is either hot, spicy, or both — including the sand"
+    },
+    {
+      "name": "Flatulent Fjord",
+      "desc": "Echoes every toot tenfold"
+    },
+    {
+      "name": "Banana Peel Boulevard",
+      "desc": "Slippery, dangerous, and mildly nutritious"
+    },
+    {
+      "name": "Cursed Couch Kingdom",
+      "desc": "Every couch swallows your remote forever"
+    },
+    {
+      "name": "Wi-Fight Arena",
+      "desc": "Signal is strong, but the arguments are stronger"
+    },
+    {
+      "name": "Mildly Haunted Hallway",
+      "desc": "The ghosts are just passive-aggressive"
+    },
+    {
+      "name": "Lake Meh",
+      "desc": "The most underwhelming body of water in existence"
+    },
+    {
+      "name": "Toaster Canyon",
+      "desc": "Home of explosive breakfast tragedies"
+    },
+    {
+      "name": "Broccoli Forest",
+      "desc": "You must eat your way through... or face the green fury"
+    },
+    {
+      "name": "Suspiciously Moist Cavern",
+      "desc": "Everything’s damp and no one knows why"
+    },
+    {
+      "name": "Drama Llama Plaza",
+      "desc": "Where every conversation becomes an argument"
+    },
+    {
+      "name": "The Awkward Silence Woods",
+      "desc": "Every bird tweet makes it worse"
+    },
+    {
+      "name": "Cringe Caverns",
+      "desc": "Everything here makes you uncomfortable, but you can’t look away"
+    },
+    {
+      "name": "Inconvenience Island",
+      "desc": "Nothing is dangerous, just... annoying"
+    },
+    {
+      "name": "Shenanigan City",
+      "desc": "You’re legally required to do something stupid"
+    },
+    {
+      "name": "Obvious Trap Valley",
+      "desc": "The sign literally says \"This is a trap,\" but you’ll go anyway"
+    },
+    {
+      "name": "Cursed Costco",
+      "desc": "Everything’s bulk, and everything’s cursed"
+    },
+    {
+      "name": "The Infinite Line",
+      "desc": "The waiting never ends, and the line moves backward"
+    },
+    {
+      "name": "Dumpster Fire Alley",
+      "desc": "It's not on fire anymore — it's evolved"
+    },
+    {
+      "name": "Mount Snaccident",
+      "desc": "Where people fall while holding snacks and regret nothing"
+    },
+    {
+      "name": "The Beige Wasteland",
+      "desc": "So boring it’s almost an existential threat"
+    },
+    {
+      "name": "Echo Chamber Stadium",
+      "desc": "Everyone agrees with you, but you're still wrong"
+    },
+    {
+      "name": "Ye Olde Passive Aggressive Village",
+      "desc": "Where all notes end with \"Bless your heart\""
+    },
+    {
+      "name": "Glutenberg Castle",
+      "desc": "All the scrolls are made of bread"
+    },
+    {
+      "name": "Overcomplicated Maze",
+      "desc": "The exit is just behind you the whole time"
+    },
+    {
+      "name": "Underwhelming Volcano",
+      "desc": "It erupts once every millennium and just sighs"
+    },
+    {
+      "name": "The Loud Library",
+      "desc": "Everyone whispers loudly about how quiet it used to be"
+    },
+    {
+      "name": "Meme Mountain",
+      "desc": "Ancient prophecies written in Impact font"
+    },
+    {
+      "name": "Sock Dimension",
+      "desc": "Where all missing socks live... and plot revenge"
+    },
+    {
+      "name": "Flat Earth Falls",
+      "desc": "It's flat. And somehow still a waterfall."
+    },
+    {
+      "name": "The Forbidden Food Court",
+      "desc": "One bite and you're legally married to a goblin"
+    },
+    {
+      "name": "Emotional Support Dungeon",
+      "desc": "The traps are comforting and validating"
+    },
+    {
+      "name": "Middle Child Meadows",
+      "desc": "Always forgotten, slightly bitter"
+    },
+    {
+      "name": "Lost Signal Zone",
+      "desc": "No GPS, no Wi-Fi, just a deep sense of confusion"
+    },
+    {
+      "name": "The Duvet Dunes",
+      "desc": "Fluffy, cozy, and impossible to escape"
+    },
+    {
+      "name": "Unnecessarily Loud Waterfall",
+      "desc": "It’s not big, it’s just very dramatic"
+    },
+    {
+      "name": "The “Do Not Touch” Museum",
+      "desc": "You touched everything, didn’t you?"
+    },
+    {
+      "name": "Eternal Construction Site",
+      "desc": "No one works here, yet it's never done"
+    },
+    {
+      "name": "The Plot Hole Pit",
+      "desc": "Things fall in and stop making sense"
+    },
+    {
+      "name": "Cranky Grandma Canyon",
+      "desc": "She’s watching you, and she disapproves"
+    },
+    {
+      "name": "No Context Jungle",
+      "desc": "Everything’s happening, and nothing is explained"
+    },
+    {
+      "name": "The Conference Room of Doom",
+      "desc": "It's just meetings. Forever."
+    },
+    {
+      "name": "The Mildly Evil Spa",
+      "desc": "You’ll leave refreshed, yet morally compromised"
+    },
+    {
+      "name": "The Zone of Infinite Zippers",
+      "desc": "No pockets, only zippers"
+    },
+    {
+      "name": "Swag Lagoon",
+      "desc": "Where everything drips with ironic coolness"
+    },
+    {
+      "name": "Coffee Spill Cove",
+      "desc": "Always jittery, never dry"
+    },
+    {
+      "name": "Procrastination Peninsula",
+      "desc": "You’ll explore it... later"
+    },
+    {
+      "name": "Dungeon of Poor Life Choices",
+      "desc": "Welcome back. Again."
+    },
+    {
+      "name": "Snackrifice Altar",
+      "desc": "Trade Cheetos for dark power"
+    },
+    {
+      "name": "Ghost Mall",
+      "desc": "Abandoned, yet there’s still a sale at Hot Topic"
+    },
+    {
+      "name": "Mount Facepalm",
+      "desc": "You climb it every time someone says \"Let’s circle back\""
+    },
+    {
+      "name": "Crusty Pizza Planet",
+      "desc": "Colonized by sentient crusts"
+    },
+    {
+      "name": "No Refund Village",
+      "desc": "Buy the cursed sword. You won’t regret it. Probably."
+    },
+    {
+      "name": "Whompington Estate",
+      "desc": "Every floor creaks, groans, and judges you"
+    },
+    {
+      "name": "Clown Barrows",
+      "desc": "Where balloon animals are currency"
+    },
+    {
+      "name": "The Spillway",
+      "desc": "It’s just puddles. So many puddles."
+    },
+    {
+      "name": "Unpaid Internship Citadel",
+      "desc": "Work hard, get nothing, gain trauma"
+    },
+    {
+      "name": "Cowbell Caverns",
+      "desc": "Needs more cowbell. Always"
+    },
+    {
+      "name": "Haunted Gym",
+      "desc": "The ghosts of leg days past"
+    },
+    {
+      "name": "Vibe Check Crossing",
+      "desc": "You must pass the vibe check or be denied entry"
+    },
+    {
+      "name": "The Eternal Nap Zone",
+      "desc": "Try to wake up. You can't."
+    },
+    {
+      "name": "Dumpster Dungeon",
+      "desc": "Smells like failure and suspicious tacos"
+    },
+    {
+      "name": "Butter Slip Plains",
+      "desc": "You fall once, you never stop sliding"
+    },
+    {
+      "name": "Taco Tuesday Ruins",
+      "desc": "Nobody survived the 6th taco"
+    },
+    {
+      "name": "Nopeville",
+      "desc": "Population: Not you"
+    },
+    {
+      "name": "The Jargon Jungle",
+      "desc": "Everything sounds smart, means nothing"
+    },
+    {
+      "name": "Introvert’s Hollow",
+      "desc": "No eye contact, please"
+    },
+    {
+      "name": "Overthinking Oasis",
+      "desc": "You came here to relax. Now you're spiraling"
+    },
+    {
+      "name": "Waffle Fortress",
+      "desc": "Sweet, syrupy, and suspiciously fortified"
+    },
+    {
+      "name": "The Department of Redundancy Department",
+      "desc": "Repetitive repetitiveness ahead"
+    },
+    {
+      "name": "Flatulence Fields",
+      "desc": "Bring matches. Or don’t."
+    },
+    {
+      "name": "Lizard Lounge",
+      "desc": "Cool reptiles, terrible jazz"
+    },
+    {
+      "name": "The Pun Dungeon",
+      "desc": "It’s pun-ishment, not imprisonment"
+    },
+    {
+      "name": "Unskippable Cutscene Plaza",
+      "desc": "You're trapped watching... forever"
+    },
+    {
+      "name": "The Infinite Ringtone Fields",
+      "desc": "Your sanity cannot survive"
+    },
+    {
+      "name": "Boomerang Bay",
+      "desc": "You always come back... even if you don’t want to"
+    },
+    {
+      "name": "Breadknife Beach",
+      "desc": "Slicing waves and buttery foes"
+    },
+    {
+      "name": "Mandatory Team-Building Island",
+      "desc": "Escape is impossible, like synergy"
+    },
+    {
+      "name": "Underpants Canyon",
+      "desc": "It's... breezy"
+    },
+    {
+      "name": "Hyperbole Heights",
+      "desc": "Everything is THE MOST EXTREME THING EVER"
+    },
+    {
+      "name": "Sneeze Summit",
+      "desc": "Windy, dusty, and medically inadvisable"
+    },
+    {
+      "name": "The Hangry Hinterlands",
+      "desc": "There is no food, only rage"
+    },
+    {
+      "name": "Unstable Table Tundra",
+      "desc": "Nothing balances, including your emotions"
+    },
+    {
+      "name": "The Forgotten Fork Tavern",
+      "desc": "The spoon uprising still haunts them"
+    },
+    {
+      "name": "Dramatic Reveal Ridge",
+      "desc": "Every corner comes with shocking backstory"
+    },
+    {
+      "name": "Petty Complaint Swamp",
+      "desc": "Every creature has a grudge"
+    },
+    {
+      "name": "Sock Puppet Senate",
+      "desc": "They rule with fuzzy iron fists"
+    },
+    {
+      "name": "Gravy Lagoon",
+      "desc": "Thick. Salty. Unnecessarily hot."
+    },
+    {
+      "name": "Cringe Carnival",
+      "desc": "Step right up and regret everything!"
+    },
+    {
+      "name": "Dad Joke Docks",
+      "desc": "Every boat has a pun name"
+    },
+    {
+      "name": "The Existential Diner",
+      "desc": "Would you like fries with that... or meaning?"
+    },
+    {
+      "name": "Regret Gulch",
+      "desc": "Where bad decisions echo forever"
+    },
+    {
+      "name": "Suspicious Sandwich Street",
+      "desc": "Don't ask what the mayo is"
+    },
+    {
+      "name": "The Plot Twist Woods",
+      "desc": "You think you're safe. You're not. Also you're adopted"
+    },
+    {
+      "name": "Caffeine Cliffs",
+      "desc": "One wrong sip and you see forever"
+    },
+    {
+      "name": "The Bermuda Square",
+      "desc": "Just like the triangle, but more geometrically awkward"
+    },
+    {
+      "name": "Lo-Fi Lava Lounge",
+      "desc": "Relaxing beats to melt your face off to"
+    },
+    {
+      "name": "Anxiety Abyss",
+      "desc": "Just waiting for the email back"
+    },
+    {
+      "name": "Turtleneck Fortress",
+      "desc": "Stylish, intellectual, also very itchy"
+    },
+    {
+      "name": "Lactose Lagoon",
+      "desc": "Bring cheese. Leave shame."
+    },
+    {
+      "name": "The Guilt Trip Trail",
+      "desc": "Every sign says “We’re not mad, just disappointed”"
+    },
+    {
+      "name": "The Mehlands",
+      "desc": "It’s like a wasteland, but with less motivation"
+    },
+    {
+      "name": "Jellybean Jungle",
+      "desc": "Looks fun. Everything’s sticky."
+    },
+    {
+      "name": "The Duct Tape Dimension",
+      "desc": "It’s all held together with hope and adhesives"
+    },
+    {
+      "name": "Overused Trope Town",
+      "desc": "Guess what happens next? Yep. That."
+    },
+    {
+      "name": "Social Battery Ruins",
+      "desc": "You start strong. Then you nap for 3 days"
+    },
+    {
+      "name": "Eyeroll Empire",
+      "desc": "Everything is too much, and also not enough"
+    },
+    {
+      "name": "Antisocial Social Clubhouse",
+      "desc": "No talking. No vibes. Just solitude"
+    },
+    {
+      "name": "The Spork Citadel",
+      "desc": "Neither fork nor spoon, but it rules all"
+    },
+    {
+      "name": "Awkward Elevator Cavern",
+      "desc": "One long ride. No music. Just eye contact"
+    },
+    {
+      "name": "Sarcasm Summit",
+      "desc": "Welcome. Or whatever."
+    },
+    {
+      "name": "The Pet Rock Temple",
+      "desc": "They don’t move. They don’t need to"
+    },
+    {
+      "name": "Technical Difficulties Realm",
+      "desc": "Please stand by. Forever."
+    },
+    {
+      "name": "Unplugged Arcade",
+      "desc": "Nothing works, everything beeps"
+    },
+    {
+      "name": "Mystery Sauce Swamp",
+      "desc": "It's... probably edible"
+    },
+    {
+      "name": "The Low Battery Badlands",
+      "desc": "Everything’s at 1% and stressing you out"
+    },
+    {
+      "name": "Dramatic Pause Peninsula",
+      "desc": "...wait for it..."
+    },
+    {
+      "name": "Chicken Nugget Nebula",
+      "desc": "Golden. Crunchy. Orbiting deliciously"
+    },
+    {
+      "name": "The Infinite Loop Trail",
+      "desc": "Wait, weren’t we just here?"
+    },
+    {
+      "name": "The Algorithm Abyss",
+      "desc": "It knows you. Too well."
+    },
+    {
+      "name": "Password Reset Peaks",
+      "desc": "You’ll never remember what you used"
+    },
+    {
+      "name": "Cat Video Canyons",
+      "desc": "You came here for battle, stayed for cuteness"
+    },
+    {
+      "name": "The Accidental Screenshot Vault",
+      "desc": "No one knows why, but it's full of pictures of your feet"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "All fighters are now wearing squeaky clown shoes"
+    },
+    {
+      "name": "The floor is suddenly made of trampolines"
+    },
+    {
+      "name": "Everyone has swapped bodies — and no one is happy about it"
+    },
+    {
+      "name": "Fighters must hold a raw egg in one hand at all times"
+    },
+    {
+      "name": "The arena is slowly filling with maple syrup"
+    },
+    {
+      "name": "Sudden flash mob breaks out — and you must join"
+    },
+    {
+      "name": "Gravity is now optional"
+    },
+    {
+      "name": "Every attack makes a kazoo sound"
+    },
+    {
+      "name": "All weapons have been replaced with pool noodles"
+    },
+    {
+      "name": "You can only move if you're dancing"
+    },
+    {
+      "name": "Everyone has hiccups. Loud ones"
+    },
+    {
+      "name": "A fog of glitter has descended — blinding and fabulous"
+    },
+    {
+      "name": "You must yell your deepest secret before attacking"
+    },
+    {
+      "name": "The crowd votes on your next move via emoji"
+    },
+    {
+      "name": "A goose has entered the arena. It’s aggressive"
+    },
+    {
+      "name": "All dialogue must be whispered dramatically"
+    },
+    {
+      "name": "The announcer is wildly drunk and getting everything wrong"
+    },
+    {
+      "name": "Combatants are tied together with a 10-foot noodle"
+    },
+    {
+      "name": "Everyone must narrate their own inner monologue"
+    },
+    {
+      "name": "The floor randomly turns into ice every 30 seconds"
+    },
+    {
+      "name": "A swarm of bees just showed up for no reason"
+    },
+    {
+      "name": "The rules keep changing mid-fight"
+    },
+    {
+      "name": "Players must wear blindfolds — but only one eye"
+    },
+    {
+      "name": "All armor is inflatable and squeaks loudly"
+    },
+    {
+      "name": "A rain of rubber ducks is actively interfering"
+    },
+    {
+      "name": "You can only fight using mime"
+    },
+    {
+      "name": "The referee is asleep. No rules anymore"
+    },
+    {
+      "name": "Every time someone swears, they get confetti-blasted"
+    },
+    {
+      "name": "There’s a “meow” sound every time someone jumps"
+    },
+    {
+      "name": "Suddenly, the arena becomes a spelling bee"
+    },
+    {
+      "name": "Everyone is slowly turning into furniture"
+    },
+    {
+      "name": "You must high-five your opponent after every move"
+    },
+    {
+      "name": "A karaoke machine has replaced the scoreboard"
+    },
+    {
+      "name": "You must fight... while babysitting a very angry baby"
+    },
+    {
+      "name": "The arena starts playing smooth jazz, and no one can stay mad"
+    },
+    {
+      "name": "One fighter is being live-painted by a very slow artist"
+    },
+    {
+      "name": "The lights flicker like a bad horror movie"
+    },
+    {
+      "name": "There’s now a very judgmental grandmother in the stands"
+    },
+    {
+      "name": "All shoes are now made of Jell-O"
+    },
+    {
+      "name": "Your attacks must rhyme or they don’t count"
+    },
+    {
+      "name": "Every move is accompanied by an overly dramatic zoom-in"
+    },
+    {
+      "name": "You’re being followed by a camera crew for a reality show"
+    },
+    {
+      "name": "A dramatic soap opera subplot begins mid-fight"
+    },
+    {
+      "name": "Suddenly it’s raining tacos. Good luck"
+    },
+    {
+      "name": "You must answer trivia questions mid-attack"
+    },
+    {
+      "name": "Every time someone is hit, a random animal sound plays"
+    },
+    {
+      "name": "The floor is lava. Except when it’s not. Surprise!"
+    },
+    {
+      "name": "Your opponent now looks like your childhood best friend"
+    },
+    {
+      "name": "Fighters can only move like crabs"
+    },
+    {
+      "name": "Suddenly, everything is underwater"
+    },
+    {
+      "name": "A parade starts in the middle of the arena"
+    },
+    {
+      "name": "All fighters have theme music that changes randomly"
+    },
+    {
+      "name": "You’re now inside a sitcom, complete with laugh track"
+    },
+    {
+      "name": "Everything is backwards day. Good luck translating that"
+    },
+    {
+      "name": "You’re trapped in a group hug you can’t escape"
+    },
+    {
+      "name": "Your attacks have a 3-second delay, like a bad Wi-Fi connection"
+    },
+    {
+      "name": "You’re wearing roller skates. And you've never skated"
+    },
+    {
+      "name": "A dog keeps stealing the weapons"
+    },
+    {
+      "name": "Fighters are now allergic to their own powers"
+    },
+    {
+      "name": "You must insult your opponent creatively every round"
+    },
+    {
+      "name": "The fight is now turn-based — but no one remembers the order"
+    },
+    {
+      "name": "The sun is in everyone's eyes, constantly"
+    },
+    {
+      "name": "You must sing your attacks like opera"
+    },
+    {
+      "name": "Every time you move, your pants squeak"
+    },
+    {
+      "name": "The audience has giant foam hands and no chill"
+    },
+    {
+      "name": "All objects in the arena are made of cheese"
+    },
+    {
+      "name": "You now weigh as much as a feather. Or a truck. Randomized"
+    },
+    {
+      "name": "There’s a dance floor where the arena used to be"
+    },
+    {
+      "name": "You can only speak in Shakespearean English"
+    },
+    {
+      "name": "You and your opponent must build IKEA furniture mid-fight"
+    },
+    {
+      "name": "Suddenly, everyone is ants. Tiny, angry ants"
+    },
+    {
+      "name": "You’ve been challenged to a duel... in interpretive dance"
+    },
+    {
+      "name": "The arena is spinning slowly. You are dizzy"
+    },
+    {
+      "name": "The final boss is... your grandma"
+    },
+    {
+      "name": "All fighters are now being gently roasted by a stand-up comedian"
+    },
+    {
+      "name": "There's an angry toddler wielding a frying pan on the loose"
+    },
+    {
+      "name": "Your weapon is sentient and won’t stop talking"
+    },
+    {
+      "name": "You’re stuck in a dream where none of this makes sense"
+    },
+    {
+      "name": "You’ve all been slimed. Nickelodeon style"
+    },
+    {
+      "name": "There's a fog machine stuck on MAX DRAMA mode"
+    },
+    {
+      "name": "Each player must wear a traffic cone as a hat"
+    },
+    {
+      "name": "The arena soundtrack is just elevator music"
+    },
+    {
+      "name": "There’s a rogue banana peel with a vendetta"
+    },
+    {
+      "name": "Suddenly, you're in a soap opera. Your opponent is your twin"
+    },
+    {
+      "name": "All weapons must be made from household items"
+    },
+    {
+      "name": "You can only move in slow motion. Yes, you have to act it out"
+    },
+    {
+      "name": "Fighters are now followed by dramatic violinists"
+    },
+    {
+      "name": "You are now allergic to winning"
+    },
+    {
+      "name": "There’s a one-second delay between thought and action"
+    },
+    {
+      "name": "Your enemy is now legally your coworker. HR is watching"
+    },
+    {
+      "name": "You are now narrating your attacks like a cooking show"
+    },
+    {
+      "name": "The arena is bouncing like a giant bouncy castle"
+    },
+    {
+      "name": "There’s a magical cat that just won't leave you alone"
+    },
+    {
+      "name": "All sound effects are now done by mouth"
+    },
+    {
+      "name": "You now have a quest: find the sandwich"
+    },
+    {
+      "name": "You have to compliment your opponent every round"
+    },
+    {
+      "name": "You’re both tethered to a screaming goat"
+    },
+    {
+      "name": "Everyone is slightly drunk on enchanted kombucha"
+    },
+    {
+      "name": "You must swap accents with your opponent"
+    },
+    {
+      "name": "Your opponent thinks they’re on a date"
+    },
+    {
+      "name": "Suddenly, you're all in a group therapy circle"
+    },
+    {
+      "name": "Fighters have randomly swapped voices"
+    },
+    {
+      "name": "A flock of angry pigeons arrives on cue"
+    },
+    {
+      "name": "You can only attack by performing bad stand-up comedy"
+    },
+    {
+      "name": "Every hit is followed by a sad trombone sound"
+    },
+    {
+      "name": "You must hold a balloon the entire time"
+    },
+    {
+      "name": "Your opponent is too polite to hit you"
+    },
+    {
+      "name": "You now fight via cooking contest"
+    },
+    {
+      "name": "Your hands have been replaced with spaghetti"
+    },
+    {
+      "name": "Fighters randomly shrink or grow every few seconds"
+    },
+    {
+      "name": "You both must roleplay as Shakespeare characters"
+    },
+    {
+      "name": "Your health bar is determined by your TikTok following"
+    },
+    {
+      "name": "The crowd is throwing snacks — and they hurt"
+    },
+    {
+      "name": "You’re forced to swap catchphrases mid-fight"
+    },
+    {
+      "name": "You’ve been cursed to speak in riddles"
+    },
+    {
+      "name": "A surprise spelling bee begins. Wrong answer? Damage taken"
+    },
+    {
+      "name": "You’ve both been turned into llamas"
+    },
+    {
+      "name": "Everyone must wear a tutu. No exceptions"
+    },
+    {
+      "name": "There’s a crying baby in the crowd and it’s YOURS"
+    },
+    {
+      "name": "The arena becomes a giant slip ‘n slide"
+    },
+    {
+      "name": "Fighters are suddenly musical theater performers"
+    },
+    {
+      "name": "You can only speak using '90s catchphrases"
+    },
+    {
+      "name": "The floor is randomly replaced with LEGO bricks"
+    },
+    {
+      "name": "Every punch must include a dad joke"
+    },
+    {
+      "name": "Suddenly, it's Opposite Day — and no one knows what that means"
+    },
+    {
+      "name": "Fighters are judged by a panel of fashion critics"
+    },
+    {
+      "name": "The scoreboard is haunted and actively unhelpful"
+    },
+    {
+      "name": "All insults must be whispered sweetly"
+    },
+    {
+      "name": "You must fight while assembling a sandwich"
+    },
+    {
+      "name": "Suddenly, everyone’s invisible. Including you"
+    },
+    {
+      "name": "You’re both allergic to eye contact"
+    },
+    {
+      "name": "A literal drama llama spits at whoever's losing"
+    },
+    {
+      "name": "Your fists are now rubber chickens"
+    },
+    {
+      "name": "You must describe your attacks like a wine connoisseur"
+    },
+    {
+      "name": "All fighters are now being livestreamed to an audience of toddlers"
+    },
+    {
+      "name": "You and your opponent are strapped together with a jump rope"
+    },
+    {
+      "name": "A magical fog makes everyone sound like chipmunks"
+    },
+    {
+      "name": "Suddenly, you’re both in an escape room"
+    },
+    {
+      "name": "You’re being graded by an angry gym teacher"
+    },
+    {
+      "name": "All dialogue is now in emoji"
+    },
+    {
+      "name": "The scoreboard lies constantly"
+    },
+    {
+      "name": "There’s now a time-traveling referee who keeps changing the outcome"
+    },
+    {
+      "name": "The arena is now a bounce house filled with confetti"
+    },
+    {
+      "name": "You’re both in mascot costumes. Visibility is... questionable"
+    },
+    {
+      "name": "All spells must be cast in Pig Latin"
+    },
+    {
+      "name": "You must answer a riddle before every move"
+    },
+    {
+      "name": "You can only move when the music plays — freeze otherwise"
+    },
+    {
+      "name": "A swarm of butterflies keeps interrupting you dramatically"
+    },
+    {
+      "name": "You and your opponent must share a journal entry before fighting"
+    },
+    {
+      "name": "All fighters have sudden and intense stage fright"
+    },
+    {
+      "name": "You both now have to parent a mischievous gremlin"
+    },
+    {
+      "name": "Every action must be performed while doing the hokey pokey"
+    },
+    {
+      "name": "The arena has been replaced with a kindergarten classroom"
+    },
+    {
+      "name": "All commentary is now delivered by an angry raccoon"
+    },
+    {
+      "name": "You must perform a TikTok dance after every attack"
+    },
+    {
+      "name": "Everyone forgets what they were doing every 5 seconds"
+    },
+    {
+      "name": "You’ve been cursed to constantly narrate your own failure"
+    },
+    {
+      "name": "All movement must be crab-walking"
+    },
+    {
+      "name": "A wizard keeps changing the rules every round"
+    },
+    {
+      "name": "All attacks must be explained in song form"
+    },
+    {
+      "name": "You’re stuck in a never-ending tutorial"
+    }
+  ]
+}

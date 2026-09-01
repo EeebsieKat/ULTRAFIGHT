@@ -1,0 +1,503 @@
+{
+  "characters": [
+    {"name": "Mario"},
+    {"name": "Luigi"},
+    {"name": "Peach"},
+    {"name": "Bowser"},
+    {"name": "Yoshi"},
+    {"name": "Toad"},
+    {"name": "Wario"},
+    {"name": "Waluigi"},
+    {"name": "Rosalina"},
+    {"name": "Donkey Kong"},
+    {"name": "Diddy Kong"},
+    {"name": "Link"},
+    {"name": "Zelda"},
+    {"name": "Ganondorf"},
+    {"name": "Sheik"},
+    {"name": "Samus"},
+    {"name": "Ridley"},
+    {"name": "Kirby"},
+    {"name": "Meta Knight"},
+    {"name": "King Dedede"},
+    {"name": "Fox"},
+    {"name": "Falco"},
+    {"name": "Wolf"},
+    {"name": "Pikachu"},
+    {"name": "Charizard"},
+    {"name": "Greninja"},
+    {"name": "Sonic"},
+    {"name": "Tails"},
+    {"name": "Knuckles"},
+    {"name": "Captain Falcon"},
+    {"name": "Ness"},
+    {"name": "Lucas"},
+    {"name": "Villager"},
+    {"name": "Isabelle"},
+    {"name": "Inkling"},
+    {"name": "Octoling"},
+    {"name": "Pit"},
+    {"name": "Dark Pit"},
+    {"name": "Palutena"},
+    {"name": "Marth"},
+    {"name": "Lucina"},
+    {"name": "Ike"},
+    {"name": "Chrom"},
+    {"name": "Robin"},
+    {"name": "Little Mac"},
+    {"name": "R.O.B."},
+    {"name": "Mr. Game & Watch"},
+    {"name": "King K. Rool"},
+    {"name": "Banjo & Kazooie"},
+    {"name": "Shulk"}
+  ],
+  "weapons": [
+    {"name": "Master Sword"},
+    {"name": "Hylian Shield"},
+    {"name": "Fire Flower"},
+    {"name": "Ice Flower"},
+    {"name": "Super Star"},
+    {"name": "Mario Hammer"},
+    {"name": "Green Shell"},
+    {"name": "Red Shell"},
+    {"name": "Bob-omb"},
+    {"name": "Banana Peel"},
+    {"name": "Poltergust 3000"},
+    {"name": "Samus' Arm Cannon"},
+    {"name": "Charge Beam"},
+    {"name": "Missile Launcher"},
+    {"name": "Kirby's Copy Ability"},
+    {"name": "Fox's Blaster"},
+    {"name": "Falcon Punch"},
+    {"name": "Falcon Kick"},
+    {"name": "Villager's Axe"},
+    {"name": "Villager's Slingshot"},
+    {"name": "Inkling Splattershot"},
+    {"name": "Inkling Roller"},
+    {"name": "Pit’s Bow"},
+    {"name": "Palutena’s Staff"},
+    {"name": "Marth’s Falchion"},
+    {"name": "Lucina’s Parallel Falchion"},
+    {"name": "Ike’s Ragnell"},
+    {"name": "Chrom’s Falchion"},
+    {"name": "Robin’s Levin Sword"},
+    {"name": "Ness’ Baseball Bat"},
+    {"name": "Lucas’ Rope Snake"},
+    {"name": "Dedede’s Hammer"},
+    {"name": "Ridley’s Tail Spear"},
+    {"name": "Banjo’s Breegull Bash"},
+    {"name": "R.O.B.’s Gyro"},
+    {"name": "Game & Watch Sausage Spatula"},
+    {"name": "Yoshi Egg Toss"},
+    {"name": "Toad Turnip Toss"},
+    {"name": "Wario Bite"},
+    {"name": "Wario Motorcycle"},
+    {"name": "Diddy Kong Peanut Popgun"},
+    {"name": "DK Giant Punch"},
+    {"name": "Bowser Fire Breath"},
+    {"name": "Rosalina Luma Assist"},
+    {"name": "Shulk’s Monado"},
+    {"name": "Sonic Spin Dash"},
+    {"name": "Tails Wrench"},
+    {"name": "Knuckles Fist Smash"},
+    {"name": "Meta Knight Galaxia Sword"},
+    {"name": "Bayonetta's Love Is Blue"},
+    {"name": "Joker's Knife (Persona)"},
+    {"name": "Byleth's Sword of the Creator"},
+    {"name": "Sephiroth's Masamune"},
+    {"name": "Sora's Kingdom Key"},
+    {"name": "Kazuya Mishima's Devil's Iron Fist"},
+    {"name": "Cloud's Buster Sword"},
+    {"name": "Tifa's Gloves"},
+    {"name": "Geralt's Steel Sword"},
+    {"name": "Kratos' Blades of Chaos"},
+    {"name": "Master Chief's Assault Rifle"},
+    {"name": "Doomguy's Super Shotgun"},
+    {"name": "Lara Croft's Dual Pistols"},
+    {"name": "Nathan Drake's Grappling Hook"},
+    {"name": "Aloy's Hunter Bow"},
+    {"name": "Ezio's Hidden Blade"},
+    {"name": "Scorpion's Chain Spear"},
+    {"name": "Ryu's Shoryuken"},
+    {"name": "Chun-Li's Lightning Kick"},
+    {"name": "Goku's Power Pole"},
+    {"name": "Vegeta's Big Bang Attack"},
+    {"name": "Saitama's Serious Punch"},
+    {"name": "Eren Yeager's Thunder Spear"},
+    {"name": "Dante's Rebellion"},
+    {"name": "Ratchet's R.Y.N.O."},
+    {"name": "Jak's Morph Gun"},
+    {"name": "Sly Cooper's Hook Cane"},
+    {"name": "Cuphead's Peashooter"},
+    {"name": "Shovel Knight's Shovel Blade"},
+    {"name": "Hollow Knight's Nail"},
+    {"name": "Sans' Gaster Blasters"},
+    {"name": "The Squid Sisters' Microphone"},
+    {"name": "Zero Suit Samus' Paralyzer"},
+    {"name": "Sheik's Needles"},
+    {"name": "Pichu's Thunder Jolt"},
+    {"name": "The Spatula of Infinite Flips"},
+    {"name": "A Very Old Loaf of Bread"},
+    {"name": "The Remote Control for Everything"},
+    {"name": "A Thousand Rubber Ducks"},
+    {"name": "The Banjo of Sonic Deafness"},
+    {"name": "A Bucket of Wet Sand"},
+    {"name": "The Slipper of Disappointment"},
+    {"name": "A Single, Unbreakable Lego Brick"},
+    {"name": "The Perpetual Motion Machine"},
+    {"name": "The Fork of Mild Annoyance"},
+    {"name": "A Handful of Static Electricity"},
+    {"name": "The Mop of Unwanted Cleanliness"},
+    {"name": "The World's Longest Receipt"},
+    {"name": "A Teleporting Hot Dog"},
+    {"name": "The Alarm Clock of Eternal Dread"},
+    {"name": "The Cloak of Minor Invisibility"},
+    {"name": "The Javelin of Sarcasm"},
+    {"name": "The Shield Made of Jell-O"},
+    {"name": "A Can of Exploding Glitter"},
+    {"name": "The Boomerang of Self-Doubt"},
+    {"name": "The Axe of Overthinking"},
+    {"name": "The Scarf of Suffocating Softness"},
+    {"name": "A Bag of Highly Caffeinated Beans"},
+    {"name": "The Staff of Bad Puns"},
+    {"name": "The Helmet of Questionable Judgment"},
+    {"name": "A Pair of Crocs (in Sport Mode)"},
+    {"name": "The Whip of Wet Noodles"},
+    {"name": "A Perfectly Balanced Teacup"},
+    {"name": "The Boots of Spontaneous Breakdancing"},
+    {"name": "The Gavel of Instant Adjournment"},
+    {"name": "The Shaker of Excessive Salt"},
+    {"name": "A Single T-Rex Arm"},
+    {"name": "The Key to the City Dump"},
+    {"name": "The Wand that Only Summons Bees"},
+    {"name": "The Gauntlet of Untied Shoelaces"},
+    {"name": "A Barrel of Slightly Used Cooking Oil"},
+    {"name": "The Mallet of Mild Headaches"},
+    {"name": "The Sword of Administrative Delays"},
+    {"name": "A Roll of Industrial-Strength Bubble Wrap"},
+    {"name": "The Backpack Full of Packing Peanuts"},
+    {"name": "The Pen That Writes Itself"},
+    {"name": "The Telescope That Only Shows the Past"},
+    {"name": "A Viciously Trained Hamster"},
+    {"name": "The Forklift of Foreshadowing"},
+    {"name": "The Shield of Ignorance"},
+    {"name": "A Giant Magnet Attached to a String"},
+    {"name": "The Lasso of Truth (and Mild Empathy)"},
+    {"name": "The Staff of the Unplugged Router"},
+    {"name": "A Box of Unsorted LEGOs"},
+    {"name": "The Whistle That Summons Traffic"},
+    {"name": "The Flute That Only Plays 'The Final Countdown'"},
+    {"name": "The Trident of Broken Promises"},
+    {"name": "The Pillowcase Full of Batteries"},
+    {"name": "The Boots of Perpetual Slipping"},
+    {"name": "A Snow Globe Containing Their Enemy"},
+    {"name": "The Cannon that Fires Sponges"},
+    {"name": "The Katana of Zero Sharpness"},
+    {"name": "The Gloves of Awkward High-Fives"},
+    {"name": "The Suit of Armor Made of Cardboard"},
+    {"name": "The Whip of Extremely Long Goodbyes"},
+    {"name": "The Shield of Unpaid Subscriptions"},
+    {"name": "A Scroll of Terrible Fan Fiction"},
+    {"name": "The Helmet of Instant Regret"},
+    {"name": "The Jetpack with Only Reverse Thrust"},
+    {"name": "The Bow That Fires Sticky Notes"}
+  ],
+  "twists": [
+    {"name": "Can only be hurt by compliments"},
+    {"name": "Shoots bees from their sleeves"},
+    {"name": "Can stretch limbs like rubber"},
+    {"name": "Turns invisible but only when screaming"},
+    {"name": "Has rocket-powered kneecaps"},
+    {"name": "Can duplicate themselves — but all duplicates are jerks"},
+    {"name": "Covered in unbreakable bubble wrap"},
+    {"name": "Grows three feet taller every time they blink"},
+    {"name": "Has a permanently spinning helicopter hat"},
+    {"name": "Shoots lightning but only straight up"},
+    {"name": "Weapon becomes twice as large each round"},
+    {"name": "Weapon fires confetti that hits like real bullets"},
+    {"name": "Weapon gains random elemental type every turn"},
+    {"name": "Weapon shrinks to toothpick size after every attack"},
+    {"name": "Weapon is magnetized toward the nearest living thing"},
+    {"name": "Weapon refuses to work unless dramatically announced"},
+    {"name": "Weapon is now a boomerang, no matter what it was"},
+    {"name": "Weapon deals double damage but moves in slow motion"},
+    {"name": "Weapon constantly vibrates like a phone on silent"},
+    {"name": "Weapon screams every time it's swung"},
+    {"name": "Surrounded by a personal fog machine"},
+    {"name": "Followed by an angry goose that attacks randomly"},
+    {"name": "Perpetually caught in a mild tornado"},
+    {"name": "Leaves a trail of marbles behind them"},
+    {"name": "Has a permanent raincloud above their head"},
+    {"name": "Everything they touch becomes slippery"},
+    {"name": "Random fireworks erupt around them"},
+    {"name": "Their footsteps ignite tiny campfires"},
+    {"name": "Surrounded by floating neon text narrating their moves"},
+    {"name": "Accompanied by three unhelpful ghost commentators"},
+    {"name": "Thinks every attack is a dance move"},
+    {"name": "Argues with an imaginary coach mid-battle"},
+    {"name": "Can only attack while telling a joke"},
+    {"name": "Convinced their opponent is their biggest fan"},
+    {"name": "Turns every fight into a job interview"},
+    {"name": "Falls asleep for one second every five seconds"},
+    {"name": "Cannot stop trash-talking, even mid-fall"},
+    {"name": "Speaks only in riddles"},
+    {"name": "Will surrender instantly if given a snack"},
+    {"name": "Must strike a dramatic anime pose before every attack"},
+    {"name": "Surrounded by 50 floating rubber ducks"},
+    {"name": "Randomly teleports two feet in any direction"},
+    {"name": "Turns into a puddle when scared"},
+    {"name": "Suddenly gains gravity-reversing shoes"},
+    {"name": "Has a pet rock that levitates and protects them"},
+    {"name": "Can summon a tiny tornado — once"},
+    {"name": "Fires laser beams from their eyebrows"},
+    {"name": "Swaps bodies with their weapon at random moments"},
+    {"name": "Every hit they land causes disco music to play"},
+    {"name": "Can control any squirrel within 50 feet"}
+  ],
+  "locations": [
+    {
+      "name": "Battlefield is slowly sinking into pudding",
+      "desc": "The ground is a wobbly, sweet landscape, slowly but surely pulling everyone down into a sticky, purple abyss."
+    },
+    {
+      "name": "Entire arena rotates like a giant lazy Susan",
+      "desc": "The circular platform spins lazily, forcing fighters to constantly adjust to the shifting centrifugal force."
+    },
+    {
+      "name": "Fight takes place on a giant trampoline field",
+      "desc": "Every step is a spring, turning combat into a dizzying ballet of high-flying bounces and unpredictable landings."
+    },
+    {
+      "name": "Arena is a giant library where silence is enforced",
+      "desc": "A hushed battleground lined with towering shelves. Any loud action or cry earns a brutal, instant penalty from the omnipresent Librarian."
+    },
+    {
+      "name": "Everything is covered in banana peels",
+      "desc": "A treacherous, yellow-slicked floor where every movement is a risk, and even the walls offer no grip."
+    },
+    {
+      "name": "Fight happens on top of speeding hover buses",
+      "desc": "The battle unfolds across the precarious roofs of several high-speed, driverless buses zipping through a futuristic city."
+    },
+    {
+      "name": "Arena is a maze that reconfigures every minute",
+      "desc": "Just when you think you have your opponent cornered, the walls slide and shift, creating an entirely new, confusing layout."
+    },
+    {
+      "name": "Location is a massive bouncy castle",
+      "desc": "Soft, inflated walls and floor make footing impossible, turning every attack into a goofy, airborne fumble."
+    },
+    {
+      "name": "Battlefield is floating platforms that fall apart",
+      "desc": "A series of stone or metal pads hover over a deadly chasm, crumbling away piece by piece with every forceful impact."
+    },
+    {
+      "name": "Arena is a chaotic food court during lunch rush",
+      "desc": "The fight rages amidst angry customers, spilled trays, and the sudden, dangerous appearance of greasy, flung food items."
+    },
+    {
+      "name": "Fight on a giant vinyl record spinning slowly",
+      "desc": "The enormous black disc rotates at a steady pace, forcing fighters to chase or avoid the center, while a massive, dusty needle hangs overhead."
+    },
+    {
+      "name": "Arena is pitch-black except for glow sticks",
+      "desc": "Only the intermittent glow of dropped or worn glow sticks illuminates the dark, making surprise attacks inevitable."
+    },
+    {
+      "name": "Battle on a huge conveyor belt moving fast",
+      "desc": "Fighters must constantly sprint just to stay in the game, turning the match into an exhausting, high-velocity struggle."
+    },
+    {
+      "name": "Arena is a giant ball pit of endless depth",
+      "desc": "Jumping and movement are stifled by a vast sea of plastic spheres, hiding hazards and making any quick escape a nightmare."
+    },
+    {
+      "name": "Fight takes place inside a kid’s science museum",
+      "desc": "The battlefield is cluttered with interactive, but highly dangerous, exhibits like static electricity balls and mock tornado tubes."
+    },
+    {
+      "name": "Arena is a frozen lake covered in wet soap",
+      "desc": "It's an incredibly slick, glassy surface where sliding is the only real form of movement, and stopping is nearly impossible."
+    },
+    {
+      "name": "Battle in a stadium where gravity changes randomly",
+      "desc": "At the sound of a klaxon, gravity can become heavy, light, or even reverse, sending fighters flying or slamming them to the ground."
+    },
+    {
+      "name": "Arena is a massive corn maze",
+      "desc": "Tall, rustling stalks obscure vision, turning the fight into a terrifying game of hide-and-seek where you never know what's around the next corner."
+    },
+    {
+      "name": "Fight on a train made entirely of cardboard",
+      "desc": "The entire structure is fragile and easily ripped or punched through, forcing fighters to avoid destroying their own arena."
+    },
+    {
+      "name": "Arena is a theme park ride stuck on loop",
+      "desc": "The battle rages on a constantly jerking, looping track that goes up, down, and upside down, making movement a dizzying challenge."
+    },
+    {
+      "name": "Fight happens in a mall during Black Friday",
+      "desc": "The real enemies are the swarming, bargain-hungry crowds and the stray shopping carts that slam into the fighters."
+    },
+    {
+      "name": "Arena is a giant trampoline funhouse",
+      "desc": "A confusing, multi-level structure made entirely of netting and trampolines, guaranteeing a constantly bouncing, disorienting experience."
+    },
+    {
+      "name": "Battle on a floating island with unstable edges",
+      "desc": "The small patch of land drifts over a massive drop, with its brittle, cracked perimeter crumbling under every landing."
+    },
+    {
+      "name": "Arena is a children’s birthday party gone wrong",
+      "desc": "The battlefield is scattered with exploded balloons, sticky cake, and the menacing, broken remnants of a pinata."
+    },
+    {
+      "name": "Fight inside a giant hamster habitat",
+      "desc": "Fighters navigate oversized tubes, a massive running wheel, and a mountain of wood shavings, all while being observed by a curious, monolithic 'owner'."
+    },
+    {
+      "name": "Arena is a spooky carnival at 3 a.m.",
+      "desc": "Creepy, abandoned rides and flickering, broken lights provide a terrifying atmosphere, with unsettling clowns lurking just out of sight."
+    },
+    {
+      "name": "Fight in a room where everything is inflatable",
+      "desc": "Walls, obstacles, and furniture all bounce and buckle under pressure, turning the environment into a squeaky, temporary mess."
+    },
+    {
+      "name": "Arena is a pirate ship during a storm",
+      "desc": "The deck pitches violently, slick with rain, as lightning flashes and waves crash over the sides, threatening to sweep fighters away."
+    },
+    {
+      "name": "Fight inside a giant aquarium tunnel",
+      "desc": "The battle takes place within a curved glass corridor deep underwater, with massive, dangerous marine life pressing against the walls."
+    },
+    {
+      "name": "Arena is a reality TV show set",
+      "desc": "The fight is constantly interrupted by dramatic cuts, sound effects, and the sudden, intrusive demands of an unseen Director."
+    },
+    {
+      "name": "Fight inside a chaotic high school hallway",
+      "desc": "Fighters must dodge opening lockers, slip on spilled cafeteria food, and avoid the angry, surging tides of class-changing teenagers."
+    },
+    {
+      "name": "Arena is a lava lamp factory",
+      "desc": "The battlefield is slick with leaking, hot wax and surrounded by vats of swirling, brightly colored, volatile liquid."
+    },
+    {
+      "name": "Fight on a giant chessboard with moving pieces",
+      "desc": "The black and white tiles are the stage for combat, but every few moments, massive, stone chess pieces suddenly move, crushing anyone in their path."
+    },
+    {
+      "name": "Arena is a scrapyard with magnet cranes",
+      "desc": "Massive magnets swing overhead, randomly attracting metal weapons and pulling fighters into dangerous piles of jagged scrap."
+    },
+    {
+      "name": "Battle in a giant greenhouse filled with dangerous plants",
+      "desc": "Fighters must contend with snapping flytraps, acid-spitting flowers, and suffocating vines in a humid, overgrown arena."
+    },
+    {
+      "name": "Arena is an airport during massive delays",
+      "desc": "The battle rages through angry, stressed crowds, amidst luggage carousels, and with the constant, irritating sound of gate announcements."
+    },
+    {
+      "name": "Fight on a massive floating lily pad field",
+      "desc": "The only solid ground is a series of large, wobbly plant pads, separated by dark water that hides unknown dangers."
+    },
+    {
+      "name": "Arena is a snow globe being shaken constantly",
+      "desc": "The entire world is a small glass sphere, and a giant unseen hand keeps violently shaking it, causing constant turbulence and a blizzard."
+    },
+    {
+      "name": "Battle inside a giant claw machine",
+      "desc": "The arena is a pit of plush toys, and a slow, metal claw periodically descends, trying to grab and eliminate the fighters."
+    },
+    {
+      "name": "Arena is an unstable suspension bridge",
+      "desc": "High above a dangerous canyon, the narrow bridge sways and bounces unpredictably with every step and explosion."
+    },
+    {
+      "name": "Fight on a wild roller rink",
+      "desc": "Everyone is on roller skates, making combat a mix of graceful glides, uncontrolled slides, and spectacular, painful tumbles."
+    },
+    {
+      "name": "Arena is an active movie set with explosions",
+      "desc": "The fight is constantly interrupted by pyrotechnics, collapsing facades, and the frantic shouts of crew members."
+    },
+    {
+      "name": "Battle in a giant kitchen where everything is alive",
+      "desc": "Sentient, aggressive appliances, walking vegetables, and a very angry, boiling pot of soup are all environmental hazards."
+    },
+    {
+      "name": "Arena is a rooftop during a fireworks festival",
+      "desc": "The fight takes place high above a city, with brilliant but distracting and sometimes explosive fireworks erupting all around."
+    },
+    {
+      "name": "Fight on a giant Rubik’s cube rotating randomly",
+      "desc": "The massive, colorful surface constantly shifts, changing the path, elevation, and available footing for all fighters."
+    },
+    {
+      "name": "Arena is a forest of giant wobbling mushrooms",
+      "desc": "The ground is springy, and colossal fungi bounce and sway, making it easy to lose balance and vision."
+    },
+    {
+      "name": "Battle in an unfinished skyscraper with no walls",
+      "desc": "The fight rages on skeletal metal floors high in the air, with nothing but open sky and a long drop on all sides."
+    },
+    {
+      "name": "Fight inside a malfunctioning VR simulation",
+      "desc": "The environment flickers, textures randomly disappear, and gravity frequently glitches out, creating a surreal and unpredictable battle."
+    }
+  ],
+  "scenarios": [
+    {"name": "Everyone moves in slow motion"},
+    {"name": "Gravity is lighter than normal"},
+    {"name": "Gravity is heavier than normal"},
+    {"name": "Random objects fall from the sky"},
+    {"name": "A strong wind pushes fighters sideways"},
+    {"name": "The ground randomly shakes"},
+    {"name": "Fighters constantly slide on the floor"},
+    {"name": "Every sound is extremely loud"},
+    {"name": "Every sound is extremely quiet"},
+    {"name": "The lights flicker on and off"},
+    {"name": "The arena slowly shrinks"},
+    {"name": "A timer changes the rules every minute"},
+    {"name": "Fighters switch weapons randomly"},
+    {"name": "Fighters cannot jump"},
+    {"name": "Fighters cannot run"},
+    {"name": "Everyone is slightly faster than usual"},
+    {"name": "Everyone is slightly slower than usual"},
+    {"name": "All projectiles travel twice as fast"},
+    {"name": "All projectiles travel very slowly"},
+    {"name": "Every attack makes the ground crack"},
+    {"name": "Vision is foggy and limited"},
+    {"name": "Players leave glowing footprints"},
+    {"name": "A mild storm rolls through the arena"},
+    {"name": "The arena floor tilts slightly back and forth"},
+    {"name": "Everyone has mildly slippery hands"},
+    {"name": "Items appear randomly around the arena"},
+    {"name": "Fighters occasionally teleport a few feet"},
+    {"name": "A random cooldown affects all weapons"},
+    {"name": "Fighters briefly glow before extra-strong hits"},
+    {"name": "Hits create small shockwaves"},
+    {"name": "Everyone has reduced friction"},
+    {"name": "Everyone has increased friction"},
+    {"name": "A random buff applies to everyone each round"},
+    {"name": "A random debuff applies to everyone each round"},
+    {"name": "The arena background constantly changes"},
+    {"name": "The floor occasionally bounces lightly"},
+    {"name": "Directional controls feel slightly reversed"},
+    {"name": "A neutral drone floats through the arena"},
+    {"name": "Everyone has slightly delayed actions"},
+    {"name": "Everything is slightly sped up"},
+    {"name": "Everything is slightly slowed down"},
+    {"name": "Occasional gusts of air lift players"},
+    {"name": "The arena is dim but not dark"},
+    {"name": "Everyone gets a brief shield every minute"},
+    {"name": "Small obstacles appear randomly"},
+    {"name": "The battlefield gently rotates"},
+    {"name": "Jump height is increased"},
+    {"name": "Jump height is reduced"},
+    {"name": "A soft humming noise distracts everyone"},
+    {"name": "Attacks create harmless sparks everywhere"}
+  ]
+}
